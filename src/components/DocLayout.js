@@ -16,7 +16,6 @@ const ArticleContainer = styled.div`
   flex-grow: 1;
   padding: 0 20px 50px;
   overflow: hidden;
-  background-color: ${th('white')};
 `
 
 const SidebarContainer = styled.div`
@@ -67,7 +66,7 @@ const SidebarWrapper = styled.div`
 
 export const DocLayout = ({ children, ...props }) => (
   <MenuProvider>
-    <BaseLayout {...props}>
+    <BaseLayout variant="light" {...props}>
       <Grid gutter={0}>
         <Wrapper>
           <ArticleContainer>

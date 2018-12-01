@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled, th } from '@smooth-ui/core-sc'
+import { styled, th, css } from '@smooth-ui/core-sc'
 import { WebsiteHeader } from './WebsiteHeader'
 import { ProjectHeader } from './ProjectHeader'
 import { GlobalStyle } from './GlobalStyle'
@@ -18,9 +18,15 @@ const PageWrapper = styled.div`
   margin-top: ${th('headerHeight')};
   background-color: ${th('gray100')};
   min-height: calc(100vh - ${th('headerHeight')});
+
+  ${p =>
+    p.variant === 'light' &&
+    css`
+      background-color: ${th('white')};
+    `}
 `
 
-export const BaseLayout = ({ children, pageContext }) => (
+export const BaseLayout = ({ children, pageContext, variant = 'default' }) => (
   <ThemeProvider>
     <div>
       <GlobalStyle />
@@ -29,7 +35,7 @@ export const BaseLayout = ({ children, pageContext }) => (
         <WebsiteHeader />
         <ProjectHeader />
       </Headers>
-      <PageWrapper>{children}</PageWrapper>
+      <PageWrapper variant={variant}>{children}</PageWrapper>
     </div>
   </ThemeProvider>
 )
