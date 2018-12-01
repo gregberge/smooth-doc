@@ -16,6 +16,7 @@ const ArticleContainer = styled.div`
   flex-grow: 1;
   padding: 0 20px 50px;
   overflow: hidden;
+  background-color: ${th('white')};
 `
 
 const SidebarContainer = styled.div`
