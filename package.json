@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "prebuild": "rm -rf build",
+    "prepublishOnly": "yarn build",
     "build": "babel --out-dir lib src --copy-files",
     "lint": "eslint .",
     "format": "prettier --write \"**/*\"",
