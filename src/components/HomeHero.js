@@ -31,7 +31,7 @@ const Title = styled.h1`
   font-weight: 600;
 `
 
-export const HomeHero = () => (
+export const HomeHero = ({title}) => (
   <StaticQuery
     query={QUERY}
     render={data => (
@@ -41,7 +41,7 @@ export const HomeHero = () => (
           alt={data.site.siteMetadata.title}
           style={{ margin: '0 auto' }}
         />
-        <Title>Transform SVGs into React components.</Title>
+        <Title>{title}</Title>
       </Container>
     )}
   />
