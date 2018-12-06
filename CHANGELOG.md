@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.1-alpha.5"></a>
+## [0.0.1-alpha.5](https://github.com/smooth-code/smooth-doc/compare/v0.0.1-alpha.4...v0.0.1-alpha.5) (2018-12-06)
+
+
+### Bug Fixes
+
+* primary theme color ([#3](https://github.com/smooth-code/smooth-doc/issues/3)) ([701dd93](https://github.com/smooth-code/smooth-doc/commit/701dd93))
+* word-break on articles ([#2](https://github.com/smooth-code/smooth-doc/issues/2)) ([bd8f3fc](https://github.com/smooth-code/smooth-doc/commit/bd8f3fc))
+
+
+
 <a name="0.0.1-alpha.4"></a>
 ## [0.0.1-alpha.4](https://github.com/smooth-code/smooth-doc/compare/v0.0.1-alpha.3...v0.0.1-alpha.4) (2018-12-04)
 
