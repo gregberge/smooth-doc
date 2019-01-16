@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.1"></a>
+## [0.0.1](https://github.com/smooth-code/smooth-doc/compare/v0.0.1-alpha.5...v0.0.1) (2019-01-16)
+
+
+
 <a name="0.0.1-alpha.5"></a>
 ## [0.0.1-alpha.5](https://github.com/smooth-code/smooth-doc/compare/v0.0.1-alpha.4...v0.0.1-alpha.5) (2018-12-06)
 
