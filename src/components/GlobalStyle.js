@@ -1,10 +1,8 @@
-import { globalStyle, createGlobalStyle, th } from '@smooth-ui/core-sc'
-import theme from '../style/theme'
+import React from 'react'
+import { createGlobalStyle, th, Normalize } from '@smooth-ui/core-sc'
 import '../style/editor.css'
 
-export const GlobalStyle = createGlobalStyle`
-  ${globalStyle(theme)};
-
+const LocalGlobalStyle = createGlobalStyle`
   html, body {
     color: ${th('textColor')};
   }
@@ -14,3 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 `
+
+export const GlobalStyle = () => (
+  <>
+    <Normalize />
+    <LocalGlobalStyle />
+  </>
+)
