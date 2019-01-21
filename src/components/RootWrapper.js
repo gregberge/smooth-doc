@@ -2,6 +2,7 @@ import React from 'react'
 import { MDXProvider } from '@mdx-js/tag'
 import { th, styled, down, css } from '@smooth-ui/core-sc'
 import { ThemeProvider } from './ThemeProvider'
+import { GlobalStyle } from './GlobalStyle'
 import { Code } from './Code'
 
 const Editor = styled.div`
@@ -39,7 +40,12 @@ const components = {
 export function RootWrapper({ children }) {
   return (
     <ThemeProvider>
-      <MDXProvider components={components}>{children}</MDXProvider>
+      <MDXProvider components={components}>
+        <>
+          <GlobalStyle />
+          {children}
+        </>
+      </MDXProvider>
     </ThemeProvider>
   )
 }
