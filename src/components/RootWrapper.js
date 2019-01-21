@@ -5,7 +5,7 @@ import { ThemeProvider } from './ThemeProvider'
 import { Code } from './Code'
 
 const Editor = styled.div`
-  background-color: ${th('gray100')};
+  background-color: #f5f2f0;
   color: ${th('editorTextColor')};
   padding: 15px 20px;
   margin: 25px -20px;
