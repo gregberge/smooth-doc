@@ -18,12 +18,13 @@
     "release": "standard-version && conventional-github-releaser --preset angular"
   },
   "peerDependencies": {
-    "gatsby": "^2.0.55"
+    "gatsby": "^2.0.55",
+    "smooth-code-landers": ">=1.0.0"
   },
   "dependencies": {
     "@mdx-js/mdx": "^0.16.5",
     "@mdx-js/tag": "^0.16.1",
-    "@smooth-ui/core-sc": "^8.0.0",
+    "@smooth-ui/core-sc": "^8.0.1",
     "babel-plugin-styled-components": "^1.9.0",
     "fs-extra": "^7.0.1",
     "gatsby-image": "^2.0.20",
@@ -46,7 +47,6 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
-    "smooth-code-landers": "^1.1.0",
     "styled-components": "^4.1.1",
     "unist-util-visit": "^1.4.0"
   },
@@ -67,6 +67,7 @@
     "eslint-plugin-react": "^7.11.1",
     "gatsby": "^2.0.59",
     "prettier": "^1.15.2",
+    "smooth-code-landers": "^1.2.0",
     "standard-version": "^4.4.0"
   }
 }

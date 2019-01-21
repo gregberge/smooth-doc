@@ -872,21 +872,21 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@smooth-ui/core-sc@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@smooth-ui/core-sc/-/core-sc-8.0.0.tgz#24b97344267cdda3a554f5450d6f3d27bdfc9ef5"
-  integrity sha512-NFtElIM2jFyGcxqjSUqUnGregILqjVmrHaIJCCJ1OxGQ2g20mltmtBb9619P0m5kdccctkhlj/f0NBTtzCOSrg==
+"@smooth-ui/core-sc@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@smooth-ui/core-sc/-/core-sc-8.0.1.tgz#aa755848c70b4f3f422f0148ecefa48bee645971"
+  integrity sha512-7Vd6coC75LqceIkQu4F0+BHYywKBfAB3nkDhFhIQInVSigmrj+l273NFEJu0lTNYaDiwXeqeGPO0zr2Gnrezkw==
   dependencies:
-    "@smooth-ui/system" "^8.0.0"
+    "@smooth-ui/system" "^8.0.1"
     polished "^2.3.3"
     prop-types "^15.6.2"
     react-focus-lock "^1.17.6"
     react-transition-group "^2.5.3"
 
-"@smooth-ui/system@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@smooth-ui/system/-/system-8.0.0.tgz#723af821900e1b5fc147d7f92b5113da85146487"
-  integrity sha512-vzLToLkeQg8K4b0fMtnqLBLjyghgJSOrX76E+vzfxD64KB2pgQ7qkb6b+sdmFDts6GSVPjzzA0+Xu4afDhl0uQ==
+"@smooth-ui/system@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@smooth-ui/system/-/system-8.0.1.tgz#f4aaffd541dfccad0a44d3f4b2b99303235aba61"
+  integrity sha512-9sWBgq1zGNcANGU9HyRH1NgdwhINwYiMQC0/Ux+7Ltd+jKKIwEmYayLMpi1fa3lzUoUs43i1qqtrbxYT8cDwJQ==
   dependencies:
     deepmerge "^3.0.0"
 
@@ -12302,10 +12302,10 @@ slice-ansi@2.0.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-smooth-code-landers@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/smooth-code-landers/-/smooth-code-landers-1.1.0.tgz#f89b15d160806cd6032c5890d1f41a9f0c0eea96"
-  integrity sha512-CuBZZK9ts/dSq0Ge6CEtfrpD2hxwqRMxYqrISjzvOqGeqMHrZoFEtG4rnBBjP9wwVGBMDD1ybVw7JHzAHfpweQ==
+smooth-code-landers@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/smooth-code-landers/-/smooth-code-landers-1.2.0.tgz#079b110290f1cef6ca652910c7aea371ca69aefe"
+  integrity sha512-OVz0jLlEBAf5/bLkfaAeNIPh3kWCV/AxQJsKwcaca/t+wnAlgCS/mRgOrSjRKOuZRFWC7/wUvtXWXpIGcTUXFg==
 
 snake-case@^2.1.0:
   version "2.1.0"
