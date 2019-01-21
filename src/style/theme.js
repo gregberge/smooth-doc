@@ -7,5 +7,5 @@ export default {
   editorTextColor: '#1b2b35',
   blockquoteColor: '#ffe564',
   textColor: suTheme.gray800,
-  headerHeight: '121px',
+  headerHeight: '145px',
 }

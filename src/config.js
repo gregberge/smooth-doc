@@ -66,12 +66,6 @@ exports.getGatsbyConfig = function getGatsbyConfig({
                 './plugins/gatsby-remark-autolink-headers',
               ),
             },
-            {
-              resolve: 'gatsby-remark-highlights',
-              options: {
-                scopePrefix: 'syntax--',
-              },
-            },
           ],
         },
       }, // Images

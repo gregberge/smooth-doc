@@ -1,6 +1,5 @@
 import React from 'react'
 import { createGlobalStyle, th, Normalize } from '@smooth-ui/core-sc'
-import '../style/editor.css'
 
 const LocalGlobalStyle = createGlobalStyle`
   html, body {

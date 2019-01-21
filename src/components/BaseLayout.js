@@ -4,7 +4,6 @@ import { WebsiteHeader } from './WebsiteHeader'
 import { ProjectHeader } from './ProjectHeader'
 import { GlobalStyle } from './GlobalStyle'
 import { Head } from './Head'
-import { ThemeProvider } from './ThemeProvider'
 
 const Headers = styled.div`
   position: fixed;
@@ -27,15 +26,13 @@ const PageWrapper = styled.div`
 `
 
 export const BaseLayout = ({ children, pageContext, variant = 'default' }) => (
-  <ThemeProvider>
-    <div>
-      <GlobalStyle />
-      <Head pageContext={pageContext} />
-      <Headers>
-        <WebsiteHeader />
-        <ProjectHeader />
-      </Headers>
-      <PageWrapper variant={variant}>{children}</PageWrapper>
-    </div>
-  </ThemeProvider>
+  <div>
+    <GlobalStyle />
+    <Head pageContext={pageContext} />
+    <Headers>
+      <WebsiteHeader />
+      <ProjectHeader />
+    </Headers>
+    <PageWrapper variant={variant}>{children}</PageWrapper>
+  </div>
 )
