@@ -1,6 +1,6 @@
 {
   "name": "smooth-doc",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "repository": "git@github.com:smooth-code/smooth-doc.git",
   "author": "Greg Bergé <greg@smooth-code.com>",
