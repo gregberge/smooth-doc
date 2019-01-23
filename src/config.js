@@ -20,6 +20,10 @@ exports.getGatsbyConfig = function getGatsbyConfig({
     },
     pathPrefix: `/open-source/${slug}`,
     plugins: [
+      {
+        resolve: require.resolve('./plugins/gatsby-smooth-doc'),
+        options: { root },
+      },
       // Relative import
       'gatsby-plugin-resolve-src', // Styled components
       'gatsby-plugin-styled-components', // Helmet
