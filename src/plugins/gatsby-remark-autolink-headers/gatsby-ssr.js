@@ -1,4 +1,4 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable react/no-danger, import/no-extraneous-dependencies */
 const React = require('react')
 
 const pluginDefaults = {

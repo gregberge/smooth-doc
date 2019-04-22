@@ -1,16 +1,10 @@
-exports.getGatsbyConfig = function getGatsbyConfig({
-  root,
-  name,
-  slug,
-  github,
-  menu = [],
-  nav = [
-    {
-      title: 'Usage',
-      url: '/docs/',
-    },
-  ],
-}) {
+function config({
+  name = 'Smooth Doc Theme',
+  slug = 'smooth-doc',
+  github = 'https://github.com/smooth-code/smooth-doc',
+  menu = ['Usage'],
+  nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
+} = {}) {
   return {
     siteMetadata: {
       title: name,
@@ -21,13 +15,35 @@ exports.getGatsbyConfig = function getGatsbyConfig({
     pathPrefix: `/open-source/${slug}`,
     plugins: [
       {
-        resolve: require.resolve('./plugins/gatsby-smooth-doc'),
-        options: { root },
+        resolve: 'gatsby-plugin-compile-es6-packages',
+        options: {
+          modules: ['smooth-doc'],
+        },
       },
-      // Relative import
-      'gatsby-plugin-resolve-src', // Styled components
-      'gatsby-plugin-styled-components', // Helmet
-      'gatsby-plugin-react-helmet', // Offline
+      'gatsby-plugin-resolve-src',
+      'gatsby-plugin-styled-components',
+      'gatsby-plugin-react-helmet',
+      {
+        resolve: 'gatsby-mdx',
+        options: {
+          defaultLayouts: {
+            default: require.resolve('./src/layouts/default'),
+            docs: require.resolve('./src/layouts/docs'),
+          },
+          gatsbyRemarkPlugins: [
+            {
+              resolve: require.resolve(
+                './src/plugins/gatsby-remark-autolink-headers',
+              ),
+            },
+          ],
+        },
+      },
+      {
+        resolve: require.resolve(
+          './src/plugins/gatsby-remark-autolink-headers',
+        ),
+      },
       {
         resolve: `gatsby-plugin-manifest`,
         options: {
@@ -37,13 +53,14 @@ exports.getGatsbyConfig = function getGatsbyConfig({
           background_color: '#bd4932',
           theme_color: '#bd4932',
           display: 'minimal-ui',
+          icon: 'src/images/logo.png',
         },
-      }, // Pages
+      },
       {
         resolve: 'gatsby-source-filesystem',
         options: {
           name: 'pages',
-          path: `${root}/src/pages`,
+          path: `./src/pages`,
           ignore: [`**/docs/**`],
         },
       },
@@ -51,33 +68,19 @@ exports.getGatsbyConfig = function getGatsbyConfig({
         resolve: 'gatsby-source-filesystem',
         options: {
           name: 'docs',
-          path: `${root}/src/pages/docs`,
+          path: `./src/pages/docs`,
         },
       },
       {
-        resolve: require.resolve('./plugins/gatsby-remark-autolink-headers'),
+        resolve: require.resolve(
+          './src/plugins/gatsby-remark-autolink-headers',
+        ),
       },
-      {
-        resolve: 'gatsby-mdx',
-        options: {
-          defaultLayouts: {
-            default: require.resolve('./layouts/default'),
-            docs: require.resolve('./layouts/docs'),
-          },
-          gatsbyRemarkPlugins: [
-            {
-              resolve: require.resolve(
-                './plugins/gatsby-remark-autolink-headers',
-              ),
-            },
-          ],
-        },
-      }, // Images
       {
         resolve: 'gatsby-source-filesystem',
         options: {
           name: 'images',
-          path: `${root}/src/images`,
+          path: `./src/images`,
         },
       },
       'gatsby-transformer-sharp',
@@ -90,8 +93,8 @@ exports.getGatsbyConfig = function getGatsbyConfig({
             url: 'https://www.smooth-code.com/assets/fonts.css',
           },
         },
-      }, // Redirect
-      'gatsby-plugin-meta-redirect', // Robots
+      },
+      'gatsby-plugin-meta-redirect',
       {
         resolve: 'gatsby-plugin-robots-txt',
         options: {
@@ -104,7 +107,7 @@ exports.getGatsbyConfig = function getGatsbyConfig({
             },
           ],
         },
-      }, // Analytics
+      },
       {
         resolve: `gatsby-plugin-google-analytics`,
         options: {
@@ -114,3 +117,5 @@ exports.getGatsbyConfig = function getGatsbyConfig({
     ],
   }
 }
+
+module.exports = process.env.SMOOTH_DOC_DEV === '1' ? config() : config

@@ -1,3 +1,4 @@
 {
-  "name": "gatsby-remark-autolink-headers"
+  "name": "gatsby-remark-autolink-headers",
+  "main": "index.js"
 }

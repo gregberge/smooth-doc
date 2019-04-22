@@ -1,3 +1,5 @@
-src/
-.*
-yarn.lock
+/*
+!/src/**/*
+!/gatsby-*.js
+!/components.js
+!/index.js

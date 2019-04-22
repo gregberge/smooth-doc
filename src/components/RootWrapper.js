@@ -1,6 +1,6 @@
 import React from 'react'
-import { MDXProvider } from '@mdx-js/tag'
-import { th, styled, down, css } from '@smooth-ui/core-sc'
+import { MDXProvider } from '@mdx-js/react'
+import { th, styled, up, css } from '@smooth-ui/core-sc'
 import { ThemeProvider } from './ThemeProvider'
 import { GlobalStyle } from './GlobalStyle'
 import { Code } from './Code'
@@ -14,24 +14,27 @@ const Editor = styled.div`
   font-size: 14px;
   line-height: 1.45;
   border-radius: 3px;
+  border-radius: 0;
+  overflow-y: auto;
 
-  ${down(
+  ${up(
     'sm',
     css`
-      margin-left: -20px;
-      margin-right: -20px;
-      border-radius: 0;
+      border-radius: 3px;
     `,
   )}
 `
 
 const components = {
-  pre: ({ children: { props } }) => {
-    // props is for MDXTag, props.props is for code element
-    const lang = props.props.className && props.props.className.split('-')[1]
+  pre: ({
+    children: {
+      props: { className, children },
+    },
+  }) => {
+    const lang = className && className.split('-')[1]
     return (
       <Editor>
-        <Code lang={lang} {...props} />
+        <Code lang={lang}>{children}</Code>
       </Editor>
     )
   },

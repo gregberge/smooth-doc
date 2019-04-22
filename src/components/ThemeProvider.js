@@ -1,9 +1,20 @@
 import React from 'react'
-import { ThemeProvider as BaseThemeProvider } from '@smooth-ui/core-sc'
-import theme from '../style/theme'
+import { theme, ThemeProvider as BaseThemeProvider } from '@smooth-ui/core-sc'
 
-export const ThemeProvider = ({ children, theme: otherTheme }) => (
-  <BaseThemeProvider theme={{ ...theme, ...otherTheme }}>
-    {children}
-  </BaseThemeProvider>
-)
+const baseTheme = {
+  ...theme,
+  secondary: '#3D3D3D',
+  subtitleColor: '#6d6d6d',
+  editorTextColor: '#1b2b35',
+  blockquoteColor: '#ffe564',
+  textColor: theme.gray800,
+  headerHeight: '146px',
+}
+
+export function ThemeProvider({ children, theme }) {
+  return (
+    <BaseThemeProvider theme={{ ...baseTheme, ...theme }}>
+      {children}
+    </BaseThemeProvider>
+  )
+}

@@ -12,9 +12,11 @@ const LocalGlobalStyle = createGlobalStyle`
   }
 `
 
-export const GlobalStyle = () => (
-  <>
-    <Normalize />
-    <LocalGlobalStyle />
-  </>
-)
+export function GlobalStyle() {
+  return (
+    <>
+      <Normalize />
+      <LocalGlobalStyle />
+    </>
+  )
+}
