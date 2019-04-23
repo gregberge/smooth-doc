@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/smooth-code/smooth-doc/compare/v1.0.0...v2.0.0) (2019-04-23)
+
+
+### Features
+
+* convert to gatsby theme ([#4](https://github.com/smooth-code/smooth-doc/issues/4)) ([35bc68d](https://github.com/smooth-code/smooth-doc/commit/35bc68d))
+
+
+### BREAKING CHANGES
+
+* must be used as a gatsby theme
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/smooth-code/smooth-doc/compare/v0.2.2...v1.0.0) (2019-01-23)
 
