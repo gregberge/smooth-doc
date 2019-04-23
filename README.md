@@ -1,36 +1,33 @@
 # smooth-doc
 
-Common config & components to create Gatsby documentation of open source projects.
+Gatsby theme for Smooth Code documentation website.
 
 ## Install
 
 ```sh
-yarn add smooth-doc gatsby
+yarn add smooth-doc gatsby react react-dom
 ```
 
 ## Setup Gatsby
 
 ```js
-// gatbsy-config.js
-const { getGatsbyConfig } = require('smooth-doc/config')
-
-module.exports = getGatsbyConfig({
-  root: __dirname,
-  name: 'SVGR',
-  slug: 'svgr',
-  github: 'https://github.com/smooth-code/svgr',
-  menu: ['About', 'Usage', 'Configuring SVGR', 'Advanced'],
-  nav: [{ title: 'Usage', url: '/docs/' }],
-})
-```
-
-```js
-// gatbsy-node.js
-const { getGatsbyNode } = require('smooth-doc/node')
-
-module.exports = getGatsbyNode({
-  root: __dirname,
-})
+module.exports = {
+  __experimentalThemes: [
+    {
+      resolve: 'smooth-doc',
+      options: {
+        name: 'SVGR',
+        slug: 'svgr',
+        github: 'https://github.com/smooth-code/svgr',
+        menu: ['About', 'Usage', 'Configuring SVGR', 'Advanced'],
+        nav: [
+          { title: 'Playground', url: '/playground/' },
+          { title: 'Usage', url: '/docs/' },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 ## Folder structure
