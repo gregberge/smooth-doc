@@ -1,2 +1,2 @@
 /* eslint-disable */
-export { BaseLayout as default } from '..'
+export { BaseLayout as default } from '../components'

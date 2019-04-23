@@ -1,12 +1,9 @@
 import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { Grid, styled, th, up } from '@smooth-ui/core-sc'
+import { Grid, styled, th, up, css } from '@smooth-ui/core-sc'
 import { transparentize } from 'polished'
-import Bars from './icons/Bars'
-import Close from './icons/Close'
 import GitHub from './icons/GitHub'
-import { MenuConsumer } from './MenuContext'
 
 const QUERY = graphql`
   query Header {
@@ -45,14 +42,18 @@ const Header = styled.div`
 `
 
 const LogoLink = styled(Link)`
+  display: flex;
   align-items: center;
   color: ${th('textColor')};
-  display: flex;
-  flex-flow: row nowrap;
   height: 34px;
+  margin-right: 16px;
 
   &:hover {
     color: ${th('textColor')};
+  }
+
+  > div {
+    flex-shrink: 0;
   }
 `
 
@@ -68,10 +69,25 @@ const Nav = styled.nav`
   height: 34px;
   margin-left: auto;
   position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20px,
+    black 90%,
+    transparent
+  );
+  overflow-y: auto;
+
+  ${up(
+    'sm',
+    css`
+      mask-image: none;
+    `,
+  )}
 `
 
 const NavList = styled.ul`
-  color: #fff;
+  color: ${th('white')};
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -101,73 +117,43 @@ const NavListItem = styled.li`
   }
 `
 
-const MenuButton = styled.button`
-  color: ${th('textColor', color => transparentize(0.2, color))};
-  border: 0;
-  background: transparent;
-  transition: color 300ms;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: -15px;
-  bottom: -50px;
-
-  &:focus {
-    outline: none;
-    color: ${th('textColor')};
-  }
-
-  ${up('sm', 'display: none;')}
-`
-
-export const ProjectHeader = () => (
-  <StaticQuery
-    query={QUERY}
-    render={data => (
-      <Container>
-        <Grid gutter={20}>
-          <Header>
-            <LogoLink to="/">
-              <Img
-                fixed={data.logo.childImageSharp.fixed}
-                alt={data.site.siteMetadata.title}
-              />
-              <LogoText>{data.site.siteMetadata.title}</LogoText>
-            </LogoLink>
-            <Nav>
-              <NavList>
-                {data.site.siteMetadata.nav.map(({ title, url }) => (
-                  <NavListItem key={title}>
-                    <Link to={url}>{title}</Link>
+export function ProjectHeader() {
+  return (
+    <StaticQuery
+      query={QUERY}
+      render={data => (
+        <Container>
+          <Grid gutter={20}>
+            <Header>
+              <LogoLink to="/">
+                <Img
+                  fixed={data.logo.childImageSharp.fixed}
+                  alt={data.site.siteMetadata.title}
+                />
+                <LogoText>{data.site.siteMetadata.title}</LogoText>
+              </LogoLink>
+              <Nav>
+                <NavList>
+                  {data.site.siteMetadata.nav.map(({ title, url }) => (
+                    <NavListItem key={title}>
+                      <Link to={url}>{title}</Link>
+                    </NavListItem>
+                  ))}
+                  <NavListItem>
+                    <a
+                      href={data.site.siteMetadata.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <GitHub width="24" height="24" />
+                    </a>
                   </NavListItem>
-                ))}
-                <NavListItem>
-                  <a
-                    href={data.site.siteMetadata.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <GitHub width="24" height="24" />
-                  </a>
-                </NavListItem>
-              </NavList>
-            </Nav>
-            <MenuConsumer>
-              {props =>
-                props ? (
-                  <MenuButton onClick={() => props.toggle()}>
-                    {props.toggled ? (
-                      <Close width="20" height="20" />
-                    ) : (
-                      <Bars width="20" height="20" />
-                    )}
-                  </MenuButton>
-                ) : null
-              }
-            </MenuConsumer>
-          </Header>
-        </Grid>
-      </Container>
-    )}
-  />
-)
+                </NavList>
+              </Nav>
+            </Header>
+          </Grid>
+        </Container>
+      )}
+    />
+  )
+}

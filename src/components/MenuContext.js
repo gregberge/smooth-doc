@@ -1,25 +1,12 @@
-import React from 'react'
+import React, { createContext, useState, useCallback, useMemo } from 'react'
 
-const MenuContext = React.createContext()
+const MenuContext = createContext()
 
-export class MenuProvider extends React.Component {
-  state = { toggled: false }
-
-  render() {
-    return (
-      <MenuContext.Provider
-        value={{
-          toggle: () =>
-            this.setState(previousState => ({
-              toggled: !previousState.toggled,
-            })),
-          toggled: this.state.toggled,
-        }}
-      >
-        {this.props.children}
-      </MenuContext.Provider>
-    )
-  }
+export function MenuProvider({ children }) {
+  const [opened, setOpened] = useState(false)
+  const toggle = useCallback(() => setOpened(opened => !opened), [])
+  const value = useMemo(() => ({ opened, toggle }), [opened, toggle])
+  return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>
 }
 
 export const { Consumer: MenuConsumer } = MenuContext

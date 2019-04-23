@@ -114,36 +114,38 @@ const sortGroupsWithConfig = menu => (a, b) => {
   return diff === 0 ? 0 : diff < 0 ? -1 : 1
 }
 
-export const Sidebar = () => (
-  <StaticQuery
-    query={QUERY}
-    render={data => {
-      const navGroups = pagesToNavGroups(
-        data.allSitePage.edges
-          .map(edge => edge.node)
-          .filter(node => node.context && node.context.frontmatter),
-      )
+export function Sidebar() {
+  return (
+    <StaticQuery
+      query={QUERY}
+      render={data => {
+        const navGroups = pagesToNavGroups(
+          data.allSitePage.edges
+            .map(edge => edge.node)
+            .filter(node => node.context && node.context.frontmatter),
+        )
 
-      navGroups.sort(sortGroupsWithConfig(data.site.siteMetadata.menu))
+        navGroups.sort(sortGroupsWithConfig(data.site.siteMetadata.menu))
 
-      return (
-        <Nav>
-          {navGroups.map(navGroup => (
-            <NavGroup key={navGroup.name}>
-              <NavGroupTitle>{navGroup.name}</NavGroupTitle>
-              <NavGroupMenu>
-                {navGroup.pages.map(page => (
-                  <NavGroupMenuItem key={page.id}>
-                    <Link activeClassName="active" to={page.path}>
-                      {page.context.frontmatter.title}
-                    </Link>
-                  </NavGroupMenuItem>
-                ))}
-              </NavGroupMenu>
-            </NavGroup>
-          ))}
-        </Nav>
-      )
-    }}
-  />
-)
+        return (
+          <Nav>
+            {navGroups.map(navGroup => (
+              <NavGroup key={navGroup.name}>
+                <NavGroupTitle>{navGroup.name}</NavGroupTitle>
+                <NavGroupMenu>
+                  {navGroup.pages.map(page => (
+                    <NavGroupMenuItem key={page.id}>
+                      <Link activeClassName="active" to={page.path}>
+                        {page.context.frontmatter.title}
+                      </Link>
+                    </NavGroupMenuItem>
+                  ))}
+                </NavGroupMenu>
+              </NavGroup>
+            ))}
+          </Nav>
+        )
+      }}
+    />
+  )
+}

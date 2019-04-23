@@ -5,32 +5,36 @@ import { ProjectHeader } from './ProjectHeader'
 import { Head } from './Head'
 
 const Headers = styled.div`
-  position: fixed;
-  z-index: 10;
-  width: 100%;
+  position: sticky;
   top: 0;
   left: 0;
+  right: 0;
+  z-index: 10;
 `
+
+const variants = {
+  default: css`
+    background-color: ${th('gray100')};
+  `,
+  light: css`
+    background-color: ${th('white')};
+  `,
+}
 
 const PageWrapper = styled.div`
-  margin-top: ${th('headerHeight')};
-  background-color: ${th('gray100')};
-  min-height: calc(100vh - ${th('headerHeight')});
-
-  ${p =>
-    p.variant === 'light' &&
-    css`
-      background-color: ${th('white')};
-    `}
+  ${p => variants[p.variant]};
+  position: relative;
 `
 
-export const BaseLayout = ({ children, pageContext, variant = 'default' }) => (
-  <div>
-    <Head pageContext={pageContext} />
-    <Headers>
-      <WebsiteHeader />
-      <ProjectHeader />
-    </Headers>
-    <PageWrapper variant={variant}>{children}</PageWrapper>
-  </div>
-)
+export function BaseLayout({ children, pageContext, variant = 'default' }) {
+  return (
+    <div>
+      <Head pageContext={pageContext} />
+      <Headers>
+        <WebsiteHeader />
+        <ProjectHeader />
+      </Headers>
+      <PageWrapper variant={variant}>{children}</PageWrapper>
+    </div>
+  )
+}

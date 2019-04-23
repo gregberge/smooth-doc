@@ -1,2 +1,2 @@
 /* eslint-disable */
-export { DocLayout as default } from '..'
+export { DocLayout as default } from '../components'

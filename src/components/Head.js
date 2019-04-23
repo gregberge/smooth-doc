@@ -12,15 +12,17 @@ const QUERY = graphql`
   }
 `
 
-export const Head = ({ pageContext }) => (
-  <StaticQuery
-    query={QUERY}
-    render={data => (
-      <Helmet>
-        <title>
-          {pageContext.frontmatter.title} - {data.site.siteMetadata.title}
-        </title>
-      </Helmet>
-    )}
-  />
-)
+export function Head({ pageContext }) {
+  return (
+    <StaticQuery
+      query={QUERY}
+      render={data => (
+        <Helmet>
+          <title>
+            {pageContext.frontmatter.title} - {data.site.siteMetadata.title}
+          </title>
+        </Helmet>
+      )}
+    />
+  )
+}

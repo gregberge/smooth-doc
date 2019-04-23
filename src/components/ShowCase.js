@@ -1,4 +1,3 @@
-import { lighten } from 'polished'
 import { styled, th } from '@smooth-ui/core-sc'
 
 export const ShowCase = styled.div`
@@ -6,9 +5,6 @@ export const ShowCase = styled.div`
   background-color: ${th('white')};
   border-top: 1px solid ${th('gray200')};
   border-bottom: 1px solid ${th('gray200')};
-  /* color: ${th('gray600')}; */
-  /* color: ${th('primary', color => lighten(0.25, color))}; */
-  /* background-color: ${th('gray900')}; */
   padding-top: 50px;
   padding-bottom: 50px;
   display: flex;

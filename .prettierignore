@@ -1,4 +1,7 @@
 node_modules/
-lib/
 .*
 *.lock
+/.cache/
+/public/
+CHANGELOG.md
+package.json

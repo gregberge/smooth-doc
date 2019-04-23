@@ -31,18 +31,20 @@ const Title = styled.h1`
   font-weight: 600;
 `
 
-export const HomeHero = ({title}) => (
-  <StaticQuery
-    query={QUERY}
-    render={data => (
-      <Container>
-        <Img
-          fixed={data.logo.childImageSharp.fixed}
-          alt={data.site.siteMetadata.title}
-          style={{ margin: '0 auto' }}
-        />
-        <Title>{title}</Title>
-      </Container>
-    )}
-  />
-)
+export function HomeHero({ title }) {
+  return (
+    <StaticQuery
+      query={QUERY}
+      render={data => (
+        <Container>
+          <Img
+            fixed={data.logo.childImageSharp.fixed}
+            alt={data.site.siteMetadata.title}
+            style={{ margin: '0 auto' }}
+          />
+          <Title>{title}</Title>
+        </Container>
+      )}
+    />
+  )
+}
