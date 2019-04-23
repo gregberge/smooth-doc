@@ -57,19 +57,17 @@ const pagesToNavGroups = pages =>
 
 const Nav = styled.nav`
   padding: 0 20px;
-  width: 200px;
 
   ${up(
     'sm',
     css`
       padding-left: 40px;
-      width: auto;
     `,
   )}
 `
 
 const NavGroup = styled.div`
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 `
 
 const NavGroupTitle = styled.h3`
