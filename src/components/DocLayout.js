@@ -1,8 +1,9 @@
 import React from 'react'
-import { Grid, styled, up, css, th } from '@smooth-ui/core-sc'
+import { Grid, styled, up, css, th, down } from '@smooth-ui/core-sc'
 import { Sidebar } from './Sidebar'
 import { BaseLayout } from './BaseLayout'
 import { Article } from './Article'
+import { CodeFund } from './CodeFund'
 import { MenuProvider, MenuConsumer } from './MenuContext'
 import Chevron from './icons/Chevron'
 
@@ -51,15 +52,16 @@ const SidebarContainer = styled.div`
       opacity: 1;
       position: relative;
       transform: none;
-      flex: 0 0 200px;
-      margin-left: 80px;
+      flex: 0 0 180px;
+      margin-left: 16px;
     `,
   )}
 
   ${up(
     'lg',
     css`
-      flex: 0 0 300px;
+      flex: 0 0 230px;
+      margin-left: 50px;
     `,
   )}
 `
@@ -126,6 +128,40 @@ const MenuButton = styled.button`
   ${up('sm', 'display: none;')}
 `
 
+const FloatingAd = styled.div`
+  display: none;
+
+  ${up(
+    'sm',
+    css`
+      display: block;
+      float: right;
+      margin-top: 72px;
+      background-color: white;
+      padding: 16px;
+    `,
+  )}
+
+${up(
+  'md',
+  css`
+    float: right;
+  `,
+)}
+
+  ${up(
+    'xl',
+    css`
+      z-index: 500;
+      position: fixed;
+      float: none;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+    `,
+  )}
+`
+
 export function DocLayout({ children, ...props }) {
   return (
     <MenuProvider>
@@ -133,6 +169,9 @@ export function DocLayout({ children, ...props }) {
         <Grid gutter={0}>
           <Wrapper>
             <ArticleContainer>
+              <FloatingAd>
+                <CodeFund />
+              </FloatingAd>
               <Article>{children}</Article>
             </ArticleContainer>
             <MenuConsumer>

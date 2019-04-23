@@ -23,7 +23,6 @@ const variants = {
 
 const PageWrapper = styled.div`
   ${p => variants[p.variant]};
-  position: relative;
 `
 
 export function BaseLayout({ children, pageContext, variant = 'default' }) {

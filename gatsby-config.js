@@ -4,6 +4,7 @@ function config({
   github = 'https://github.com/smooth-code/smooth-doc',
   menu = ['Usage'],
   nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
+  codeFundProperty = 268,
 } = {}) {
   return {
     siteMetadata: {
@@ -11,6 +12,7 @@ function config({
       github,
       menu,
       nav,
+      codeFundProperty,
     },
     pathPrefix: `/open-source/${slug}`,
     plugins: [
