@@ -67,7 +67,7 @@ const Nav = styled.nav`
 `
 
 const NavGroup = styled.div`
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 `
 
 const NavGroupTitle = styled.h3`

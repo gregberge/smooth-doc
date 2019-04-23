@@ -8,7 +8,7 @@ const baseTheme = {
   editorTextColor: '#1b2b35',
   blockquoteColor: '#ffe564',
   textColor: theme.gray800,
-  headerHeight: '146px',
+  headerHeight: '122px',
 }
 
 export function ThemeProvider({ children, theme }) {

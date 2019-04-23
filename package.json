@@ -18,7 +18,7 @@
     "gatsby": "^2.1.9",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "smooth-code-landers": ">=1.0.0"
+    "smooth-code-landers": "^1.3.1"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.0.14",
@@ -67,7 +67,7 @@
     "prettier": "^1.17.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "smooth-code-landers": "^1.2.2",
+    "smooth-code-landers": "^1.3.1",
     "standard-version": "^5.0.2"
   }
 }
