@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, styled, up, css, th, down } from '@smooth-ui/core-sc'
+import { Grid, styled, up, css, th } from '@smooth-ui/core-sc'
 import { Sidebar } from './Sidebar'
 import { BaseLayout } from './BaseLayout'
 import { Article } from './Article'
