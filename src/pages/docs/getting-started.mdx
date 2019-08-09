@@ -5,7 +5,10 @@ order: 1
 ---
 
 import styled from 'styled-components'
-import Button, { Foo } from './Button'
+import Button from './Button'
+import { LiveScope } from '../../components/Code'
+
+<LiveScope scope={{ styled }} />
 
 # Getting Started
 
@@ -32,7 +35,7 @@ Etiam elementum, odio sed maximus fringilla, massa dui efficitur ante, sed dictu
 ## Code example
 
 ```jsx live
-<Button>Good</Button>
+<Button>Hello</Button>
 ```
 
 ```jsx

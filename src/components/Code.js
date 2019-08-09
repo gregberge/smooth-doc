@@ -50,6 +50,13 @@ const LivePreview = styled(BaseLivePreview)`
   }
 `
 
+const globalScope = {}
+
+export function LiveScope({ scope }) {
+  Object.assign(globalScope, scope)
+  return null
+}
+
 export function Code({ children, lang = 'markup', live, noInline }) {
   const scope = useMDXScope()
   if (live) {
@@ -57,7 +64,7 @@ export function Code({ children, lang = 'markup', live, noInline }) {
       <LiveProvider
         code={children.trim()}
         transformCode={code => `/* @jsx mdx */${code}`}
-        scope={{ mdx, ...scope }}
+        scope={{ mdx, ...scope, ...globalScope }}
         language={lang}
         theme={theme}
         noInline={noInline}
