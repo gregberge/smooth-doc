@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/smooth-code/smooth-doc/compare/v2.3.0...v2.4.0) (2019-08-25)
+
+
+### Features
+
+* move ad into menu & enable import ([764f4b2](https://github.com/smooth-code/smooth-doc/commit/764f4b2))
+
 ## [2.3.0](https://github.com/smooth-code/smooth-doc/compare/v2.2.0...v2.3.0) (2019-08-09)
 
 
