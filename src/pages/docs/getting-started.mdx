@@ -4,13 +4,33 @@ title: Getting Started
 order: 1
 ---
 
-import styled from 'styled-components'
+import { LiveConfig } from '../../components'
 import Button from './Button'
-import { LiveScope } from '../../components/Code'
 
-<LiveScope scope={{ styled }} />
+<LiveConfig
+  modules={{
+    'docs/Button': Button,
+  }}
+/>
 
 # Getting Started
+
+## Code example
+
+```jsx live noInline
+import React from 'react'
+import Button from 'docs/Button'
+
+function Example() {
+  return <Button>Hello</Button>
+}
+
+render(<Example />)
+```
+
+```jsx
+<Button>Good</Button>
+```
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus erat cursus rutrum cursus. Sed faucibus mi et tristique cursus. Donec vel sodales ex. Proin ac egestas nibh. Curabitur efficitur urna eu molestie porta. Maecenas pulvinar pulvinar placerat. In mollis ultricies augue a dignissim. Pellentesque gravida massa vitae odio scelerisque fringilla. Nam in erat vitae justo porttitor porttitor. Vivamus aliquet vestibulum eros, eget volutpat turpis interdum eu.
 
@@ -31,15 +51,3 @@ Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris iaculis aug
 Duis mattis felis vitae lectus fermentum, at faucibus augue blandit. Curabitur vitae neque et risus rutrum aliquam. Aliquam malesuada, massa in pellentesque accumsan, magna lacus finibus ex, vel efficitur ante neque ut velit. Nullam eget commodo mauris. Mauris pretium interdum sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut interdum posuere dolor nec dapibus. Maecenas non tempus velit. Morbi eget risus risus. Integer bibendum molestie lorem tincidunt porttitor.
 
 Etiam elementum, odio sed maximus fringilla, massa dui efficitur ante, sed dictum est tellus at augue. Integer eleifend eros quis nibh aliquet rhoncus. Proin nibh dui, iaculis et molestie quis, interdum in felis. Fusce condimentum iaculis eleifend. Nam porttitor velit eu accumsan vehicula. Donec dapibus commodo risus vel lacinia. Phasellus et aliquet nisl. Proin eu mi eget sapien tempus malesuada at vitae ante. Fusce rhoncus eros in ligula mattis, et elementum lacus pulvinar. Maecenas rhoncus et eros a molestie.
-
-## Code example
-
-```jsx live
-<Button>Hello</Button>
-```
-
-```jsx
-<Button>Good</Button>
-```
-
-This is good `Hello`

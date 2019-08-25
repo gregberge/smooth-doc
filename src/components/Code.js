@@ -1,7 +1,6 @@
 import React from 'react'
 import { th, styled, up, css } from '@smooth-ui/core-sc'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import { useMDXScope } from 'gatsby-plugin-mdx/context'
 import {
   LiveProvider,
   LiveEditor,
@@ -50,21 +49,62 @@ const LivePreview = styled(BaseLivePreview)`
   }
 `
 
-const globalScope = {}
+const globalModules = {
+  react: 'React',
+}
 
-export function LiveScope({ scope }) {
-  Object.assign(globalScope, scope)
+export function LiveConfig({ modules }) {
+  Object.assign(globalModules, modules)
   return null
 }
 
+function req(path) {
+  const dep = globalModules[path]
+
+  if (!dep) {
+    throw new Error(`Unable to resolve path to module '${path}'.`)
+  }
+  return dep
+}
+
+function importToRequire(code) {
+  return (
+    code
+      // { a as b } => { a: b }
+      .replace(/([0-9a-z_$]+) as ([0-9a-z_$]+)/gi, '$1: $2')
+      // import { a } from "a" => const { a } = require("b")
+      .replace(
+        /import {([^}]+)} from ([^\s;]+);?/g,
+        'const {$1} = require($2);',
+      )
+      // import a from "a" => const a = require("a").default || require("a")
+      .replace(
+        /import ([\S]+) from ([^\s;]+);?/g,
+        'const $1 = require($2).default || require($2);',
+      )
+      // import * as a from "a"
+      .replace(
+        /import \* as ([\S]+) from ([^\s;]+);?/g,
+        'const $1 = require($2);',
+      )
+      // import a from "a" => const a = require("a").default || require("a")
+      .replace(
+        /import (.+),\s?{([^}]+)} from ([^\s;]+);?/g,
+        [
+          'const $1 = require($3).default || require($3);',
+          'const {$2} = require($3);',
+        ].join('\n'),
+      )
+  )
+}
+
 export function Code({ children, lang = 'markup', live, noInline }) {
-  const scope = useMDXScope()
   if (live) {
     return (
       <LiveProvider
         code={children.trim()}
-        transformCode={code => `/* @jsx mdx */${code}`}
-        scope={{ mdx, ...scope, ...globalScope }}
+        transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
+        scope={{ mdx, require: req }}
         language={lang}
         theme={theme}
         noInline={noInline}

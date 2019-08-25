@@ -73,6 +73,7 @@ const SidebarWrapper = styled.div`
       padding-top: 0;
       position: fixed;
       height: calc(100vh - ${th('headerHeight')});
+      overflow-y: auto;
       z-index: 2;
       margin-right: -999px;
       padding-right: 999px;
@@ -132,32 +133,10 @@ const FloatingAd = styled.div`
   display: none;
 
   ${up(
-    'sm',
+    'md',
     css`
       display: block;
-      float: right;
-      margin-top: 72px;
-      background-color: white;
-      padding: 16px;
-    `,
-  )}
-
-${up(
-  'md',
-  css`
-    float: right;
-  `,
-)}
-
-  ${up(
-    'xl',
-    css`
-      z-index: 500;
-      position: fixed;
-      float: none;
-      bottom: 0;
-      left: 0;
-      margin: 0;
+      padding: 16px 0 10px 18px;
     `,
   )}
 `
@@ -169,9 +148,6 @@ export function DocLayout({ children, ...props }) {
         <Grid gutter={0}>
           <Wrapper>
             <ArticleContainer>
-              <FloatingAd>
-                <CodeFund />
-              </FloatingAd>
               <Article>{children}</Article>
             </ArticleContainer>
             <MenuConsumer>
@@ -179,6 +155,9 @@ export function DocLayout({ children, ...props }) {
                 <>
                   <SidebarContainer opened={opened}>
                     <SidebarWrapper>
+                      <FloatingAd>
+                        <CodeFund />
+                      </FloatingAd>
                       <Sidebar />
                     </SidebarWrapper>
                   </SidebarContainer>
