@@ -25,7 +25,7 @@ const QUERY = graphql`
 
 function InnerCodeFund({ property }) {
   useScript(
-    `https://codefund.io/properties/${property}/funder.js?template=vertical&theme=light`,
+    `https://codefund.io/properties/${property}/funder.js?template=square&theme=light`,
   )
   return <div id="codefund" />
 }

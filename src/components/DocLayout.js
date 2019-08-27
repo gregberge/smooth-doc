@@ -3,7 +3,6 @@ import { Grid, styled, up, css, th } from '@smooth-ui/core-sc'
 import { Sidebar } from './Sidebar'
 import { BaseLayout } from './BaseLayout'
 import { Article } from './Article'
-import { CodeFund } from './CodeFund'
 import { MenuProvider, MenuConsumer } from './MenuContext'
 import Chevron from './icons/Chevron'
 
@@ -129,18 +128,6 @@ const MenuButton = styled.button`
   ${up('sm', 'display: none;')}
 `
 
-const FloatingAd = styled.div`
-  display: none;
-
-  ${up(
-    'md',
-    css`
-      display: block;
-      padding: 16px 0 10px 18px;
-    `,
-  )}
-`
-
 export function DocLayout({ children, ...props }) {
   return (
     <MenuProvider>
@@ -155,9 +142,6 @@ export function DocLayout({ children, ...props }) {
                 <>
                   <SidebarContainer opened={opened}>
                     <SidebarWrapper>
-                      <FloatingAd>
-                        <CodeFund />
-                      </FloatingAd>
                       <Sidebar />
                     </SidebarWrapper>
                   </SidebarContainer>

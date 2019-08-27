@@ -2,6 +2,20 @@ import React from 'react'
 import { transparentize } from 'polished'
 import { styled, up, css, th } from '@smooth-ui/core-sc'
 import { StaticQuery, graphql, Link } from 'gatsby'
+import { CodeFund } from './CodeFund'
+
+const FloatingAd = styled.div`
+  display: none;
+
+  ${up(
+    'md',
+    css`
+      display: block;
+      margin-top: 20px;
+      max-width: 180px;
+    `,
+  )}
+`
 
 const QUERY = graphql`
   query Sidebar {
@@ -127,6 +141,9 @@ export function Sidebar() {
 
         return (
           <Nav>
+            <FloatingAd>
+              <CodeFund />
+            </FloatingAd>
             {navGroups.map(navGroup => (
               <NavGroup key={navGroup.name}>
                 <NavGroupTitle>{navGroup.name}</NavGroupTitle>
