@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import Helmet from 'react-helmet'
+import Seo from './Seo'
 
 const QUERY = graphql`
   query Head {
@@ -17,11 +17,9 @@ export function Head({ pageContext }) {
     <StaticQuery
       query={QUERY}
       render={data => (
-        <Helmet>
-          <title>
-            {pageContext.frontmatter.title} - {data.site.siteMetadata.title}
-          </title>
-        </Helmet>
+        <Seo
+          title={`${pageContext.frontmatter.title} - ${data.site.siteMetadata.title}`}
+        />
       )}
     />
   )
