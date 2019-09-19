@@ -1,4 +1,4 @@
-function config({
+module.exports = function config({
   name = 'Smooth Doc Theme',
   slug = 'smooth-doc',
   github = 'https://github.com/smooth-code/smooth-doc',
@@ -125,5 +125,3 @@ function config({
     ],
   }
 }
-
-module.exports = process.env.SMOOTH_DOC_DEV === '1' ? config() : config

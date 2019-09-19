@@ -1,4 +1,4 @@
 node_modules/
 /lib/
-/.cache/
-/public/
+.cache/
+public/
