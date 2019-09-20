@@ -2,7 +2,7 @@ import { transparentize } from 'polished'
 import { styled, up, down, css, th } from '@smooth-ui/core-sc'
 
 export const Article = styled.article`
-  p {
+  > p {
     margin-top: 30px;
     font-size: 17px;
     line-height: 1.7;
@@ -22,7 +22,7 @@ export const Article = styled.article`
   }
 
   /* Intro */
-  h1 + p {
+  > h1 + p {
     font-size: 18px;
     font-weight: 300;
     color: ${th('subtitleColor')};
@@ -40,7 +40,7 @@ export const Article = styled.article`
     }
   }
 
-  hr {
+  > hr {
     height: 1px;
     margin-bottom: -1px;
     border: 0;
@@ -52,7 +52,7 @@ export const Article = styled.article`
     }
   }
 
-  h1 {
+  > h1 {
     font-size: 40px;
     line-height: 45px;
     font-weight: 600;
@@ -71,7 +71,7 @@ export const Article = styled.article`
     )};
   }
 
-  h2 {
+  > h2 {
     border-top: 1px solid ${th('gray200')};
     margin-top: 44px;
     padding-top: 40px;
@@ -86,13 +86,13 @@ export const Article = styled.article`
     )};
   }
 
-  h1 + h2 {
+  > h1 + h2 {
     border-top: 0;
     margin-top: 0;
     padding-top: 0;
   }
 
-  h3 {
+  > h3 {
     padding-top: 45px;
 
     ${down(
@@ -112,7 +112,7 @@ export const Article = styled.article`
     )}
   }
 
-  h3 {
+  > h3 {
     padding-top: 45px;
 
     ${down(
@@ -132,7 +132,7 @@ export const Article = styled.article`
     )}
   }
 
-  h4 {
+  > h4 {
     margin-top: 50px;
     font-weight: 400;
     font-size: 20px;
@@ -140,12 +140,12 @@ export const Article = styled.article`
     color: ${th('subtitleColor')};
   }
 
-  h2 + h3,
-  h2 + h3:first-of-type {
+  > h2 + h3,
+  > h2 + h3:first-of-type {
     padding-top: 30px;
   }
 
-  h4 + p {
+  > h4 + p {
     margin-top: 20px;
   }
 
@@ -169,7 +169,7 @@ export const Article = styled.article`
     )}
   }
 
-  code {
+  > code {
     background-color: rgba(27, 31, 35, 0.05);
     border-radius: 3px;
     color: inherit;
@@ -179,7 +179,7 @@ export const Article = styled.article`
     padding: 3.2px 6.4px;
   }
 
-  table {
+  > table {
     border-collapse: collapse;
     border-spacing: 0;
     display: block;
@@ -250,7 +250,7 @@ export const Article = styled.article`
     list-style: disc;
   }
 
-  blockquote {
+  > blockquote {
     font-size: 16px;
     background-color: ${th('blockquoteColor', color =>
       transparentize(0.7, color),
