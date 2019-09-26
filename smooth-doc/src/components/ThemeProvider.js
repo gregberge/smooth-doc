@@ -1,9 +1,6 @@
 import React from 'react'
 import { transparentize } from 'polished'
-import {
-  ThemeProvider as SCThemeProvider,
-  ColorModeProvider,
-} from '@xstyled/styled-components'
+import { ThemeProvider as SCThemeProvider } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import deepmerge from 'deepmerge'
 
@@ -51,9 +48,5 @@ export function ThemeProvider({ children, theme: propTheme }) {
   const computedTheme = React.useMemo(() => deepmerge(theme, propTheme || {}), [
     propTheme,
   ])
-  return (
-    <SCThemeProvider theme={computedTheme}>
-      <ColorModeProvider>{children}</ColorModeProvider>
-    </SCThemeProvider>
-  )
+  return <SCThemeProvider theme={computedTheme}>{children}</SCThemeProvider>
 }
