@@ -140,7 +140,6 @@ function getInverseMode(mode) {
 
 function ColorModeSwitcher() {
   const [mode, setMode] = useColorMode()
-  console.log(mode)
   const Icon = modeIcons[mode]
   return (
     <button type="button" onClick={() => setMode(getInverseMode)}>
