@@ -119,6 +119,7 @@ const NavListItem = styled.li`
     border: 0;
     transition: base;
     transition-property: color;
+    cursor: pointer;
 
     &:hover,
     &:focus {
