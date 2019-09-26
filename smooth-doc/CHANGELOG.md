@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.1](https://github.com/smooth-code/smooth-doc/compare/v2.10.0...v2.10.1) (2019-09-26)
+
+
+### Bug Fixes
+
+* add cursor pointer to dark mode toggle ([30e16bb](https://github.com/smooth-code/smooth-doc/commit/30e16bb))
+
 ## [2.10.0](https://github.com/smooth-code/smooth-doc/compare/v2.9.0...v2.10.0) (2019-09-26)
 
 
