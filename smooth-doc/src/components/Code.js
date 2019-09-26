@@ -99,7 +99,7 @@ function importToRequire(code) {
   )
 }
 
-function usePrismTheme() {
+export function usePrismTheme() {
   const theme = React.useContext(ThemeContext)
   const [mode] = useColorMode()
   return getPrismTheme({ theme, mode })
