@@ -1,21 +1,7 @@
 import React from 'react'
-import { transparentize } from 'polished'
-import { styled, up, css, th } from '@smooth-ui/core-sc'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import { CodeFund } from './CodeFund'
-
-const FloatingAd = styled.div`
-  display: none;
-
-  ${up(
-    'md',
-    css`
-      display: block;
-      margin-top: 20px;
-      max-width: 180px;
-    `,
-  )}
-`
+import styled, { css } from '@xstyled/styled-components'
+import { up } from '@xstyled/system'
 
 const QUERY = graphql`
   query Sidebar {
@@ -70,23 +56,22 @@ const pagesToNavGroups = pages =>
   }, [])
 
 const Nav = styled.nav`
-  padding: 0 20px;
+  padding: 0 20;
 
   ${up(
     'sm',
     css`
-      padding-left: 40px;
+      padding-left: 40;
     `,
   )}
 `
 
 const NavGroup = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 20;
 `
 
 const NavGroupTitle = styled.h3`
-  font-size: 17px;
-  line-height: 20px;
+  font-size: 17;
   font-weight: 500;
 `
 
@@ -97,24 +82,26 @@ const NavGroupMenu = styled.ul`
 
 const NavGroupMenuItem = styled.li`
   list-style-type: none;
-  margin: 2px 0;
+  margin: 2 0;
   padding: 0;
 
   a {
-    color: ${th('textColor')};
+    color: nav-link;
     display: block;
-    transition: color 300ms;
-    padding-left: 10px;
-    border-left: 3px solid;
+    transition: base;
+    transition-property: color;
+    padding-left: 10;
+    border-left: 3;
     border-color: transparent;
 
     &:hover {
-      color: ${th('textColor', color => transparentize(0.3, color))};
+      color: nav-link-hover;
     }
 
     &.active {
       font-weight: 600;
-      border-left: 3px solid ${th('primary')};
+      border-left: 3;
+      border-color: primary;
     }
   }
 `
@@ -141,9 +128,6 @@ export function Sidebar() {
 
         return (
           <Nav>
-            <FloatingAd>
-              <CodeFund />
-            </FloatingAd>
             {navGroups.map(navGroup => (
               <NavGroup key={navGroup.name}>
                 <NavGroupTitle>{navGroup.name}</NavGroupTitle>

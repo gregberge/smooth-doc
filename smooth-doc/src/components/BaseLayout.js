@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled, th, css } from '@smooth-ui/core-sc'
+import styled from '@xstyled/styled-components'
 import { WebsiteHeader } from './WebsiteHeader'
 import { ProjectHeader } from './ProjectHeader'
 import { Head } from './Head'
@@ -12,28 +12,26 @@ const Headers = styled.div`
   z-index: 10;
 `
 
-const variants = {
-  default: css`
-    background-color: ${th('gray100')};
-  `,
-  light: css`
-    background-color: ${th('white')};
-  `,
-}
-
-const PageWrapper = styled.div`
-  ${p => variants[p.variant]};
+const PageWrapper = styled.box`
+  background-color: bg;
+  flex: 1;
 `
 
-export function BaseLayout({ children, pageContext, variant = 'default' }) {
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`
+
+export function BaseLayout({ children, pageContext, backgroundColor }) {
   return (
-    <div>
+    <Container>
       <Head pageContext={pageContext} />
       <Headers>
         <WebsiteHeader />
         <ProjectHeader />
       </Headers>
-      <PageWrapper variant={variant}>{children}</PageWrapper>
-    </div>
+      <PageWrapper backgroundColor={backgroundColor}>{children}</PageWrapper>
+    </Container>
   )
 }

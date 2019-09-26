@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { Grid, styled, th, up, css } from '@smooth-ui/core-sc'
-import { transparentize } from 'polished'
+import styled, { css } from '@xstyled/styled-components'
+import { th, up } from '@xstyled/system'
+import { Grid } from '@smooth-ui/core-sc'
 import GitHub from './icons/GitHub'
 
 const QUERY = graphql`
@@ -29,9 +30,10 @@ const QUERY = graphql`
 `
 
 const Container = styled.div`
-  background-color: ${th('white')};
-  border-bottom: 1px solid ${th('gray200')};
-  padding: 16px 0;
+  background-color: bg;
+  border-bottom: 1;
+  border-color: border;
+  padding: 16 0;
 `
 
 const Header = styled.div`
@@ -44,12 +46,12 @@ const Header = styled.div`
 const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
-  color: ${th('textColor')};
-  height: 34px;
-  margin-right: 16px;
+  color: text;
+  height: 34;
+  margin-right: 16;
 
   &:hover {
-    color: ${th('textColor')};
+    color: text;
   }
 
   > div {
@@ -59,21 +61,21 @@ const LogoLink = styled(Link)`
 
 const LogoText = styled.h2`
   display: block;
-  font-size: 1.25em;
-  line-height: 18px;
+  font-size: 20;
+  line-height: 0.9;
   margin: 0;
-  margin-left: 10px;
+  margin-left: 10;
 `
 
 const Nav = styled.nav`
-  height: 34px;
+  height: 34;
   margin-left: auto;
   position: relative;
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 20px,
-    black 90%,
+    ${th.color('text')} ${th.size(20)},
+    ${th.color('text')} 90%,
     transparent
   );
   overflow-y: auto;
@@ -87,13 +89,13 @@ const Nav = styled.nav`
 `
 
 const NavList = styled.ul`
-  color: ${th('white')};
+  color: text;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   margin: 0;
   padding: 0;
-  height: 34px;
+  height: 34;
 `
 
 const NavListItem = styled.li`
@@ -102,17 +104,18 @@ const NavListItem = styled.li`
   margin: 0;
   text-align: center;
   white-space: nowrap;
-  font-size: 1em;
-  line-height: 1.2em;
+  font-size: 16;
+  line-height: 1.2;
 
   a {
-    color: ${th('textColor', color => transparentize(0.2, color))};
+    color: nav-link;
     display: flex;
-    padding: 0 10px;
-    transition: color 300ms;
+    padding: 0 10;
+    transition: base;
+    transition-property: color;
 
     &:hover {
-      color: ${th('textColor')};
+      color: nav-link-hover;
     }
   }
 `

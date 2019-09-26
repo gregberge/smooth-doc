@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { styled } from '@smooth-ui/core-sc'
+import styled from '@xstyled/styled-components'
 
 const QUERY = graphql`
   query HomeHero {
@@ -22,26 +22,36 @@ const QUERY = graphql`
 `
 
 const Container = styled.div`
-  padding-top: 30px;
+  padding-top: 30;
   text-align: center;
 `
 
 const Title = styled.h1`
-  font-size: 1.8rem;
+  font-size: 28;
   font-weight: 600;
 `
 
-export function HomeHero({ title }) {
+const ImgContainer = styled.div`
+  display: inline-block;
+  margin: 0 auto;
+  line-height: 0;
+  &[data-plain-bg='true'] {
+    background-color: home-hero-img-bg;
+  }
+`
+
+export function HomeHero({ title, plainBg }) {
   return (
     <StaticQuery
       query={QUERY}
       render={data => (
         <Container>
-          <Img
-            fixed={data.logo.childImageSharp.fixed}
-            alt={data.site.siteMetadata.title}
-            style={{ margin: '0 auto' }}
-          />
+          <ImgContainer data-plain-bg={plainBg}>
+            <Img
+              fixed={data.logo.childImageSharp.fixed}
+              alt={data.site.siteMetadata.title}
+            />
+          </ImgContainer>
           <Title>{title}</Title>
         </Container>
       )}

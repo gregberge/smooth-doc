@@ -1,5 +1,10 @@
 import React from 'react'
-import { th, styled, up, css } from '@smooth-ui/core-sc'
+import styled, {
+  css,
+  ThemeContext,
+  useColorMode,
+} from '@xstyled/styled-components'
+import { up } from '@xstyled/system'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import {
   LiveProvider,
@@ -8,44 +13,40 @@ import {
   LivePreview as BaseLivePreview,
 } from 'react-live'
 import { mdx } from '@mdx-js/react'
-import theme from './prismTheme'
+import getPrismTheme from './prismTheme'
 
 const Editor = styled.div`
-  background-color: rgb(40, 44, 52);
-  color: ${th('editorTextColor')};
-  padding: 15px 20px;
-  margin: 25px -20px;
+  background-color: editor-bg;
+  color: editor-text;
+  padding: 15 20;
+  margin: 25 -20;
   overflow: auto;
-  font-size: 14px;
+  font-size: 14;
   line-height: 1.45;
-  border-radius: 3px;
-  border-radius: 0;
   overflow-y: auto;
 
   > textarea:focus {
     outline: none;
-    border: 1px solid white;
   }
 
   ${up(
     'sm',
     css`
-      border-radius: 3px;
+      border-radius: 3;
     `,
   )}
 `
 
 const LivePreview = styled(BaseLivePreview)`
-  padding: 15px 20px;
-  margin: 25px -20px 10px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(33, 33, 33, 0.15);
+  padding: 15 20;
+  margin: 25 -20 10;
+  border: 1;
+  border-color: border;
   border-image: initial;
-  border-radius: 0.25em;
+  border-radius: 3;
 
   & + ${Editor} {
-    margin-top: 10px;
+    margin-top: 10;
   }
 `
 
@@ -98,7 +99,14 @@ function importToRequire(code) {
   )
 }
 
+function usePrismTheme() {
+  const theme = React.useContext(ThemeContext)
+  const [mode] = useColorMode()
+  return getPrismTheme({ theme, mode })
+}
+
 export function Code({ children, lang = 'markup', live, noInline }) {
+  const prismTheme = usePrismTheme()
   if (live) {
     return (
       <LiveProvider
@@ -106,7 +114,7 @@ export function Code({ children, lang = 'markup', live, noInline }) {
         transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
         scope={{ mdx, require: req }}
         language={lang}
-        theme={theme}
+        theme={prismTheme}
         noInline={noInline}
       >
         <LivePreview />
@@ -121,7 +129,7 @@ export function Code({ children, lang = 'markup', live, noInline }) {
         {...defaultProps}
         code={children.trim()}
         language={lang}
-        theme={theme}
+        theme={prismTheme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className} style={style}>

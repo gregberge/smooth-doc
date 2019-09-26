@@ -1,12 +1,13 @@
-import { styled, th } from '@smooth-ui/core-sc'
+import styled from '@xstyled/styled-components'
 
 export const ShowCase = styled.div`
-  margin-top: 80px;
-  background-color: ${th('white')};
-  border-top: 1px solid ${th('gray200')};
-  border-bottom: 1px solid ${th('gray200')};
-  padding-top: 50px;
-  padding-bottom: 50px;
+  margin-top: 80;
+  background-color: secondary-bg;
+  border-top: 1;
+  border-bottom: 1;
+  border-color: border;
+  padding-top: 50;
+  padding-bottom: 50;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +15,7 @@ export const ShowCase = styled.div`
   h2 {
     padding: 0;
     font-weight: 500;
-    margin-bottom: 10px;
-    font-size: 34px;
-    line-height: 1.2;
+    margin-bottom: 10;
+    font-size: 34;
   }
 `
