@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.12.0](https://github.com/smooth-code/smooth-doc/compare/v2.11.1...v2.12.0) (2019-09-26)
+
+
+### Features
+
+* support dark logo ([fd0a521](https://github.com/smooth-code/smooth-doc/commit/fd0a521))
+
 ### [2.11.1](https://github.com/smooth-code/smooth-doc/compare/v2.11.0...v2.11.1) (2019-09-26)
 
 
