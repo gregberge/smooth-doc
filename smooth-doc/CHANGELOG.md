@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.12.2](https://github.com/smooth-code/smooth-doc/compare/v2.12.1...v2.12.2) (2019-09-26)
+
+
+### Bug Fixes
+
+* add ColorModeProvider in ThemeProvider ([d5d3308](https://github.com/smooth-code/smooth-doc/commit/d5d3308))
+
 ### [2.12.1](https://github.com/smooth-code/smooth-doc/compare/v2.12.0...v2.12.1) (2019-09-26)
 
 
