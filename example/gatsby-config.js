@@ -12,6 +12,12 @@ module.exports = {
         menu: ['Introduction', 'Guides', 'API'],
         nav: [{ title: 'Docs', url: '/docs/' }],
         codeFundProperty: 268,
+        theme: {
+          colors: {
+            primary: 'violet',
+          },
+          useCustomProperties: false,
+        },
       },
     },
   ],
