@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.10.0](https://github.com/smooth-code/smooth-doc/compare/v2.9.0...v2.10.0) (2019-09-26)
+
+
+### Features
+
+* add dark mode toggler ([464ef76](https://github.com/smooth-code/smooth-doc/commit/464ef76))
+
 ## [2.9.0](https://github.com/smooth-code/smooth-doc/compare/v2.8.0...v2.9.0) (2019-09-26)
 
 
