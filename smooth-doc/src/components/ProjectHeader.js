@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, useColorMode } from '@xstyled/styled-components'
 import { th, up } from '@xstyled/system'
 import { Grid } from '@smooth-ui/core-sc'
-import GitHub from './icons/GitHub'
+import GithubBrands from './icons/GithubBrands'
+import SunSolid from './icons/SunSolid'
+import MoonSolid from './icons/MoonSolid'
 
 const QUERY = graphql`
   query Header {
@@ -107,18 +109,44 @@ const NavListItem = styled.li`
   font-size: 16;
   line-height: 1.2;
 
-  a {
+  a,
+  button {
+    appearance: none;
     color: nav-link;
     display: flex;
     padding: 0 10;
+    background-color: transparent;
+    border: 0;
     transition: base;
     transition-property: color;
 
-    &:hover {
+    &:hover,
+    &:focus {
+      outline: none;
       color: nav-link-hover;
     }
   }
 `
+
+const modeIcons = {
+  light: MoonSolid,
+  dark: SunSolid,
+}
+
+function getInverseMode(mode) {
+  return mode === 'light' ? 'dark' : 'light'
+}
+
+function ColorModeSwitcher() {
+  const [mode, setMode] = useColorMode()
+  console.log(mode)
+  const Icon = modeIcons[mode]
+  return (
+    <button type="button" onClick={() => setMode(getInverseMode)}>
+      <Icon width="24" height="24" />
+    </button>
+  )
+}
 
 export function ProjectHeader() {
   return (
@@ -142,14 +170,19 @@ export function ProjectHeader() {
                       <Link to={url}>{title}</Link>
                     </NavListItem>
                   ))}
+
                   <NavListItem>
                     <a
                       href={data.site.siteMetadata.github}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <GitHub width="24" height="24" />
+                      <GithubBrands width="24" height="24" />
                     </a>
+                  </NavListItem>
+
+                  <NavListItem>
+                    <ColorModeSwitcher />
                   </NavListItem>
                 </NavList>
               </Nav>

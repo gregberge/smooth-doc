@@ -12,7 +12,8 @@
     "dev": "SMOOTH_DOC_DEV=1 gatsby develop",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{js,md,mdx}\"",
-    "release": "standard-version && conventional-github-releaser --preset angular"
+    "release": "standard-version && conventional-github-releaser --preset angular",
+    "generate:icons": "svgr -d src/components --icon --replace-attr-values \"#000=currentColor\" svgs"
   },
   "peerDependencies": {
     "gatsby": "^2.15.0",
@@ -53,6 +54,7 @@
     "unist-util-visit": "^2.0.0"
   },
   "devDependencies": {
+    "@svgr/cli": "^4.3.3",
     "gatsby": "^2.15.18",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

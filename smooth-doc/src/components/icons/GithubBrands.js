@@ -1,8 +1,11 @@
 import React from 'react'
 
-const GitHub = props => (
+const SvgGithubBrands = props => (
   <svg
     aria-hidden="true"
+    data-prefix="fab"
+    data-icon="github"
+    className="github-brands_svg__svg-inline--fa github-brands_svg__fa-github github-brands_svg__fa-w-16"
     viewBox="0 0 496 512"
     width="1em"
     height="1em"
@@ -15,4 +18,4 @@ const GitHub = props => (
   </svg>
 )
 
-export default GitHub
+export default SvgGithubBrands

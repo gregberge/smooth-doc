@@ -6,7 +6,7 @@ import { Sidebar } from './Sidebar'
 import { BaseLayout } from './BaseLayout'
 import { Article } from './Article'
 import { MenuProvider, MenuConsumer } from './MenuContext'
-import Chevron from './icons/Chevron'
+import ChevronUpSolid from './icons/ChevronUpSolid'
 import { CodeFund } from './CodeFund'
 
 const FloatingAd = styled.div`
@@ -137,23 +137,23 @@ const MenuButton = styled.button`
 
   > svg:first-child {
     transition: transform 200ms ease-in-out;
-    transform: translateX(-1px) rotate(180deg);
+    transform: translateX(-1px);
   }
 
   > svg:last-child {
     transition: transform 200ms ease-in-out;
-    transform: translate(-1px);
+    transform: translate(-1px) rotate(180deg);
   }
 
   ${p =>
     p.active &&
     css`
       > svg:first-child {
-        transform: translate(-1px, 10px) rotate(180deg);
+        transform: translate(-1px, 10px);
       }
 
       > svg:last-child {
-        transform: translate(-1px, -10px);
+        transform: translate(-1px, -10px) rotate(180deg);
       }
     `}
 
@@ -188,8 +188,8 @@ export function DocLayout({ children, ...props }) {
                     </SidebarWrapper>
                   </SidebarContainer>
                   <MenuButton active={opened} onClick={toggle}>
-                    <Chevron width={15} height={15} />
-                    <Chevron width={15} height={15} />
+                    <ChevronUpSolid width={15} height={15} />
+                    <ChevronUpSolid width={15} height={15} />
                   </MenuButton>
                 </>
               )}
