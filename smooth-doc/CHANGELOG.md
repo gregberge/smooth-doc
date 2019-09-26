@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.11.1](https://github.com/smooth-code/smooth-doc/compare/v2.11.0...v2.11.1) (2019-09-26)
+
+
+### Bug Fixes
+
+* use deepmerge ([8a5543d](https://github.com/smooth-code/smooth-doc/commit/8a5543d))
+
 ## [2.11.0](https://github.com/smooth-code/smooth-doc/compare/v2.10.3...v2.11.0) (2019-09-26)
 
 
