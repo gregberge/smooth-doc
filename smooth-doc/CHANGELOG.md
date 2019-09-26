@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.3](https://github.com/smooth-code/smooth-doc/compare/v2.10.2...v2.10.3) (2019-09-26)
+
+
+### Bug Fixes
+
+* remove console.log ([8c49b11](https://github.com/smooth-code/smooth-doc/commit/8c49b11))
+
 ### [2.10.2](https://github.com/smooth-code/smooth-doc/compare/v2.10.1...v2.10.2) (2019-09-26)
 
 
