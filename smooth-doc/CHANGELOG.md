@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.13.0](https://github.com/smooth-code/smooth-doc/compare/v2.12.3...v2.13.0) (2019-10-01)
+
+
+### Features
+
+* standalone mode ([17877ac](https://github.com/smooth-code/smooth-doc/commit/17877ac))
+
 ### [2.12.3](https://github.com/smooth-code/smooth-doc/compare/v2.12.2...v2.12.3) (2019-09-26)
 
 
