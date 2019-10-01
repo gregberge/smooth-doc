@@ -24,5 +24,8 @@
     "eslint-plugin-react-hooks": "^2.1.1",
     "prettier": "^1.17.0",
     "standard-version": "^7.0.0"
+  },
+  "dependencies": {
+    "gatsby-plugin-algolia-docsearch": "^1.0.5"
   }
 }

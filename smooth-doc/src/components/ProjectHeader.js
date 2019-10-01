@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { css, useColorMode } from '@xstyled/styled-components'
+import styled, { css, useColorMode, Box } from '@xstyled/styled-components'
 import { th, up } from '@xstyled/system'
-import { Grid } from '@smooth-ui/core-sc'
+import { Grid, Input } from '@smooth-ui/core-sc'
 import GithubBrands from './icons/GithubBrands'
 import SunSolid from './icons/SunSolid'
 import MoonSolid from './icons/MoonSolid'
@@ -22,6 +22,7 @@ const QUERY = graphql`
       siteMetadata {
         title
         github
+        enableDocSearch
         nav {
           title
           url
@@ -71,7 +72,7 @@ const LogoText = styled.h2`
 
 const Nav = styled.nav`
   height: 34;
-  margin-left: auto;
+  margin-left: 12;
   position: relative;
   mask-image: linear-gradient(
     to right,
@@ -149,20 +150,29 @@ function ColorModeSwitcher() {
 }
 
 export function ProjectHeader() {
+  const data = useStaticQuery(QUERY)
   return (
-    <StaticQuery
-      query={QUERY}
-      render={data => (
-        <Container>
-          <Grid gutter={20}>
-            <Header>
-              <LogoLink to="/">
-                <Img
-                  fixed={data.logo.childImageSharp.fixed}
-                  alt={data.site.siteMetadata.title}
-                />
-                <LogoText>{data.site.siteMetadata.title}</LogoText>
-              </LogoLink>
+    <>
+      <Container>
+        <Grid gutter={20}>
+          <Header>
+            <LogoLink to="/">
+              <Img
+                fixed={data.logo.childImageSharp.fixed}
+                alt={data.site.siteMetadata.title}
+              />
+              <LogoText>{data.site.siteMetadata.title}</LogoText>
+            </LogoLink>
+            <Box display="flex" flex={1} justifyContent="flex-end">
+              <Input
+                ml="auto"
+                type="text"
+                id="algoliaInput"
+                placeholder="search"
+                display={
+                  data.site.siteMetadata.enableDocSearch ? 'block' : 'none'
+                }
+              />
               <Nav>
                 <NavList>
                   {data.site.siteMetadata.nav.map(({ title, url }) => (
@@ -170,7 +180,6 @@ export function ProjectHeader() {
                       <Link to={url}>{title}</Link>
                     </NavListItem>
                   ))}
-
                   <NavListItem>
                     <a
                       href={data.site.siteMetadata.github}
@@ -180,16 +189,15 @@ export function ProjectHeader() {
                       <GithubBrands width="24" height="24" />
                     </a>
                   </NavListItem>
-
                   <NavListItem>
                     <ColorModeSwitcher />
                   </NavListItem>
                 </NavList>
               </Nav>
-            </Header>
-          </Grid>
-        </Container>
-      )}
-    />
+            </Box>
+          </Header>
+        </Grid>
+      </Container>
+    </>
   )
 }
