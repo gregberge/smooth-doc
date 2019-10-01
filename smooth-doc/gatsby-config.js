@@ -8,6 +8,7 @@ module.exports = function config({
   menu = ['Usage'],
   nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
   codeFundProperty = 268,
+  standalone = false,
 } = {}) {
   return {
     siteMetadata: {
@@ -19,6 +20,7 @@ module.exports = function config({
       description,
       siteUrl,
       author,
+      standalone,
     },
     pathPrefix: `/open-source/${slug}`,
     plugins: [

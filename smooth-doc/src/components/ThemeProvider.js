@@ -10,9 +10,6 @@ export const theme = {
   transitions: {
     base: '300ms ease',
   },
-  sizes: {
-    'header-height': 122,
-  },
   colors: {
     bg: '#fff',
     'secondary-bg': '#f7f7f7',

@@ -56,7 +56,7 @@ const SidebarContainer = styled.div`
   transition-property: transform, opacity;
   position: fixed;
   opacity: 0;
-  height: calc(100vh - ${th.size('header-height')});
+  height: 100vh;
   width: 100vw;
   transform: translateY(${th.size(50)});
   pointer-events: none;
@@ -101,7 +101,7 @@ const SidebarWrapper = styled.div`
     css`
       padding-top: 0;
       position: fixed;
-      height: calc(100vh - ${th.size('header-height')});
+      height: 100vh;
       overflow-y: auto;
       z-index: 2;
       margin-right: -999;

@@ -3,6 +3,7 @@ module.exports = {
     {
       resolve: 'smooth-doc',
       options: {
+        standalone: false,
         name: 'Loadable Components',
         slug: 'loadable-components',
         author: 'Greg Bergé',
