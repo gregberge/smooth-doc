@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.14.0](https://github.com/smooth-code/smooth-doc/compare/v2.13.0...v2.14.0) (2019-10-02)
+
+
+### Features
+
+* add Algolia DocSearch ([#8](https://github.com/smooth-code/smooth-doc/issues/8)) ([582a31a](https://github.com/smooth-code/smooth-doc/commit/582a31a))
+
 ## [2.13.0](https://github.com/smooth-code/smooth-doc/compare/v2.12.3...v2.13.0) (2019-10-01)
 
 
