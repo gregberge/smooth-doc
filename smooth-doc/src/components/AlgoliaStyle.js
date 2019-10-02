@@ -1,6 +1,5 @@
 import { createGlobalStyle } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { transparentize } from 'polished'
 
 export const AlgoliaStyle = createGlobalStyle`
   .searchbox {
@@ -262,7 +261,7 @@ export const AlgoliaStyle = createGlobalStyle`
     .ds-dropdown-menu
     .ds-suggestion.ds-cursor
     .algolia-docsearch-suggestion.suggestion-layout-simple {
-    background-color: ${p => transparentize(0.95, th.color('primary')(p))};
+    background-color: rgba(189,73,50,0.05);
   }
 
   .algolia-autocomplete
@@ -270,7 +269,7 @@ export const AlgoliaStyle = createGlobalStyle`
     .ds-suggestion.ds-cursor
     .algolia-docsearch-suggestion:not(.suggestion-layout-simple)
     .algolia-docsearch-suggestion--content {
-    background-color: ${p => transparentize(0.95, th.color('primary')(p))};
+    background-color: rgba(189,73,50,0.05);
   }
 
   .algolia-autocomplete .ds-dropdown-menu [class^='ds-dataset-'] {
@@ -297,7 +296,7 @@ export const AlgoliaStyle = createGlobalStyle`
 
   .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
     color: primary;
-    background: ${p => transparentize(0.9, th.color('primary')(p))};
+    background: rgba(189,73,50,0.1);
     padding: 0.1em 0.05em;
   }
 
