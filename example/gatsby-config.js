@@ -19,6 +19,10 @@ module.exports = {
           },
           useCustomProperties: false,
         },
+        algoliaDocSearch: {
+          apiKey: '9a5b8a758fdc63c340972ae48583c2f9',
+          indexName: 'smooth-code-xstyled',
+        },
       },
     },
   ],

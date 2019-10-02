@@ -9,6 +9,7 @@ module.exports = function config({
   nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
   codeFundProperty = 268,
   standalone = false,
+  algoliaDocSearch = { apiKey: '', indexName: '' },
 } = {}) {
   return {
     siteMetadata: {
@@ -21,6 +22,10 @@ module.exports = function config({
       siteUrl,
       author,
       standalone,
+      algoliaDocSearch: {
+        enabled: Boolean(algoliaDocSearch.apiKey),
+        ...algoliaDocSearch,
+      },
     },
     pathPrefix: `/open-source/${slug}`,
     plugins: [
