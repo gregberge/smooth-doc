@@ -3,7 +3,8 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { css, useColorMode, Box } from '@xstyled/styled-components'
 import { th, up } from '@xstyled/system'
-import { Grid, Input } from '@smooth-ui/core-sc'
+import { Grid } from '@smooth-ui/core-sc'
+import { DocSearch } from './DocSearch'
 import GithubBrands from './icons/GithubBrands'
 import SunSolid from './icons/SunSolid'
 import MoonSolid from './icons/MoonSolid'
@@ -22,7 +23,11 @@ const QUERY = graphql`
       siteMetadata {
         title
         github
-        enableDocSearch
+        algoliaDocSearch {
+          enabled
+          apiKey
+          indexName
+        }
         nav {
           title
           url
@@ -164,15 +169,9 @@ export function ProjectHeader() {
               <LogoText>{data.site.siteMetadata.title}</LogoText>
             </LogoLink>
             <Box display="flex" flex={1} justifyContent="flex-end">
-              <Input
-                ml="auto"
-                type="text"
-                id="algoliaInput"
-                placeholder="search"
-                display={
-                  data.site.siteMetadata.enableDocSearch ? 'block' : 'none'
-                }
-              />
+              {data.site.siteMetadata.algoliaDocSearch.enabled && (
+                <DocSearch {...data.site.siteMetadata.algoliaDocSearch} />
+              )}
               <Nav>
                 <NavList>
                   {data.site.siteMetadata.nav.map(({ title, url }) => (

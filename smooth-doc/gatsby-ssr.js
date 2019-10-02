@@ -6,6 +6,27 @@ export const wrapRootElement = ({ element }, { theme }) => {
   return <RootWrapper theme={theme}>{element}</RootWrapper>
 }
 
-export const onRenderBody = ({ setPreBodyComponents }) => {
+export const onRenderBody = (
+  { setPreBodyComponents, setPostBodyComponents, setHeadComponents },
+  { algoliaDocSearch },
+) => {
   setPreBodyComponents([getColorModeInitScriptElement()])
+
+  if (algoliaDocSearch) {
+    setHeadComponents([
+      <link
+        key="plugin-docsearch-css"
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+      />,
+    ])
+
+    setPostBodyComponents([
+      <script
+        key="plugin-docsearch-js"
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
+      />,
+    ])
+  }
 }
