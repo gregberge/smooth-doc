@@ -7,20 +7,12 @@ export const wrapRootElement = ({ element }, { theme }) => {
 }
 
 export const onRenderBody = (
-  { setPreBodyComponents, setPostBodyComponents, setHeadComponents },
+  { setPreBodyComponents, setPostBodyComponents },
   { algoliaDocSearch },
 ) => {
   setPreBodyComponents([getColorModeInitScriptElement()])
 
   if (algoliaDocSearch) {
-    setHeadComponents([
-      <link
-        key="plugin-docsearch-css"
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
-      />,
-    ])
-
     setPostBodyComponents([
       <script
         key="plugin-docsearch-js"

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { css, useColorMode, Box } from '@xstyled/styled-components'
+import styled, { Box, css, useColorMode } from '@xstyled/styled-components'
 import { th, up } from '@xstyled/system'
 import { Grid } from '@smooth-ui/core-sc'
 import { DocSearch } from './DocSearch'
@@ -77,16 +77,16 @@ const LogoText = styled.h2`
 
 const Nav = styled.nav`
   height: 34;
-  margin-left: 12;
+  margin-left: 10;
   position: relative;
   mask-image: linear-gradient(
     to right,
     transparent,
-    ${th.color('text')} ${th.size(20)},
-    ${th.color('text')} 90%,
+    ${th.color('text')} 5%,
+    ${th.color('text')} 95%,
     transparent
   );
-  overflow-y: auto;
+  overflow-x: auto;
 
   ${up(
     'sm',
@@ -168,32 +168,32 @@ export function ProjectHeader() {
               />
               <LogoText>{data.site.siteMetadata.title}</LogoText>
             </LogoLink>
-            <Box display="flex" flex={1} justifyContent="flex-end">
+            <Box ml="auto">
               {data.site.siteMetadata.algoliaDocSearch.enabled && (
                 <DocSearch {...data.site.siteMetadata.algoliaDocSearch} />
               )}
-              <Nav>
-                <NavList>
-                  {data.site.siteMetadata.nav.map(({ title, url }) => (
-                    <NavListItem key={title}>
-                      <Link to={url}>{title}</Link>
-                    </NavListItem>
-                  ))}
-                  <NavListItem>
-                    <a
-                      href={data.site.siteMetadata.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <GithubBrands width="24" height="24" />
-                    </a>
-                  </NavListItem>
-                  <NavListItem>
-                    <ColorModeSwitcher />
-                  </NavListItem>
-                </NavList>
-              </Nav>
             </Box>
+            <Nav>
+              <NavList>
+                {data.site.siteMetadata.nav.map(({ title, url }) => (
+                  <NavListItem key={title}>
+                    <Link to={url}>{title}</Link>
+                  </NavListItem>
+                ))}
+                <NavListItem>
+                  <a
+                    href={data.site.siteMetadata.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <GithubBrands width="24" height="24" />
+                  </a>
+                </NavListItem>
+                <NavListItem>
+                  <ColorModeSwitcher />
+                </NavListItem>
+              </NavList>
+            </Nav>
           </Header>
         </Grid>
       </Container>
