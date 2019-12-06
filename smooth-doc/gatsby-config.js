@@ -5,7 +5,7 @@ module.exports = function config({
   slug = 'smooth-doc',
   github = 'https://github.com/smooth-code/smooth-doc',
   description = 'Ready to use documentation theme for Gatsby.',
-  siteUrl = 'https://smooth-doc.com',
+  siteUrl: optionSiteUrl = 'https://smooth-doc.com',
   author = 'Greg Bergé',
   menu = ['Usage'],
   nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
@@ -14,6 +14,15 @@ module.exports = function config({
   googleAnalytics = '',
   algoliaDocSearch = { apiKey: '', indexName: '' },
 } = {}) {
+  const {
+    NODE_ENV,
+    URL: NETLIFY_SITE_URL = optionSiteUrl,
+    DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+    CONTEXT: NETLIFY_ENV = NODE_ENV,
+  } = process.env
+  const isNetlifyProduction = NETLIFY_ENV === 'production'
+  const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+
   return {
     siteMetadata: {
       title: name,
@@ -130,7 +139,22 @@ module.exports = function config({
       {
         resolve: 'gatsby-plugin-robots-txt',
         options: {
-          policy: [{ userAgent: '*', allow: '/' }],
+          resolveEnv: () => NETLIFY_ENV,
+          env: {
+            production: {
+              policy: [{ userAgent: '*' }],
+            },
+            'branch-deploy': {
+              policy: [{ userAgent: '*', disallow: ['/'] }],
+              sitemap: null,
+              host: null,
+            },
+            'deploy-preview': {
+              policy: [{ userAgent: '*', disallow: ['/'] }],
+              sitemap: null,
+              host: null,
+            },
+          },
         },
       },
       ...(googleAnalytics
