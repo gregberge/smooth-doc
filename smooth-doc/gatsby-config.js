@@ -93,6 +93,13 @@ module.exports = function config({
         resolve: 'gatsby-source-filesystem',
         options: {
           name: 'images',
+          path: `./src/images`,
+        },
+      },
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          name: 'images',
           path: `${__dirname}/src/images`,
         },
       },
@@ -109,13 +116,6 @@ module.exports = function config({
         options: {
           name: 'docs',
           path: `./src/pages/docs`,
-        },
-      },
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          name: 'images',
-          path: `./src/images`,
         },
       },
       {
