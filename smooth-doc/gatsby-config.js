@@ -11,6 +11,7 @@ module.exports = function config({
   nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
   codeFundProperty = '',
   theme: { colors: { primary = '#bd4932' } = {} } = {},
+  googleAnalytics = '',
   algoliaDocSearch = { apiKey: '', indexName: '' },
 } = {}) {
   return {
@@ -139,12 +140,16 @@ module.exports = function config({
           ],
         },
       },
-      {
-        resolve: `gatsby-plugin-google-analytics`,
-        options: {
-          trackingId: 'UA-101358560-1',
-        },
-      },
+      ...(googleAnalytics
+        ? [
+            {
+              resolve: `gatsby-plugin-google-analytics`,
+              options: {
+                trackingId: googleAnalytics,
+              },
+            },
+          ]
+        : []),
     ],
   }
 }
