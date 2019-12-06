@@ -1,26 +1,23 @@
-import React from 'react'
 import { createGlobalStyle } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
-import { Normalize } from '@smooth-ui/core-sc'
+import { normalize } from 'polished'
 
-const LocalGlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
+  ${normalize()}
+
+  * {
+    box-sizing: border-box;
+  }
+
   html, body {
     margin: 0;
-    color: ${th.color('text')};
+    font-family: base;
+    color: text;
     line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
   }
 
   a, a:hover {
-    color: ${th.color('primary')};
+    color: primary;
     text-decoration: none;
   }
 `
-
-export function GlobalStyle() {
-  return (
-    <>
-      <Normalize />
-      <LocalGlobalStyle />
-    </>
-  )
-}

@@ -1,7 +1,6 @@
 import React from 'react'
-import styled, { css } from '@xstyled/styled-components'
-import { up, th } from '@xstyled/system'
-import { Grid } from '@smooth-ui/core-sc'
+import styled, { css, up, th } from '@xstyled/styled-components'
+import { Container } from './Container'
 import { Sidebar } from './Sidebar'
 import { BaseLayout } from './BaseLayout'
 import { Article } from './Article'
@@ -101,7 +100,7 @@ const SidebarWrapper = styled.div`
     css`
       padding-top: 0;
       position: fixed;
-      height: 100vh;
+      height: calc(100vh - 70px);
       overflow-y: auto;
       z-index: 2;
       margin-right: -999;
@@ -169,7 +168,7 @@ export function DocLayout({ children, ...props }) {
   return (
     <MenuProvider>
       <BaseLayout variant="light" {...props}>
-        <Grid gutter={0}>
+        <Container px={0}>
           <Wrapper>
             <ArticleContainer>
               <Article>
@@ -195,7 +194,7 @@ export function DocLayout({ children, ...props }) {
               )}
             </MenuConsumer>
           </Wrapper>
-        </Grid>
+        </Container>
       </BaseLayout>
     </MenuProvider>
   )

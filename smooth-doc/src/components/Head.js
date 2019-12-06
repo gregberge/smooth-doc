@@ -18,7 +18,11 @@ export function Head({ pageContext }) {
       query={QUERY}
       render={data => (
         <Seo
-          title={`${pageContext.frontmatter.title} - ${data.site.siteMetadata.title}`}
+          title={
+            pageContext && pageContext.frontmatter
+              ? `${pageContext.frontmatter.title} - ${data.site.siteMetadata.title}`
+              : data.site.siteMetadata.title
+          }
         />
       )}
     />

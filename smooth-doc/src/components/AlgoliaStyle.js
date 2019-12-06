@@ -1,5 +1,4 @@
-import { createGlobalStyle } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { createGlobalStyle, th } from '@xstyled/styled-components'
 
 export const AlgoliaStyle = createGlobalStyle`
   .searchbox {

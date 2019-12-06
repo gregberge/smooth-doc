@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { up, down } from '@xstyled/system'
+import styled, { css, up, down } from '@xstyled/styled-components'
 
 export const Article = styled.article`
   > p {
@@ -266,6 +265,10 @@ export const Article = styled.article`
 
       &:first-of-type {
         margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }

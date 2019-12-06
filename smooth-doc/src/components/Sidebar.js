@@ -1,7 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import styled, { css } from '@xstyled/styled-components'
-import { up } from '@xstyled/system'
+import styled, { css, up } from '@xstyled/styled-components'
 
 const QUERY = graphql`
   query Sidebar {

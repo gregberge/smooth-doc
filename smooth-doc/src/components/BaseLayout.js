@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from '@xstyled/styled-components'
-import { WebsiteHeader } from './WebsiteHeader'
 import { ProjectHeader } from './ProjectHeader'
 import { Head } from './Head'
 
-const Headers = styled.div`
+const HeaderContainer = styled.div`
   position: sticky;
   top: 0;
   left: 0;
@@ -27,10 +26,9 @@ export function BaseLayout({ children, pageContext, backgroundColor }) {
   return (
     <Container>
       <Head pageContext={pageContext} />
-      <Headers>
-        <WebsiteHeader />
+      <HeaderContainer>
         <ProjectHeader />
-      </Headers>
+      </HeaderContainer>
       <PageWrapper backgroundColor={backgroundColor}>{children}</PageWrapper>
     </Container>
   )

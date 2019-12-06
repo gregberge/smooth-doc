@@ -1,9 +1,14 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { Box, css, useColorMode } from '@xstyled/styled-components'
-import { th, up } from '@xstyled/system'
-import { Grid } from '@smooth-ui/core-sc'
+import styled, {
+  Box,
+  css,
+  useColorMode,
+  th,
+  up,
+} from '@xstyled/styled-components'
+import { Container } from './Container'
 import { DocSearch } from './DocSearch'
 import GithubBrands from './icons/GithubBrands'
 import SunSolid from './icons/SunSolid'
@@ -37,7 +42,7 @@ const QUERY = graphql`
   }
 `
 
-const Container = styled.div`
+const OutsideContainer = styled.div`
   background-color: bg;
   border-bottom: 1;
   border-color: border;
@@ -157,46 +162,44 @@ function ColorModeSwitcher() {
 export function ProjectHeader() {
   const data = useStaticQuery(QUERY)
   return (
-    <>
+    <OutsideContainer>
       <Container>
-        <Grid gutter={20}>
-          <Header>
-            <LogoLink to="/">
-              <Img
-                fixed={data.logo.childImageSharp.fixed}
-                alt={data.site.siteMetadata.title}
-              />
-              <LogoText>{data.site.siteMetadata.title}</LogoText>
-            </LogoLink>
-            <Box ml="auto">
-              {data.site.siteMetadata.algoliaDocSearch.enabled && (
-                <DocSearch {...data.site.siteMetadata.algoliaDocSearch} />
-              )}
-            </Box>
-            <Nav>
-              <NavList>
-                {data.site.siteMetadata.nav.map(({ title, url }) => (
-                  <NavListItem key={title}>
-                    <Link to={url}>{title}</Link>
-                  </NavListItem>
-                ))}
-                <NavListItem>
-                  <a
-                    href={data.site.siteMetadata.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <GithubBrands width="24" height="24" />
-                  </a>
+        <Header>
+          <LogoLink to="/">
+            <Img
+              fixed={data.logo.childImageSharp.fixed}
+              alt={data.site.siteMetadata.title}
+            />
+            <LogoText>{data.site.siteMetadata.title}</LogoText>
+          </LogoLink>
+          <Box ml="auto">
+            {data.site.siteMetadata.algoliaDocSearch.enabled && (
+              <DocSearch {...data.site.siteMetadata.algoliaDocSearch} />
+            )}
+          </Box>
+          <Nav>
+            <NavList>
+              {data.site.siteMetadata.nav.map(({ title, url }) => (
+                <NavListItem key={title}>
+                  <Link to={url}>{title}</Link>
                 </NavListItem>
-                <NavListItem>
-                  <ColorModeSwitcher />
-                </NavListItem>
-              </NavList>
-            </Nav>
-          </Header>
-        </Grid>
+              ))}
+              <NavListItem>
+                <a
+                  href={data.site.siteMetadata.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GithubBrands width="24" height="24" />
+                </a>
+              </NavListItem>
+              <NavListItem>
+                <ColorModeSwitcher />
+              </NavListItem>
+            </NavList>
+          </Nav>
+        </Header>
       </Container>
-    </>
+    </OutsideContainer>
   )
 }

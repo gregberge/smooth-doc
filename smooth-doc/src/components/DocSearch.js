@@ -1,6 +1,5 @@
 import React from 'react'
-import styled, { css } from '@xstyled/styled-components'
-import { th, down } from '@xstyled/system'
+import styled, { css, th, down } from '@xstyled/styled-components'
 import SearchSolid from './icons/SearchSolid'
 import { AlgoliaStyle } from './AlgoliaStyle'
 

@@ -28,7 +28,9 @@ export default function SEO({ title }) {
   const metaDescription = data.site.siteMetadata.description
   const metaTitle = title || data.site.siteMetadata.title
   const url = data.site.siteMetadata.siteUrl
-  const image = url + data.socialImage.childImageSharp.fixed.src
+  const image = data.socialImage
+    ? url + data.socialImage.childImageSharp.fixed.src
+    : null
   return (
     <Helmet
       htmlAttributes={{ lang: 'en' }}
@@ -54,18 +56,23 @@ export default function SEO({ title }) {
           property: 'og:type',
           content: 'website',
         },
-        {
-          property: 'og:image',
-          content: image,
-        },
-        {
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          name: 'twitter:image:src',
-          content: image,
-        },
+        ...(image
+          ? [
+              {
+                property: 'og:image',
+                content: image,
+              },
+              {
+                name: 'twitter:card',
+                content: 'summary_large_image',
+              },
+              {
+                name: 'twitter:image:src',
+                content: image,
+              },
+            ]
+          : []),
+
         {
           name: 'twitter:creator',
           content: data.site.siteMetadata.author,

@@ -1,10 +1,10 @@
 import React from 'react'
-import { Grid } from '@smooth-ui/core-sc'
+import { Container } from './Container'
 import { Article } from './Article'
 
 export function NotFound() {
   return (
-    <Grid gutter={20}>
+    <Container>
       <Article style={{ textAlign: 'center', overflow: 'hidden' }}>
         <h1>404</h1>
         <p style={{ textAlign: 'center', margin: '20px auto' }}>
@@ -22,6 +22,6 @@ export function NotFound() {
           URL and let them know their link is broken.
         </p>
       </Article>
-    </Grid>
+    </Container>
   )
 }

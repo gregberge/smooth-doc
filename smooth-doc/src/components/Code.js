@@ -3,8 +3,8 @@ import styled, {
   css,
   ThemeContext,
   useColorMode,
+  up,
 } from '@xstyled/styled-components'
-import { up } from '@xstyled/system'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import {
   LiveProvider,

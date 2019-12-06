@@ -1,12 +1,18 @@
 import React from 'react'
 import { transparentize } from 'polished'
-import { ThemeProvider as SCThemeProvider } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import {
+  ThemeProvider as SCThemeProvider,
+  th,
+} from '@xstyled/styled-components'
 import deepmerge from 'deepmerge'
 
 export const theme = {
   initialColorModeName: 'light',
   space: {},
+  fonts: {
+    base:
+      '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',
+  },
   transitions: {
     base: '300ms ease',
   },

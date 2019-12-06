@@ -1,4 +1,4 @@
-import { th } from '@xstyled/system'
+import { th } from '@xstyled/styled-components'
 
 const light = {
   styles: [
