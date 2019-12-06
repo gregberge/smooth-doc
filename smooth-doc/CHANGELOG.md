@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/smooth-code/smooth-doc/compare/v3.0.1...v3.1.0) (2019-12-06)
+
+
+### Features
+
+* make google analytics configurable ([798ad62](https://github.com/smooth-code/smooth-doc/commit/798ad627fb02d650e49af93469e5d7853501eea5))
+
 ### [3.0.1](https://github.com/smooth-code/smooth-doc/compare/v3.0.0...v3.0.1) (2019-12-06)
 
 
