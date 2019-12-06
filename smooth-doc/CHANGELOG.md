@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/smooth-code/smooth-doc/compare/v3.2.0...v3.2.1) (2019-12-06)
+
+
+### Bug Fixes
+
+* fix allow indexing ([d2aef1e](https://github.com/smooth-code/smooth-doc/commit/d2aef1e61aadb5aa3ed8bdd5914ab0db4a8144f1))
+
 ## [3.2.0](https://github.com/smooth-code/smooth-doc/compare/v3.1.1...v3.2.0) (2019-12-06)
 
 
