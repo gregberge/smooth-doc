@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/smooth-code/smooth-doc/compare/v3.0.0...v3.0.1) (2019-12-06)
+
+
+### Bug Fixes
+
+* fix image overriding ([bc6d9c4](https://github.com/smooth-code/smooth-doc/commit/bc6d9c4899469402d3affa63023b5c09a632be65))
+
 ## [3.0.0](https://github.com/smooth-code/smooth-doc/compare/v2.14.2...v3.0.0) (2019-12-06)
 
 
