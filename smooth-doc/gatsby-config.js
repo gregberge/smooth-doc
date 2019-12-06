@@ -127,19 +127,7 @@ module.exports = function config({
       'gatsby-transformer-sharp',
       'gatsby-plugin-sharp',
       'gatsby-plugin-meta-redirect',
-      {
-        resolve: 'gatsby-plugin-robots-txt',
-        options: {
-          sitemap: null,
-          host: null,
-          policy: [
-            {
-              userAgent: '*',
-              disallow: '/',
-            },
-          ],
-        },
-      },
+      'gatsby-plugin-robots-txt',
       ...(googleAnalytics
         ? [
             {
