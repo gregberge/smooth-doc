@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/smooth-code/smooth-doc/compare/v2.14.2...v3.0.0) (2019-12-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* mixed mode is no longer supported.
+
+### Features
+
+* upgrade, fix bugs & only standalone mode ([ffb9d35](https://github.com/smooth-code/smooth-doc/commit/ffb9d35cc4698b007f3950bf4aa251ae4fadcb87))
+
 ### [2.14.2](https://github.com/smooth-code/smooth-doc/compare/v2.14.1...v2.14.2) (2019-10-02)
 
 
