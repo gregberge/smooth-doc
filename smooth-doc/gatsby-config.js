@@ -127,7 +127,12 @@ module.exports = function config({
       'gatsby-transformer-sharp',
       'gatsby-plugin-sharp',
       'gatsby-plugin-meta-redirect',
-      'gatsby-plugin-robots-txt',
+      {
+        resolve: 'gatsby-plugin-robots-txt',
+        options: {
+          policy: [{ userAgent: '*', allow: '/' }],
+        },
+      },
       ...(googleAnalytics
         ? [
             {
