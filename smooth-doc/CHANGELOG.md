@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/smooth-code/smooth-doc/compare/v3.1.0...v3.1.1) (2019-12-06)
+
+
+### Bug Fixes
+
+* remove button from pages ([8dc5e8e](https://github.com/smooth-code/smooth-doc/commit/8dc5e8e3129be70e02a133c7f319e285ad5b9f9e))
+
 ## [3.1.0](https://github.com/smooth-code/smooth-doc/compare/v3.0.1...v3.1.0) (2019-12-06)
 
 
