@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/smooth-code/smooth-doc/compare/v3.3.0...v4.0.0) (2020-07-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove codeFundProperty, add carbonAdUrl
+
+### Features
+
+* carbon ad support ([#9](https://github.com/smooth-code/smooth-doc/issues/9)) ([6b0f655](https://github.com/smooth-code/smooth-doc/commit/6b0f655bca8d747ceee3bc9ab330a1ed7f9f00df))
+* disallow indexing on preview branches ([598cae4](https://github.com/smooth-code/smooth-doc/commit/598cae4562c59af8322dc5d01a5c1930021d23a9))
+
 ## [3.3.0](https://github.com/smooth-code/smooth-doc/compare/v3.2.1...v3.3.0) (2019-12-06)
 
 

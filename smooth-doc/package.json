@@ -1,6 +1,6 @@
 {
   "name": "smooth-doc",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "main": "index.js",
   "repository": "git@github.com:smooth-code/smooth-doc.git",
   "author": "Greg Bergé <greg@smooth-code.com>",
