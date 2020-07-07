@@ -62,6 +62,12 @@ const GlobalStyle = createGlobalStyle`
     font-size: 9px;
     line-height: 1;
   }
+
+  .xstyled-color-mode-dark {
+    #carbonads {
+      background-color: hsl(0, 0%, 10%);
+    }
+  }
 `
 
 const QUERY = graphql`

@@ -1,5 +1,6 @@
 export * from './Article'
 export * from './BaseLayout'
+export * from './CarbonAd'
 export * from './DocLayout'
 export * from './Code'
 export * from './GlobalStyle'
