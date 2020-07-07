@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/smooth-code/smooth-doc/compare/v4.0.0...v4.0.1) (2020-07-07)
+
+
+### Bug Fixes
+
+* fix ad rendering on dark mode ([99d5fb1](https://github.com/smooth-code/smooth-doc/commit/99d5fb1653717e50bd2e0ee8c8530c9df3165fa3))
+
 ## [4.0.0](https://github.com/smooth-code/smooth-doc/compare/v3.3.0...v4.0.0) (2020-07-07)
 
 
