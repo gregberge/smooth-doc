@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SvgSunSolid = props => (
+const SvgSunSolid = (props) => (
   <svg
     aria-hidden="true"
     data-prefix="fas"

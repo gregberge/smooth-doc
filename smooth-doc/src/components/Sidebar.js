@@ -29,7 +29,7 @@ const QUERY = graphql`
 `
 
 const createOrFindGroup = (name, groups) => {
-  let group = groups.find(group => group.name === name)
+  let group = groups.find((group) => group.name === name)
   if (!group) {
     group = { name, pages: [] }
     groups.push(group)
@@ -43,7 +43,7 @@ const sortByOrder = (a, b) => {
   return diff === 0 ? 0 : diff > 0 ? 1 : -1
 }
 
-const pagesToNavGroups = pages =>
+const pagesToNavGroups = (pages) =>
   pages.reduce((groups, page) => {
     if (!page.context.frontmatter.menu) {
       return groups
@@ -105,7 +105,7 @@ const NavGroupMenuItem = styled.li`
   }
 `
 
-const sortGroupsWithConfig = menu => (a, b) => {
+const sortGroupsWithConfig = (menu) => (a, b) => {
   const indexA = menu.indexOf(a.name)
   const indexB = menu.indexOf(b.name)
   const diff = indexA - indexB
@@ -116,22 +116,22 @@ export function Sidebar() {
   return (
     <StaticQuery
       query={QUERY}
-      render={data => {
+      render={(data) => {
         const navGroups = pagesToNavGroups(
           data.allSitePage.edges
-            .map(edge => edge.node)
-            .filter(node => node.context && node.context.frontmatter),
+            .map((edge) => edge.node)
+            .filter((node) => node.context && node.context.frontmatter),
         )
 
         navGroups.sort(sortGroupsWithConfig(data.site.siteMetadata.menu))
 
         return (
           <Nav>
-            {navGroups.map(navGroup => (
+            {navGroups.map((navGroup) => (
               <NavGroup key={navGroup.name}>
                 <NavGroupTitle>{navGroup.name}</NavGroupTitle>
                 <NavGroupMenu>
-                  {navGroup.pages.map(page => (
+                  {navGroup.pages.map((page) => (
                     <NavGroupMenuItem key={page.id}>
                       <Link activeClassName="active" to={page.path}>
                         {page.context.frontmatter.title}

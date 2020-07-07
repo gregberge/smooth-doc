@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SvgMoonSolid = props => (
+const SvgMoonSolid = (props) => (
   <svg
     aria-hidden="true"
     data-prefix="fas"

@@ -25,12 +25,12 @@ export const theme = {
     'editor-text': '#403f53',
     'editor-bg': '#f4f4f4',
     blockquote: '#ffe564',
-    'blockquote-bg': p => transparentize(0.7, th.color('blockquote')(p)),
+    'blockquote-bg': (p) => transparentize(0.7, th.color('blockquote')(p)),
     subtitle: '#6d6d6d',
     'home-hero-img-bg': 'transparent',
     'nav-link': th.color('text'),
-    'nav-link-hover': p => transparentize(0.3, th.color('nav-link')(p)),
-    'menu-button-shadow': p => transparentize(0.7, th.color('text')(p)),
+    'nav-link-hover': (p) => transparentize(0.3, th.color('nav-link')(p)),
+    'menu-button-shadow': (p) => transparentize(0.7, th.color('text')(p)),
     modes: {
       dark: {
         primary: '#ff6042',

@@ -8,7 +8,7 @@ function createDirectoryIfNotExists({ reporter }, pathname) {
 }
 
 // Make sure the data directory exists
-exports.onPreBootstrap = options => {
+exports.onPreBootstrap = (options) => {
   // Create all required directories
   createDirectoryIfNotExists(options, 'src')
   createDirectoryIfNotExists(options, 'src/pages')

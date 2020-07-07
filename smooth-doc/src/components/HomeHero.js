@@ -59,7 +59,7 @@ export function HomeHero({ title, plainBg }) {
   return (
     <StaticQuery
       query={QUERY}
-      render={data => {
+      render={(data) => {
         const logo = getLogo(data, mode)
         if (!logo) return null
         return (

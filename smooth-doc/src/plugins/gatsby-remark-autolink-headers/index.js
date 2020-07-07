@@ -18,7 +18,7 @@ module.exports = (
 ) => {
   slugs.reset()
 
-  visit(markdownAST, `heading`, node => {
+  visit(markdownAST, `heading`, (node) => {
     const id = slugs.slug(toString(node), maintainCase)
     const data = patch(node, `data`, {})
 

@@ -111,7 +111,7 @@ export function Code({ children, lang = 'markup', live, noInline }) {
     return (
       <LiveProvider
         code={children.trim()}
-        transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
+        transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
         scope={{ mdx, require: req }}
         language={lang}
         theme={prismTheme}

@@ -16,7 +16,7 @@ export function Head({ pageContext }) {
   return (
     <StaticQuery
       query={QUERY}
-      render={data => (
+      render={(data) => (
         <Seo
           title={
             pageContext && pageContext.frontmatter
