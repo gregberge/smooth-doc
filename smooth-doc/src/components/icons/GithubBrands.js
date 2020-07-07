@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SvgGithubBrands = props => (
+const SvgGithubBrands = (props) => (
   <svg
     aria-hidden="true"
     data-prefix="fab"

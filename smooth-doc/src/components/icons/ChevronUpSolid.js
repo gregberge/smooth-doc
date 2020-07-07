@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SvgChevronUpSolid = props => (
+const SvgChevronUpSolid = (props) => (
   <svg
     aria-hidden="true"
     data-prefix="fas"

@@ -6,7 +6,7 @@ import { BaseLayout } from './BaseLayout'
 import { Article } from './Article'
 import { MenuProvider, MenuConsumer } from './MenuContext'
 import ChevronUpSolid from './icons/ChevronUpSolid'
-import { CodeFund } from './CodeFund'
+import { CarbonAd } from './CarbonAd'
 
 const FloatingAd = styled.div`
   display: none;
@@ -16,21 +16,9 @@ const FloatingAd = styled.div`
     css`
       float: right;
       display: block;
-      width: 200;
       margin-right: -36;
     `,
   )}
-
-  @media only screen and (min-width: 1560px) {
-    ${up(
-      'xl',
-      css`
-        position: fixed;
-        bottom: 0;
-        left: 0;
-      `,
-    )}
-  }
 `
 
 const Wrapper = styled.div`
@@ -61,7 +49,7 @@ const SidebarContainer = styled.div`
   pointer-events: none;
   overflow-y: auto;
 
-  ${p =>
+  ${(p) =>
     p.opened &&
     css`
       pointer-events: auto;
@@ -144,7 +132,7 @@ const MenuButton = styled.button`
     transform: translate(-1px) rotate(180deg);
   }
 
-  ${p =>
+  ${(p) =>
     p.active &&
     css`
       > svg:first-child {
@@ -173,7 +161,7 @@ export function DocLayout({ children, ...props }) {
             <ArticleContainer>
               <Article>
                 <FloatingAd>
-                  <CodeFund />
+                  <CarbonAd />
                 </FloatingAd>
                 {children}
               </Article>

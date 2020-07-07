@@ -56,7 +56,7 @@ const Input = styled.input`
       border-color: transparent;
 
       &:focus {
-        width: ${p => p['data-width']}px;
+        width: ${(p) => p['data-width']}px;
         padding-left: 30;
         background-color: secondary-bg;
         border-color: border;
