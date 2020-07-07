@@ -20,12 +20,8 @@ export function RootWrapper({ children, theme }) {
   return (
     <ThemeProvider theme={theme}>
       <ColorModeProvider>
-        <MDXProvider components={components}>
-          <>
-            <GlobalStyle />
-            {children}
-          </>
-        </MDXProvider>
+        <GlobalStyle />
+        <MDXProvider components={components}>{children}</MDXProvider>
       </ColorModeProvider>
     </ThemeProvider>
   )

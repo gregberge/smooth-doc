@@ -45,9 +45,9 @@ module.exports = function config({
           modules: ['smooth-doc'],
         },
       },
+      'gatsby-plugin-styled-components',
       'gatsby-plugin-sitemap',
       'gatsby-plugin-resolve-src',
-      'gatsby-plugin-styled-components',
       'gatsby-plugin-react-helmet',
       {
         resolve: 'gatsby-plugin-mdx',
