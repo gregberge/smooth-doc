@@ -16,7 +16,7 @@ const FloatingAd = styled.div`
     css`
       float: right;
       display: block;
-      margin-right: -36;
+      margin-right: -20px;
     `,
   )}
 `

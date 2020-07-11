@@ -18,6 +18,7 @@ export const theme = {
   },
   colors: {
     bg: '#fff',
+    adsBg: 'hsl(0, 0%, 98%)',
     'secondary-bg': '#f7f7f7',
     primary: '#bd4932',
     border: '#ececec',
@@ -35,6 +36,7 @@ export const theme = {
       dark: {
         primary: '#ff6042',
         bg: '#000',
+        adsBg: 'hsl(0, 0%, 10%)',
         subtitle: '#eee',
         'secondary-bg': '#111',
         border: '#333',

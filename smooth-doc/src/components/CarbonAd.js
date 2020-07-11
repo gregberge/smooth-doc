@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   #carbonads {
     display: flex;
     max-width: 330px;
-    background-color: hsl(0, 0%, 98%);
+    background-color: adsBg;
     box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, .1);
   }
 
@@ -62,12 +62,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 9px;
     line-height: 1;
   }
-
-  .xstyled-color-mode-dark {
-    #carbonads {
-      background-color: hsl(0, 0%, 10%);
-    }
-  }
 `
 
 const QUERY = graphql`
@@ -95,7 +89,7 @@ function InnerCarbonAd({ url }) {
   }, [url])
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle colorMode="dark" />
       <div ref={ref} />
     </>
   )
