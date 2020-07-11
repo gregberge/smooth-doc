@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.3](https://github.com/smooth-code/smooth-doc/compare/v4.0.2...v4.0.3) (2020-07-11)
+
+
+### Bug Fixes
+
+* fix ads display ([ac0670e](https://github.com/smooth-code/smooth-doc/commit/ac0670ec62fa198d5f6192e6b61f113369833f2d))
+
 ### [4.0.2](https://github.com/smooth-code/smooth-doc/compare/v4.0.1...v4.0.2) (2020-07-07)
 
 
