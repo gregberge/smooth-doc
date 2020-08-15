@@ -1,10 +1,11 @@
 import React from 'react'
-import styled, { css, up, th } from '@xstyled/styled-components'
+import styled, { css, up, th, useUp } from '@xstyled/styled-components'
+import { useDialogState, Dialog, DialogDisclosure } from 'reakit/Dialog'
+import { Portal } from 'reakit/Portal'
 import { Container } from './Container'
 import { Sidebar } from './Sidebar'
 import { BaseLayout } from './BaseLayout'
 import { Article } from './Article'
-import { MenuProvider, MenuConsumer } from './MenuContext'
 import ChevronUpSolid from './icons/ChevronUpSolid'
 import { CarbonAd } from './CarbonAd'
 
@@ -35,43 +36,28 @@ const ArticleContainer = styled.div`
   word-wrap: break-word;
 `
 
+const SidebarDialog = styled.div`
+  background-color: secondary-bg;
+  position: fixed;
+  top: 67;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  overflow: auto;
+
+  &:focus {
+    outline: none;
+  }
+`
+
 const SidebarContainer = styled.div`
   background-color: secondary-bg;
   border-left: 1;
   border-color: border;
-  transition: base;
-  transition-property: transform, opacity;
-  position: fixed;
-  opacity: 0;
-  height: 100vh;
-  width: 100vw;
-  transform: translateY(${th.size(50)});
-  pointer-events: none;
-  overflow-y: auto;
-
-  ${(p) =>
-    p.opened &&
-    css`
-      pointer-events: auto;
-      transform: translateY(0);
-      opacity: 1;
-    `}
-
-  ${up(
-    'sm',
-    css`
-      overflow-y: visible;
-      height: auto;
-      pointer-events: auto;
-      transform: none;
-      width: auto;
-      opacity: 1;
-      position: relative;
-      transform: none;
-      flex: 0 0 ${th.size(180)};
-      margin-left: 16;
-    `,
-  )}
+  position: relative;
+  flex: 0 0 ${th.size(180)};
+  margin-left: 16;
 
   ${up(
     'lg',
@@ -83,19 +69,13 @@ const SidebarContainer = styled.div`
 `
 
 const SidebarWrapper = styled.div`
-  ${up(
-    'sm',
-    css`
-      padding-top: 0;
-      position: fixed;
-      height: calc(100vh - 70px);
-      overflow-y: auto;
-      z-index: 2;
-      margin-right: -999;
-      padding-right: 999;
-      background-color: secondary-bg;
-    `,
-  )}
+  position: fixed;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+  z-index: 2;
+  margin-right: -999;
+  padding-right: 999;
+  background-color: secondary-bg;
 `
 
 const MenuButton = styled.button`
@@ -106,6 +86,7 @@ const MenuButton = styled.button`
   position: fixed;
   right: ${th.size(8)};
   bottom: ${th.size(8)};
+  z-index: 25;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -132,58 +113,59 @@ const MenuButton = styled.button`
     transform: translate(-1px) rotate(180deg);
   }
 
-  ${(p) =>
-    p.active &&
-    css`
-      > svg:first-child {
-        transform: translate(-1px, 10px);
-      }
+  &[aria-expanded='true'] {
+    > svg:first-child {
+      transform: translate(-1px, 10px);
+    }
 
-      > svg:last-child {
-        transform: translate(-1px, -10px) rotate(180deg);
-      }
-    `}
-
-  ${up(
-    'sm',
-    css`
-      display: none;
-    `,
-  )}
+    > svg:last-child {
+      transform: translate(-1px, -10px) rotate(180deg);
+    }
+  }
 `
 
-export function DocLayout({ children, ...props }) {
+function SidebarLogic() {
+  const dialog = useDialogState()
   return (
-    <MenuProvider>
-      <BaseLayout variant="light" {...props}>
-        <Container px={0}>
-          <Wrapper>
-            <ArticleContainer>
-              <Article>
-                <FloatingAd>
-                  <CarbonAd />
-                </FloatingAd>
-                {children}
-              </Article>
-            </ArticleContainer>
-            <MenuConsumer>
-              {({ opened, toggle }) => (
-                <>
-                  <SidebarContainer opened={opened}>
-                    <SidebarWrapper>
-                      <Sidebar />
-                    </SidebarWrapper>
-                  </SidebarContainer>
-                  <MenuButton active={opened} onClick={toggle}>
-                    <ChevronUpSolid width={15} height={15} />
-                    <ChevronUpSolid width={15} height={15} />
-                  </MenuButton>
-                </>
-              )}
-            </MenuConsumer>
-          </Wrapper>
-        </Container>
-      </BaseLayout>
-    </MenuProvider>
+    <>
+      <Dialog {...dialog} as={SidebarDialog}>
+        <Sidebar />
+      </Dialog>
+      <Portal>
+        <DialogDisclosure {...dialog} as={MenuButton}>
+          <ChevronUpSolid width={15} height={15} />
+          <ChevronUpSolid width={15} height={15} />
+        </DialogDisclosure>
+      </Portal>
+    </>
+  )
+}
+
+export function DocLayout({ children, ...props }) {
+  const sm = useUp('sm')
+  return (
+    <BaseLayout variant="light" {...props}>
+      <Container px={0}>
+        <Wrapper>
+          <ArticleContainer>
+            <Article>
+              <FloatingAd>
+                <CarbonAd />
+              </FloatingAd>
+              {children}
+            </Article>
+          </ArticleContainer>
+          {sm ? (
+            <SidebarContainer>
+              <SidebarWrapper>
+                <Sidebar />
+              </SidebarWrapper>
+            </SidebarContainer>
+          ) : (
+            <SidebarLogic />
+          )}
+        </Wrapper>
+      </Container>
+    </BaseLayout>
   )
 }
