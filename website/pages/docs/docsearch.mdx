@@ -1,0 +1,42 @@
+---
+title: DocSearch
+section: Guides
+slug: /docs/docsearch/
+order: 7
+---
+
+# DocSearch
+
+Setup DocSearch in your project.
+
+<carbon-ad />
+
+## Algolia DocSearch Program
+
+[DocSearch](https://docsearch.algolia.com/) is a powerful search system for open source project. It is free and backed by Algolia, every open source projects could use it.
+
+The first step is to [apply for Algolia DocSearch](https://docsearch.algolia.com/apply/).
+
+## Configure DocSearch
+
+Add DocSearch API Key and index name in `gatsby-config.js`:
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'smooth-doc',
+      options: {
+        // ...
+        docSearch: {
+          apiKey: '...',
+          indexName: '...',
+        },
+      },
+    },
+  ],
+}
+```
+
+You are done! A search input should be present in the header.

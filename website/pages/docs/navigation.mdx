@@ -1,0 +1,115 @@
+---
+title: Navigation
+section: Guides
+slug: /docs/navigation/
+order: 3
+---
+
+# Navigation
+
+Organize and sort header and side navigation.
+
+<carbon-ad />
+
+## Header navigation
+
+To display links in header navigation, use `navItems: { title: string, url: string }[]` option. It accepts either relative or absolute URLs.
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'smooth-doc',
+      options: {
+        // ...
+        navItems: [{ title: 'Docs', url: '/docs/' }],
+      },
+    },
+  ],
+}
+```
+
+### Completely customize header navigation
+
+Thanks to Gatsby theme shadowing, it is possible to override the `AppNav` component by creating a component in `src/smooth-doc/components/AppNav.js`.
+
+For example, this documentation defines this `AppNav.js`.
+
+```js
+import React from 'react'
+import {
+  Nav,
+  NavList,
+  NavListItem,
+  NavLink,
+  ColorModeSwitcher,
+  Button,
+} from 'smooth-doc/components'
+
+export function AppNav() {
+  return (
+    <Nav>
+      <NavList>
+        <NavListItem>
+          <Button>Buy Smooth DOC</Button>
+        </NavListItem>
+        <NavListItem>
+          <NavLink to="/docs/">Docs</NavLink>
+        </NavListItem>
+        <NavListItem>
+          <NavLink forwardedAs={ColorModeSwitcher} />
+        </NavListItem>
+      </NavList>
+    </Nav>
+  )
+}
+```
+
+## Side Navigation
+
+Side Navigation present on doc pages is automatically generated from MDX files.
+
+The `section` property in the frontmatter gives you opportunity to specify a section title. If not filled, the default defaults to "Docs".
+
+```md
+---
+title: Getting Started
+section: Guides
+---
+
+Your markdown page...
+```
+
+### Sorting sections
+
+To sort sections in side navigation, use `sections: string[]` option.
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'smooth-doc',
+      options: {
+        // ...
+        sections: ['Guides', 'Components', 'Reference'],
+      },
+    },
+  ],
+}
+```
+
+### Sorting pages in sections
+
+By default pages are sorted alphabetically. To choose a specific order, specify the `order` property in frontmatter. The smallest order is displayed at the top.
+
+```md
+---
+title: Getting Started
+section: Guides
+order: 1
+---
+
+Your markdown page...
+```

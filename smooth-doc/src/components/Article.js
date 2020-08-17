@@ -1,21 +1,63 @@
-import styled, { css, up, down } from '@xstyled/styled-components'
+import styled, { css, up, down, th } from '@xstyled/styled-components'
 
 export const Article = styled.article`
+  .anchor {
+    fill: on-background;
+  }
+
+  code {
+    background-color: background-light;
+    color: on-background-primary;
+    border-radius: base;
+    padding: 0 1;
+  }
+
+  mark {
+    background-color: background-mark;
+  }
+
+  > pre {
+    overflow: auto;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    margin: 3 -3;
+    background-color: editor-background;
+    color: editor-on;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    hyphens: none;
+    border-left: ${th.space(4)} solid transparent;
+    border-right: ${th.space(4)} solid transparent;
+
+    ${up(
+      'sm',
+      css`
+        border-radius: editor;
+        margin: 3 -2;
+      `,
+    )}
+  }
+
   > p {
-    margin-top: 30;
+    margin-top: 4;
     font-size: 17;
     line-height: 1.7;
-    max-width: 42em;
+    max-width: 52em;
 
     &:first-of-type {
-      margin-top: 15;
+      margin-top: 3;
     }
 
     ${up(
       'lg',
       css`
         font-size: 16;
-        margin-top: 25;
       `,
     )}
   }
@@ -24,7 +66,8 @@ export const Article = styled.article`
   > h1 + p {
     font-size: 18;
     font-weight: 300;
-    color: subtitle;
+    color: on-background-light;
+    margin: 2 0 !important;
 
     ${up(
       'xl',
@@ -40,12 +83,12 @@ export const Article = styled.article`
   }
 
   > hr {
-    height: 1;
-    margin-bottom: -1;
+    margin: 0;
+    height: 0;
     border: 0;
-    border-bottom: 1;
-    border-color: subtitle;
-    margin-top: 40;
+    border-top: 1;
+    border-color: layout-border;
+    margin: 4 0;
 
     &:first-child {
       margin-top: 0;
@@ -56,44 +99,44 @@ export const Article = styled.article`
     font-size: 40;
     line-height: 1.1;
     font-weight: 600;
+    margin-bottom: 2;
     margin-top: 40;
-    margin-bottom: 30;
 
     ${up(
       'md',
       css`
-        font-size: 60;
+        font-size: 48;
         font-weight: 700;
-        margin-bottom: 50;
-        margin-top: 60;
       `,
     )};
   }
 
   > h2 {
     border-top: 1;
-    border-color: border;
-    margin-top: 44;
-    padding-top: 40;
+    border-color: layout-border;
+    margin-top: 5;
+    padding-top: 4;
     line-height: 1.2;
     font-size: 20;
 
     ${up(
       'lg',
       css`
-        font-size: 35;
+        font-size: 30;
       `,
     )};
   }
 
-  > h1 + h2 {
+  > h1 + h2,
+  > h2:first-child {
     border-top: 0;
     margin-top: 0;
     padding-top: 0;
   }
 
   > h3 {
-    padding-top: 45;
+    font-size: 20;
+    padding-top: 4;
 
     ${down(
       'sm',
@@ -106,85 +149,65 @@ export const Article = styled.article`
     ${up(
       'xl',
       css`
-        font-size: 25;
-        line-height: 1.3;
-      `,
-    )}
-  }
-
-  > h3 {
-    padding-top: 45;
-
-    ${down(
-      'sm',
-      css`
-        overflow-wrap: break-word;
-        word-break: break-word;
-      `,
-    )}
-
-    ${up(
-      'xl',
-      css`
-        font-size: 25;
+        font-size: 22;
         line-height: 1.3;
       `,
     )}
   }
 
   > h4 {
-    margin-top: 50;
-    font-weight: 400;
-    font-size: 20;
+    margin-top: 5;
+    font-weight: 500;
+    font-size: 18;
     line-height: 1.3;
     color: subtitle;
   }
 
   > h2 + h3,
   > h2 + h3:first-of-type {
-    padding-top: 30;
+    padding-top: 3;
   }
 
   > h4 + p {
-    margin-top: 20;
+    margin-top: 3;
   }
 
   .editor {
-    background-color: secondary-bg;
+    background-color: editor-background;
     color: editor-text;
-    padding: 15 20;
-    margin: 25 -20;
+    padding: 3 4;
+    margin: 4 -3;
     overflow: auto;
     font-size: 14;
     line-height: 1.45;
-    border-radius: 3;
+    border-radius: base;
 
     ${down(
       'sm',
       css`
-        margin-left: -20;
-        margin-right: -20;
+        margin-left: -4;
+        margin-right: -4;
         border-radius: 0;
       `,
     )}
   }
 
   > code {
-    background-color: editor-bg;
-    border-radius: 3;
+    background-color: editor-background;
+    border-radius: base;
     color: inherit;
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
       Courier New, monospace;
     font-size: 85%;
-    padding: 3 6;
+    padding: 1 2;
   }
 
   > table {
     border-collapse: collapse;
     border-spacing: 0;
     display: block;
-    margin-bottom: 16;
-    margin-top: 20;
+    margin-bottom: 2;
+    margin-top: 3;
     overflow: auto;
     width: 100%;
 
@@ -200,7 +223,7 @@ export const Article = styled.article`
     tr {
       background-color: transparent;
       border-top: 1;
-      border-color: border;
+      border-color: layout-border;
     }
 
     th {
@@ -211,8 +234,8 @@ export const Article = styled.article`
     td,
     th {
       border: 1;
-      border-color: border;
-      padding: 6 13;
+      border-color: layout-border;
+      padding: 2 3;
     }
   }
 
@@ -222,9 +245,9 @@ export const Article = styled.article`
 
   ol,
   ul {
-    margin-top: 20;
+    margin-top: 4;
     font-size: 16;
-    padding-left: 20;
+    padding-left: 4;
 
     p,
     p:first-of-type {
@@ -234,13 +257,13 @@ export const Article = styled.article`
     }
 
     li {
-      margin-top: 10;
+      margin-top: 2;
     }
 
     ol,
     ul {
-      margin-left: 20;
-      margin-top: 10;
+      margin-left: 4;
+      margin-top: 2;
     }
   }
 
@@ -254,14 +277,23 @@ export const Article = styled.article`
 
   > blockquote {
     font-size: 16;
-    background-color: blockquote-bg;
+    background-color: blockquote-background;
     border-left: 8;
-    border-color: blockquote;
-    padding: 20 45 20 26;
-    margin: 20 -20 30;
+    border-color: blockquote-border;
+    padding: 3;
+    margin: 3 -2;
+    border-radius: blockquote;
+
+    code {
+      background-color: rgba(255, 255, 255, 0.1);
+      background-blend-mode: color;
+      color: on-background;
+      border-radius: base;
+      padding: 0 1;
+    }
 
     p {
-      margin-top: 15;
+      margin-top: 3;
 
       &:first-of-type {
         margin-top: 0;
@@ -270,6 +302,26 @@ export const Article = styled.article`
       &:last-child {
         margin-bottom: 0;
       }
+    }
+
+    a {
+      transition: fast;
+      color: blockquote-link;
+      text-decoration: underline;
+
+      &:hover {
+        color: on-background;
+      }
+    }
+  }
+
+  a {
+    transition: fast;
+    text-decoration: underline;
+    color: on-background-primary;
+
+    &:hover {
+      color: on-background-primary-dark;
     }
   }
 `

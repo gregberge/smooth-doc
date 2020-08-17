@@ -1,0 +1,18 @@
+{
+  "name": "website",
+  "version": "4.0.3",
+  "private": true,
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "@xstyled/styled-components": "^1.15.0",
+    "gatsby": "^2.15.18",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "react-helmet": "^6.1.0",
+    "smooth-doc": "^4.0.3"
+  }
+}

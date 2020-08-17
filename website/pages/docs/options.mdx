@@ -1,0 +1,99 @@
+---
+title: Options
+section: Reference
+slug: /docs/reference/
+---
+
+# Options
+
+All available options in Smooth DOC.
+
+All options can be specified at first level in your `gatbsy-config.js`. Read [Getting Started](/docs/getting-started/#personalize-options) to learn how to specify options.
+
+## Metadata
+
+### name `[required]`
+
+`string`
+
+The name of your project.
+
+### description `[required]`
+
+`string`
+
+Desription of your project. Used in HTML metadata and in manifest.
+
+### siteURL
+
+`string`
+
+The URL of your website, it is required in most cases. If you use [Netlify](https://www.netlify.com/), it is automatically filled from environment variables.
+
+### shortName
+
+`string`
+
+The short name of your project (used in [gatsby-plugin-manifest](https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/)). If not provided, it fallbacks to `name`.
+
+### author
+
+`string`
+
+Author of your website. Used in HTML metadata.
+
+## Navigation
+
+### navItems
+
+`{ title: string, url: string }[]`
+
+Display nav items in header navigation. Read [navigation guide](/docs/navigation/) for more information.
+
+### sections
+
+`string[]`
+
+Order sections in side navigation. Read [Navigation guide](/docs/navigation/) for more information.
+
+## GitHub
+
+### githubRepositoryURL
+
+`string`
+
+The GitHub repository URL of your project (no trailing slash). Display a GitHub logo in the header navigation. Read [GitHub guide](/docs/github/) for more information.
+
+### githubDocRepositoryURL
+
+`string`
+
+The GitHub repository URL of your website (no trailing slash). Used to show edit links on documentation pages. Read [GitHub guide](/docs/github/) for more information.
+
+### githubDefaultBranch
+
+`string`
+
+The default branch of your website repository, default to `master`. Used to show edit links on documentation pages. Read [GitHub guide](/docs/github/) for more information.
+
+### baseDirectory
+
+`string`
+
+A path pointing to the base directory of the website. Used to show edit links on documentation pages. Read [GitHub guide](/docs/github/) for more information.
+
+## Ads
+
+### carbonAdsURL
+
+`string`
+
+Your Carbon Ads URL. Read [Display Ads guide](/docs/ads/) to learn how to display ads on pages.
+
+## DocSearch
+
+### docSearch
+
+`{ apiKey: string, indexName: string }`
+
+Configuration of your [Algolia DocSearch](https://docsearch.algolia.com/) account. Read [DocSearch guide](/docs/docsearch/) for more information.

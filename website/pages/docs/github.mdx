@@ -1,0 +1,75 @@
+---
+title: GitHub Links
+section: Guides
+slug: /docs/github/
+order: 6
+---
+
+# GitHub Links
+
+Add link to your repository and edit links on your pages.
+
+<carbon-ad />
+
+## Repository Link
+
+To display a GitHub logo pointing to your repository in navigation, add `githubRepositoryURL` option:
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'smooth-doc',
+      options: {
+        // ...
+        githubRepositoryURL: 'https://github.com/gregberge/smooth-doc',
+      },
+    },
+  ],
+}
+```
+
+## Edit links
+
+To add edit links on documentation pages, you have to add a `baseDirectory` option that resolves to the root path of your repository:
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'smooth-doc',
+      options: {
+        // ...
+        githubRepositoryURL: 'https://github.com/gregberge/smooth-doc',
+        baseDirectory: __dirname, // The absolute path poiting to the root of your GitHub repository
+      },
+    },
+  ],
+}
+```
+
+> If you use a monorepo, use `path.resolve(...)` to specify your `baseDirectory`.
+
+### Project & website in two repositories
+
+If you use a separated repository for your website, you can use `githubDocRepositoryURL` to specify a repository used only in edit links:
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'smooth-doc',
+      options: {
+        // ...
+        githubRepositoryURL: 'https://github.com/gregberge/smooth-doc',
+        githubDocRepositoryURL:
+          'https://github.com/gregberge/smooth-doc-website',
+        baseDirectory: __dirname,
+      },
+    },
+  ],
+}
+```

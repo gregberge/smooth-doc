@@ -1,0 +1,82 @@
+---
+title: Button
+section: Components
+slug: /docs/components/button/
+---
+
+import { Link } from 'gatsby'
+import { Button } from 'smooth-doc/components'
+import { Box } from '@xstyled/styled-components'
+
+<smoothDocComponents.LiveConfig
+  modules={{
+    gatsby: { Link },
+    '@xstyled/styled-components': { Box },
+    'smooth-doc/components': { Button },
+  }}
+/>
+
+# Button
+
+An accessible action button.
+
+<carbon-ad />
+
+## Usage
+
+```js live noInline
+import { Button } from 'smooth-doc/components'
+
+render(<Button>A simple button</Button>)
+```
+
+## Variants
+
+Use `variant` property to define button variant. Four variants are available: "primary", "success", "danger" and "neutral". The default variant is "primary".
+
+```js live noInline
+import { Box } from '@xstyled/styled-components'
+import { Button } from 'smooth-doc/components'
+
+render(
+  <Box row m={-2}>
+    <Box col="auto" p={2}>
+      <Button variant="primary">Primary</Button>
+    </Box>
+    <Box col="auto" p={2}>
+      <Button variant="success">Success</Button>
+    </Box>
+    <Box col="auto" p={2}>
+      <Button variant="danger">Danger</Button>
+    </Box>
+    <Box col="auto" p={2}>
+      <Button variant="neutral">Neutral</Button>
+    </Box>
+  </Box>,
+)
+```
+
+## Disabled
+
+Set `disabled` attribute to display button as disabled.
+
+```js live noInline
+import { Button } from 'smooth-doc/components'
+
+render(<Button disabled>Disabled button</Button>)
+```
+
+## Link as Button
+
+It is common to have to display a button that actually behaves like a link. The `forwardedAs` prop replaces the intrinsic component of the button.
+
+```js live noInline
+import { Link } from 'gatsby'
+import { Button } from 'smooth-doc/components'
+
+render(
+  <Button forwardedAs={Link} to="/docs/getting-started/">
+    Getting Started
+  </Button>,
+)
+```

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import { createGlobalStyle } from '@xstyled/styled-components'
+import styled, { createGlobalStyle } from '@xstyled/styled-components'
 
 const GlobalStyle = createGlobalStyle`
   #carbonads {
@@ -9,10 +9,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #carbonads {
-    display: flex;
-    max-width: 330px;
-    background-color: adsBg;
-    box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, .1);
+    display: inline-flex;
+    background-color: background-light;
+    border: 1;
+    border-color: layout-border;
+    box-shadow: none;
   }
 
   #carbonads a {
@@ -68,10 +69,17 @@ const QUERY = graphql`
   query CodeFund {
     site {
       siteMetadata {
-        carbonAdUrl
+        carbonAdsURL
       }
     }
   }
+`
+
+const AdContainer = styled.aside`
+  display: block;
+  height: 125;
+  min-width: 1;
+  margin: 3 0;
 `
 
 function InnerCarbonAd({ url }) {
@@ -100,11 +108,11 @@ export function CarbonAd() {
     <StaticQuery
       query={QUERY}
       render={(data) =>
-        data.site.siteMetadata.carbonAdUrl ? (
-          <InnerCarbonAd url={data.site.siteMetadata.carbonAdUrl} />
-        ) : (
-          <InnerCarbonAd url="//cdn.carbonads.com/carbon.js?serve=CE7I5K3U&placement=loadable-componentscom" />
-        )
+        data.site.siteMetadata.carbonAdsURL ? (
+          <AdContainer>
+            <InnerCarbonAd url={data.site.siteMetadata.carbonAdsURL} />
+          </AdContainer>
+        ) : null
       }
     />
   )

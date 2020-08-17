@@ -1,0 +1,48 @@
+---
+title: Displaying Ads
+section: Guides
+slug: /docs/ads/
+order: 9
+---
+
+# Displaying Ads
+
+Monetize your project with built-in [Carbon Ads](https://www.carbonads.net/) support.
+
+<carbon-ad />
+
+## Create a Carbon Ads account
+
+The first step is to create a Carbon Ads account. You have to [apply on their website](https://www.carbonads.net/open-source).
+
+## Configure Carbon Ads URL
+
+Add your Carbon Ads property URL in your `gatsby-config.js`:
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'smooth-doc',
+      options: {
+        // ...
+        carbonAdsURL:
+          '//cdn.carbonads.com/carbon.js?serve=CE7IL2JN&placement=xstyleddev',
+      },
+    },
+  ],
+}
+```
+
+## Display ads on your website
+
+To display ads, simply add a `<carbon-ad />` tag in markdown:
+
+```md
+# Getting started
+
+<carbon-ad />
+
+To install this project...
+```

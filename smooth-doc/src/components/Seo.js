@@ -2,8 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
+const SEOQuery = graphql`
+  query SEOQuery {
     socialImage: file(relativePath: { eq: "social.jpg" }) {
       childImageSharp {
         fixed(width: 1280, height: 640) {
@@ -16,18 +16,18 @@ const detailsQuery = graphql`
       siteMetadata {
         title
         description
-        siteUrl
+        siteURL
         author
       }
     }
   }
 `
 
-export default function SEO({ title }) {
-  const data = useStaticQuery(detailsQuery)
+export function SEO({ title }) {
+  const data = useStaticQuery(SEOQuery)
   const metaDescription = data.site.siteMetadata.description
   const metaTitle = title || data.site.siteMetadata.title
-  const url = data.site.siteMetadata.siteUrl
+  const url = data.site.siteMetadata.siteURL
   const image = data.socialImage
     ? url + data.socialImage.childImageSharp.fixed.src
     : null

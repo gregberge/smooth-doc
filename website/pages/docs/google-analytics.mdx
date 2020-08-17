@@ -1,0 +1,39 @@
+---
+title: Google Analytics
+section: Guides
+slug: /docs/google-analytics/
+order: 8
+---
+
+# Google Analytics
+
+Setup Google Analytics on your website.
+
+<carbon-ad />
+
+## Install
+
+Google Analytics is available as a [third-party Gatsby plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-analytics/).
+
+```
+npm install --save gatsby-plugin-google-analytics
+```
+
+## Setup
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
+      },
+    },
+  ],
+}
+```
+
+> Additional options are available on [gatsby-plugin-google-analytics documentation](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-analytics).

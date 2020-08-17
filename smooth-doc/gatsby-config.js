@@ -1,44 +1,58 @@
 const fs = require('fs')
+const { getSiteURL } = require('./src/theme-options')
 
-module.exports = function config({
-  name = 'Smooth Doc Theme',
-  slug = 'smooth-doc',
-  github = 'https://github.com/smooth-code/smooth-doc',
-  description = 'Ready to use documentation theme for Gatsby.',
-  siteUrl: optionSiteUrl = 'https://smooth-doc.com',
-  author = 'Greg Bergé',
-  menu = ['Usage'],
-  nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
-  carbonAdUrl = '',
-  theme: { colors: { primary = '#bd4932' } = {} } = {},
-  googleAnalytics = '',
-  algoliaDocSearch = { apiKey: '', indexName: '' },
-} = {}) {
-  const {
-    NODE_ENV,
-    URL: NETLIFY_SITE_URL = optionSiteUrl,
-    DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-    CONTEXT: NETLIFY_ENV = NODE_ENV,
-  } = process.env
-  const isNetlifyProduction = NETLIFY_ENV === 'production'
-  const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+function getLogoPath() {
+  return fs.existsSync('images/logo-manifest.png')
+    ? 'images/logo-manifest.png'
+    : `${__dirname}/images/logo-manifest.png`
+}
+
+function getOptions(themeOptions) {
+  if (!themeOptions.licenseKey) {
+    return {
+      name: 'Smooth DOC',
+      description: '',
+    }
+  }
+  return themeOptions
+}
+
+/**
+ * Theme configuration.
+ * @param {object} themeOptions
+ * @param {string} themeOptions.name
+ * @param {string} themeOptions.description
+ * @param {string} [themeOptions.siteURL]
+ * @param {string} [themeOptions.shortName]
+ * @param {string[]} [themeOptions.sections]
+ * @param {{ title: string, url: string }[]} [themeOptions.nav]
+ * @param {string} [themeOptions.baseDirectory]
+ * @param {string} [themeOptions.githubRepositoryURL]
+ * @param {string} [themeOptions.githubDocRepositoryURL]
+ * @param {string} [themeOptions.githubDefaultBranch]
+ * @param {string} [themeOptions.author]
+ * @param {string} [themeOptions.carbonAdsURL]
+ * @param {{ apiKey: string, indexName: string }} [themeOptions.docSearch]
+ */
+module.exports = (themeOptions) => {
+  const options = getOptions(themeOptions)
+  const siteURL = getSiteURL(options)
+  const logoPath = getLogoPath()
 
   return {
     siteMetadata: {
-      title: name,
-      github,
-      menu,
-      nav,
-      carbonAdUrl,
-      description,
-      siteUrl,
-      author,
-      algoliaDocSearch: {
-        enabled: Boolean(algoliaDocSearch.apiKey),
-        ...algoliaDocSearch,
-      },
+      title: options.name,
+      githubRepositoryURL: options.githubRepositoryURL,
+      sections: options.sections,
+      navItems: options.navItems,
+      carbonAdsURL: options.carbonAdsURL,
+      description: options.description,
+      siteURL,
+      author: options.author,
+      docSearch: options.docSearch,
     },
     plugins: [
+      // Build
       {
         resolve: 'gatsby-plugin-compile-es6-packages',
         options: {
@@ -46,16 +60,9 @@ module.exports = function config({
         },
       },
       'gatsby-plugin-styled-components',
-      'gatsby-plugin-sitemap',
-      'gatsby-plugin-resolve-src',
-      'gatsby-plugin-react-helmet',
       {
         resolve: 'gatsby-plugin-mdx',
         options: {
-          defaultLayouts: {
-            default: require.resolve('./src/layouts/default'),
-            docs: require.resolve('./src/layouts/docs'),
-          },
           gatsbyRemarkPlugins: [
             {
               resolve: require.resolve(
@@ -65,81 +72,73 @@ module.exports = function config({
           ],
         },
       },
+      'gatsby-transformer-sharp',
+      'gatsby-plugin-sharp',
+      'gatsby-plugin-react-helmet',
       {
         resolve: require.resolve(
           './src/plugins/gatsby-remark-autolink-headers',
         ),
       },
+
+      // Source
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          path: `${__dirname}/pages`,
+          name: 'page',
+        },
+      },
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          path: `${__dirname}/images`,
+          name: 'image',
+        },
+      },
+      ...(options.licenseKey
+        ? [
+            {
+              resolve: 'gatsby-source-filesystem',
+              options: {
+                path: `./pages`,
+                name: 'page',
+              },
+            },
+            {
+              resolve: 'gatsby-source-filesystem',
+              options: {
+                path: `./images`,
+                name: 'image',
+              },
+            },
+          ]
+        : [
+            {
+              resolve: 'gatsby-source-filesystem',
+              options: {
+                path: `${__dirname}/preview-pages`,
+                name: 'page',
+              },
+            },
+          ]),
+      // SEO
+      'gatsby-plugin-sitemap',
+      'gatsby-plugin-meta-redirect',
       {
         resolve: `gatsby-plugin-manifest`,
         options: {
-          name,
-          short_name: slug,
+          name: options.name,
+          short_name: options.name || options.shortName,
           start_url: '/',
-          background_color: primary,
-          theme_color: primary,
           display: 'minimal-ui',
-          icon: fs.existsSync('src/images/logo.png')
-            ? 'src/images/logo.png'
-            : `${__dirname}/src/images/logo.png`,
+          icon: logoPath,
         },
       },
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          name: 'pages',
-          path: `${__dirname}/src/pages`,
-          ignore: [`**/docs/**`],
-        },
-      },
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          name: 'docs',
-          path: `${__dirname}/src/pages/docs`,
-        },
-      },
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          name: 'images',
-          path: `./src/images`,
-        },
-      },
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          name: 'images',
-          path: `${__dirname}/src/images`,
-        },
-      },
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          name: 'pages',
-          path: `./src/pages`,
-          ignore: [`**/docs/**`],
-        },
-      },
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          name: 'docs',
-          path: `./src/pages/docs`,
-        },
-      },
-      {
-        resolve: require.resolve(
-          './src/plugins/gatsby-remark-autolink-headers',
-        ),
-      },
-      'gatsby-transformer-sharp',
-      'gatsby-plugin-sharp',
-      'gatsby-plugin-meta-redirect',
       {
         resolve: 'gatsby-plugin-robots-txt',
         options: {
-          resolveEnv: () => NETLIFY_ENV,
+          resolveEnv: () => process.env.NETLIFY_ENV || process.env.NODE_ENV,
           env: {
             production: {
               policy: [{ userAgent: '*' }],
@@ -157,16 +156,6 @@ module.exports = function config({
           },
         },
       },
-      ...(googleAnalytics
-        ? [
-            {
-              resolve: `gatsby-plugin-google-analytics`,
-              options: {
-                trackingId: googleAnalytics,
-              },
-            },
-          ]
-        : []),
     ],
   }
 }

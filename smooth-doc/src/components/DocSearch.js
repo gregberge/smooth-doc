@@ -1,105 +1,82 @@
 import React from 'react'
-import styled, { css, th, down } from '@xstyled/styled-components'
-import SearchSolid from './icons/SearchSolid'
-import { AlgoliaStyle } from './AlgoliaStyle'
+import { Box, createGlobalStyle, th } from '@xstyled/styled-components'
+import { RiSearchEyeLine } from 'react-icons/ri'
+import { Input, InputGroup, InputGroupIcon } from './Input'
 
-const Container = styled.div`
-  position: relative;
-
-  svg {
-    color: border;
-    transition: base;
-    transition-property: color;
+const DocSearchStyle = createGlobalStyle`
+  .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+    color: doc-search-suggestion-highlight-on-background;
+    background-color: doc-search-suggestion-highlight-background;
   }
 
-  &:focus-within {
-    svg {
-      color: text;
-    }
+  .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
+    box-shadow: inset 0 -2px 0 0 ${th.color(
+      'doc-search-suggestion-content-underline',
+    )};
   }
 
-  ${down(
-    'md',
-    css`
-      width: 30;
-      z-index: 2;
-
-      svg {
-        color: text;
-      }
-    `,
-  )}
-`
-
-const Input = styled.input`
-  background-color: secondary-bg;
-  border-radius: 4;
-  border: 1;
-  border-color: border;
-  line-height: 1.4;
-  padding: 5 10 5 30;
-  color: text;
-  transition: base;
-  transition-property: all;
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 3px 1px ${th.color('primary')};
+  .algolia-autocomplete .ds-cursor .algolia-docsearch-suggestion--content {
+    background-color: doc-search-suggestion-content-background !important;
   }
 
-  ${down(
-    'md',
-    css`
-      width: 30;
-      padding-left: 10;
-      background-color: transparent;
-      border-color: transparent;
+  .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+    background-color: background;
+    border-color: layout-border;
+  }
 
-      &:focus {
-        width: ${(p) => p['data-width']}px;
-        padding-left: 30;
-        background-color: secondary-bg;
-        border-color: border;
-      }
-    `,
-  )}
-`
+  .algolia-autocomplete .ds-dropdown-menu:before {
+    background-color: background;
+    border-color: layout-border;
+  }
 
-const SearchIcon = styled(SearchSolid)`
-  position: absolute;
-  left: 8px;
-  top: 8px;
-  z-index: 1;
-  user-select: none;
-  pointer-events: none;
+  .algolia-autocomplete .algolia-docsearch-suggestion {
+    background-color: background;
+    color: on-background;
+  }
+
+  .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+    border-color: layout-border;
+    color: on-background-light;
+  }
+
+  .algolia-autocomplete .algolia-docsearch-suggestion--title {
+    color: on-background;
+  }
+
+  .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+    color: on-background-light;
+  }
+
+  .algolia-autocomplete .algolia-docsearch-suggestion--text {
+    color: on-background-light;
+  }
 `
 
 export function DocSearch({ apiKey, indexName }) {
-  const ref = React.useRef()
-  const [width, setWidth] = React.useState()
-  React.useEffect(() => {
-    const rect = ref.current.getBoundingClientRect()
-    setWidth(window.innerWidth - rect.x - 20)
-  }, [])
-
   React.useEffect(() => {
     window.docsearch({
       apiKey,
       indexName,
       inputSelector: '#algolia-docsearch-input',
+      debug: true,
     })
   }, [apiKey, indexName])
 
   return (
-    <Container ref={ref}>
-      <AlgoliaStyle />
-      <SearchIcon />
-      <Input
-        type="search"
-        id="algolia-docsearch-input"
-        placeholder="Search..."
-        data-width={width}
-      />
-    </Container>
+    <>
+      <DocSearchStyle />
+      <Box>
+        <InputGroup>
+          <InputGroupIcon>
+            <RiSearchEyeLine />
+          </InputGroupIcon>
+          <Input
+            id="algolia-docsearch-input"
+            type="search"
+            placeholder="Search..."
+          />
+        </InputGroup>
+      </Box>
+    </>
   )
 }

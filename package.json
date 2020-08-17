@@ -2,11 +2,12 @@
   "private": true,
   "workspaces": [
     "smooth-doc",
-    "example"
+    "example",
+    "website"
   ],
   "scripts": {
-    "lint": "eslint .",
-    "format": "prettier --write \"**/*.{js,md,mdx}\""
+    "format": "prettier --write \"**/*.{js,md,mdx}\"",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",

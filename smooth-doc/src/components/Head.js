@@ -1,9 +1,9 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
-import Seo from './Seo'
+import { graphql, useStaticQuery } from 'gatsby'
+import { SEO } from './SEO'
 
-const QUERY = graphql`
-  query Head {
+const HeadQuery = graphql`
+  query HeadQuery {
     site {
       siteMetadata {
         title
@@ -12,19 +12,15 @@ const QUERY = graphql`
   }
 `
 
-export function Head({ pageContext }) {
+export function Head({ title }) {
+  const data = useStaticQuery(HeadQuery)
   return (
-    <StaticQuery
-      query={QUERY}
-      render={(data) => (
-        <Seo
-          title={
-            pageContext && pageContext.frontmatter
-              ? `${pageContext.frontmatter.title} - ${data.site.siteMetadata.title}`
-              : data.site.siteMetadata.title
-          }
-        />
-      )}
+    <SEO
+      title={
+        title
+          ? `${title} - ${data.site.siteMetadata.title}`
+          : data.site.siteMetadata.title
+      }
     />
   )
 }
