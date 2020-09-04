@@ -1,0 +1,129 @@
+---
+title: Hero
+section: Components
+slug: /docs/components/hero/
+---
+
+import {
+  Button,
+  Hero,
+  HeroBody,
+  HeroSection,
+  HeroTitle,
+  HeroTeaser,
+  HeroActionList,
+  HeroAction,
+  ScreenContainer,
+} from 'smooth-doc/components'
+import { Link } from 'gatsby'
+import heroBackgroundURL from '../../../images/hero-background.png'
+
+<smoothDocComponents.LiveConfig
+  modules={{
+    './images/hero-background.png': heroBackgroundURL,
+    'smooth-doc/components': {
+      Button,
+      Hero,
+      HeroBody,
+      HeroSection,
+      HeroTitle,
+      HeroTeaser,
+      HeroActionList,
+      HeroAction,
+      ScreenContainer,
+    },
+    gatsby: { Link },
+  }}
+/>
+
+# Hero
+
+Create pro-quality landing page with beautiful hero section.
+
+<carbon-ad />
+
+## Usage
+
+`HeroSection`, `ScreenContainer`, `Hero`, `HeroBody`, `HeroTitle` and `HeroTeaser` are primitives to build a hero.
+
+```js live noInline
+import { Link } from 'gatsby'
+import {
+  Button,
+  Hero,
+  HeroBody,
+  HeroSection,
+  HeroTitle,
+  HeroTeaser,
+  ScreenContainer,
+} from 'smooth-doc/components'
+import heroBackgroundURL from './images/hero-background.png'
+
+render(
+  <HeroSection>
+    <ScreenContainer>
+      <Hero backgroundImageURL={heroBackgroundURL}>
+        <HeroBody>
+          <HeroTitle>Create awesome docs without compromise</HeroTitle>
+          <HeroTeaser>
+            A ready-to-use Gatsby theme to build docs for all your projects.
+            Smooth DOC makes documentation easy.
+          </HeroTeaser>
+        </HeroBody>
+      </Hero>
+    </ScreenContainer>
+  </HeroSection>,
+)
+```
+
+## Display actions
+
+Use `HeroActionList` and `HeroAction` with `Button` to add actions.
+
+```js live noInline
+import { Link } from 'gatsby'
+import {
+  Button,
+  Hero,
+  HeroBody,
+  HeroSection,
+  HeroTitle,
+  HeroTeaser,
+  ScreenContainer,
+  HeroActionList,
+  HeroAction,
+} from 'smooth-doc/components'
+import heroBackgroundURL from './images/hero-background.png'
+
+render(
+  <HeroSection>
+    <ScreenContainer>
+      <Hero backgroundImageURL={heroBackgroundURL}>
+        <HeroBody>
+          <HeroTitle>Create awesome docs without compromise</HeroTitle>
+          <HeroTeaser>
+            A ready-to-use Gatsby theme to build docs for all your projects.
+            Smooth DOC makes documentation easy.
+          </HeroTeaser>
+          <HeroActionList>
+            <HeroAction>
+              <Button forwardedAs={Link} to="/docs/getting-started">
+                Getting Started
+              </Button>
+            </HeroAction>
+            <HeroAction>
+              <Button
+                variant="neutral"
+                forwardedAs="a"
+                href="https://github.com/gregberge/smooth-doc"
+              >
+                Browse GitHub
+              </Button>
+            </HeroAction>
+          </HeroActionList>
+        </HeroBody>
+      </Hero>
+    </ScreenContainer>
+  </HeroSection>,
+)
+```

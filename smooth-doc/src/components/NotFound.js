@@ -1,10 +1,10 @@
 import React from 'react'
-import { Container } from './Container'
+import { ScreenContainer } from './ScreenContainer'
 import { Article } from './Article'
 
 export function NotFound() {
   return (
-    <Container>
+    <ScreenContainer>
       <Article style={{ textAlign: 'center', overflow: 'hidden' }}>
         <h1>404</h1>
         <p style={{ textAlign: 'center', margin: '20px auto' }}>
@@ -22,6 +22,6 @@ export function NotFound() {
           URL and let them know their link is broken.
         </p>
       </Article>
-    </Container>
+    </ScreenContainer>
   )
 }

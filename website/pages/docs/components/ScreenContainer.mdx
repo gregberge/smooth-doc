@@ -1,0 +1,31 @@
+---
+title: ScreenContainer
+section: Components
+slug: /docs/components/screen-container/
+---
+
+import * as smoothDocComponents from 'smooth-doc/components'
+import * as xstyled from '@xstyled/styled-components'
+
+<smoothDocComponents.LiveConfig
+  modules={{
+    '@xstyled/styled-components': xstyled,
+    'smooth-doc/components': smoothDocComponents,
+  }}
+/>
+
+# ScreenContainer
+
+A screen wrapper to constraint page layout.
+
+<carbon-ad />
+
+## Usage
+
+`ScreenContainer` constraints content of the page using `max-width` and `padding`.
+
+```js live noInline
+import { ScreenContainer } from 'smooth-doc/components'
+
+render(<ScreenContainer>Container</ScreenContainer>)
+```

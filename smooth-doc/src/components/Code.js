@@ -1,10 +1,5 @@
 import React from 'react'
-import styled, {
-  css,
-  ThemeContext,
-  useColorMode,
-  up,
-} from '@xstyled/styled-components'
+import styled, { useTheme, th } from '@xstyled/styled-components'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import {
   LiveProvider,
@@ -13,40 +8,35 @@ import {
   LivePreview as BaseLivePreview,
 } from 'react-live'
 import { mdx } from '@mdx-js/react'
-import getPrismTheme from './prismTheme'
 
 const Editor = styled.div`
-  background-color: editor-bg;
-  color: editor-text;
-  padding: 15 20;
-  margin: 25 -20;
-  overflow: auto;
-  font-size: 14;
+  padding: 3 0;
+  font-size: 15;
   line-height: 1.45;
-  overflow-y: auto;
+  word-break: normal;
 
-  > textarea:focus {
-    outline: none;
+  textarea {
+    &:focus {
+      outline: none;
+    }
   }
-
-  ${up(
-    'sm',
-    css`
-      border-radius: 3;
-    `,
-  )}
 `
 
 const LivePreview = styled(BaseLivePreview)`
-  padding: 15 20;
-  margin: 25 -20 10;
+  padding: 3 4;
+  margin: 3 0 0;
   border: 1;
-  border-color: border;
+  border-color: editor-border;
   border-image: initial;
-  border-radius: 3;
+  border-radius: editor;
+  white-space: normal;
+  font-family: base;
+
+  background-color: background;
+  color: on-background;
 
   & + ${Editor} {
-    margin-top: 10;
+    margin-top: 2;
   }
 `
 
@@ -63,7 +53,9 @@ function req(path) {
   const dep = globalModules[path]
 
   if (!dep) {
-    throw new Error(`Unable to resolve path to module '${path}'.`)
+    throw new Error(
+      `Unable to resolve path to module '${path}'. Use "LiveConfig" to provide modules.`,
+    )
   }
   return dep
 }
@@ -100,12 +92,17 @@ function importToRequire(code) {
 }
 
 export function usePrismTheme() {
-  const theme = React.useContext(ThemeContext)
-  const [mode] = useColorMode()
-  return getPrismTheme({ theme, mode })
+  const theme = useTheme()
+  return th('prism-theme')({ theme })
 }
 
-export function Code({ children, lang = 'markup', live, noInline }) {
+export function Code({
+  children,
+  lang = 'markup',
+  live,
+  noInline,
+  editorStyle,
+}) {
   const prismTheme = usePrismTheme()
   if (live) {
     return (
@@ -118,13 +115,15 @@ export function Code({ children, lang = 'markup', live, noInline }) {
         noInline={noInline}
       >
         <LivePreview />
-        <Editor as={LiveEditor} />
+        <Editor style={editorStyle}>
+          <LiveEditor padding={0} />
+        </Editor>
         <LiveError />
       </LiveProvider>
     )
   }
   return (
-    <Editor>
+    <Editor style={editorStyle}>
       <Highlight
         {...defaultProps}
         code={children.trim()}

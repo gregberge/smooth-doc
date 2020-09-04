@@ -1,84 +1,96 @@
 import React from 'react'
-import styled, { css, up, th, useUp } from '@xstyled/styled-components'
+import styled, {
+  Box,
+  css,
+  up,
+  down,
+  th,
+  useUp,
+} from '@xstyled/styled-components'
 import { useDialogState, Dialog, DialogDisclosure } from 'reakit/Dialog'
 import { Portal } from 'reakit/Portal'
-import { Container } from './Container'
-import { Sidebar } from './Sidebar'
-import { BaseLayout } from './BaseLayout'
+import { VscChevronUp } from 'react-icons/vsc'
+import { RiPencilLine } from 'react-icons/ri'
+import { ScreenContainer } from './ScreenContainer'
+import { SideNav, useSideNavState, useSideNavPrevNext } from './SideNav'
+import { PageLayout } from './PageLayout'
+import { SiblingNav, SiblingNavLink } from './SiblingNav'
 import { Article } from './Article'
-import ChevronUpSolid from './icons/ChevronUpSolid'
-import { CarbonAd } from './CarbonAd'
-
-const FloatingAd = styled.div`
-  display: none;
-
-  ${up(
-    'md',
-    css`
-      float: right;
-      display: block;
-      margin-right: -20px;
-    `,
-  )}
-`
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
-  position: relative;
-  z-index: 0;
-`
-
-const ArticleContainer = styled.div`
-  flex-grow: 1;
-  padding: 0 20 50;
-  overflow: hidden;
-  word-wrap: break-word;
-`
+import { TableOfContents } from './TableOfContents'
 
 const SidebarDialog = styled.div`
-  background-color: secondary-bg;
+  background-color: background-light-a50;
+  backdrop-filter: blur(3px);
   position: fixed;
-  top: 67;
+  top: 50;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 20;
   overflow: auto;
+  transition: base;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  transform: translate3d(0, 10vh, 0);
+
+  &[data-enter] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 
   &:focus {
     outline: none;
   }
 `
 
-const SidebarContainer = styled.div`
-  background-color: secondary-bg;
-  border-left: 1;
-  border-color: border;
+const Container = styled.div`
+  z-index: 0;
   position: relative;
-  flex: 0 0 ${th.size(180)};
-  margin-left: 16;
 
   ${up(
-    'lg',
+    'md',
     css`
-      flex: 0 0 ${th.size(230)};
-      margin-left: 50;
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      grid-gap: ${th.space(5)};
+    `,
+  )}
+
+  ${up(
+    'xl',
+    css`
+      grid-template-columns: 200px minmax(0, 1fr) 200px;
     `,
   )}
 `
 
-const SidebarWrapper = styled.div`
-  position: fixed;
-  height: calc(100vh - 70px);
+const TocContainer = styled.div`
+  ${down(
+    'xl',
+    css`
+      display: none;
+    `,
+  )}
+`
+
+const SidebarSticky = styled.aside`
+  position: sticky;
+  top: ${th.px(50)};
+  padding: 4 0;
   overflow-y: auto;
-  z-index: 2;
-  margin-right: -999;
-  padding-right: 999;
-  background-color: secondary-bg;
+  height: calc(100vh - 50px);
+  width: 200px;
+
+  ${down(
+    'md',
+    css`
+      display: none;
+    `,
+  )}
 `
 
 const MenuButton = styled.button`
+  appearance: none;
   border: 0;
   border-radius: 50%;
   width: 60;
@@ -91,81 +103,115 @@ const MenuButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: bg;
-  background-color: text;
+  color: background;
+  background-color: on-background;
   transition: base;
   transition-property: color;
-  box-shadow: ${th.color('menu-button-shadow')} 0 0 ${th.size(20)};
-  appearance: none;
 
   &:focus {
-    outline: none;
-    color: bg;
+    color: background;
   }
 
-  > svg:first-child {
+  > svg {
+    width: 24;
+    height: 24;
     transition: transform 200ms ease-in-out;
-    transform: translateX(-1px);
-  }
 
-  > svg:last-child {
-    transition: transform 200ms ease-in-out;
-    transform: translate(-1px) rotate(180deg);
+    &:first-child {
+      transform: translateX(-1px);
+    }
+
+    &:last-child {
+      transform: translate(-1px) rotate(180deg);
+    }
   }
 
   &[aria-expanded='true'] {
     > svg:first-child {
-      transform: translate(-1px, 10px);
+      transform: translate(-1px, 16px);
     }
 
     > svg:last-child {
-      transform: translate(-1px, -10px) rotate(180deg);
+      transform: translate(-1px, -16px) rotate(180deg);
     }
   }
 `
 
-function SidebarLogic() {
-  const dialog = useDialogState()
+function MobileSidebar({ children }) {
+  const dialog = useDialogState({ animated: true })
   return (
     <>
       <Dialog {...dialog} as={SidebarDialog}>
-        <Sidebar />
+        {children}
       </Dialog>
       <Portal>
         <DialogDisclosure {...dialog} as={MenuButton}>
-          <ChevronUpSolid width={15} height={15} />
-          <ChevronUpSolid width={15} height={15} />
+          <VscChevronUp />
+          <VscChevronUp />
         </DialogDisclosure>
       </Portal>
     </>
   )
 }
 
-export function DocLayout({ children, ...props }) {
-  const sm = useUp('sm')
+function PrevNextLinks(props) {
+  const { prev, next } = useSideNavPrevNext(props)
+  if (!prev && !next) return null
   return (
-    <BaseLayout variant="light" {...props}>
-      <Container px={0}>
-        <Wrapper>
-          <ArticleContainer>
-            <Article>
-              <FloatingAd>
-                <CarbonAd />
-              </FloatingAd>
-              {children}
-            </Article>
-          </ArticleContainer>
-          {sm ? (
-            <SidebarContainer>
-              <SidebarWrapper>
-                <Sidebar />
-              </SidebarWrapper>
-            </SidebarContainer>
-          ) : (
-            <SidebarLogic />
+    <SiblingNav>
+      {prev && (
+        <SiblingNavLink type="previous" to={prev.fields.slug}>
+          {prev.fields.title}
+        </SiblingNavLink>
+      )}
+      {next && (
+        <SiblingNavLink type="next" to={next.fields.slug}>
+          {next.fields.title}
+        </SiblingNavLink>
+      )}
+    </SiblingNav>
+  )
+}
+
+export function DocLayout({ children, tableOfContents, editLink, ...props }) {
+  const upMd = useUp('md')
+  const sideNav = useSideNavState()
+  return (
+    <PageLayout {...props}>
+      <ScreenContainer px={0}>
+        <Container>
+          <SidebarSticky>
+            <SideNav {...sideNav} />
+          </SidebarSticky>
+          {!upMd && (
+            <MobileSidebar>
+              <SideNav {...sideNav} />
+            </MobileSidebar>
           )}
-        </Wrapper>
-      </Container>
-    </BaseLayout>
+          <Box pb={6} px={3}>
+            <Article>
+              {children}
+              {editLink && (
+                <Box
+                  mt={5}
+                  display="grid"
+                  gridTemplateColumns="min-content max-content"
+                  gridGap={1}
+                  alignItems="center"
+                  forwardedAs="a"
+                  href={editLink}
+                >
+                  <RiPencilLine /> Edit this page on GitHub
+                </Box>
+              )}
+              <PrevNextLinks {...sideNav} />
+            </Article>
+          </Box>
+          <TocContainer>
+            <TableOfContents />
+          </TocContainer>
+        </Container>
+      </ScreenContainer>
+    </PageLayout>
   )
 }

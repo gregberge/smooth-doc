@@ -1,18 +1,9 @@
 /* eslint-disable react/no-danger, import/no-extraneous-dependencies */
 const React = require('react')
 
-const pluginDefaults = {
-  className: `anchor`,
-  icon: true,
-  offsetY: 0,
-}
+const className = 'anchor'
 
-exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
-  const { className, icon, offsetY } = Object.assign(
-    pluginDefaults,
-    pluginOptions,
-  )
-
+exports.onRenderBody = ({ setHeadComponents }) => {
   const styles = `
     .${className} {
       float: left;
@@ -52,21 +43,17 @@ exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
           var offset = element.offsetTop
           // Wait for the browser to finish rendering before scrolling.
           setTimeout((function() {
-            window.scrollTo(0, offset - ${offsetY})
+            window.scrollTo(0, offset - 98)
           }), 0)
         }
       }
     })
   `
 
-  const style = icon ? (
+  return setHeadComponents([
     <style key="gatsby-remark-autolink-headers-style" type="text/css">
       {styles}
-    </style>
-  ) : undefined
-
-  return setHeadComponents([
-    style,
+    </style>,
     <script
       key="gatsby-remark-autolink-headers-script"
       dangerouslySetInnerHTML={{ __html: script }}

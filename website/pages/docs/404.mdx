@@ -1,0 +1,52 @@
+---
+title: Customize 404
+section: Guides
+slug: /docs/404/
+order: 6
+---
+
+# Customize 404
+
+Help your users find their way back.
+
+<carbon-ad />
+
+## Use your own 404 page
+
+By default Smooth DOC provides a [404 webpage](/404/). You can customize it by creating a `pages/404.mdx`.
+
+The page will be served when a page is not found.
+
+## Default 404 page
+
+```js
+---
+# 404.mdx
+title: Page not found
+---
+
+import { Box } from '@xstyled/styled-components'
+import { Article, ScreenContainer } from 'smooth-doc/components'
+
+<Article style={{ textAlign: 'center', overflow: 'hidden' }}>
+  <ScreenContainer>
+    <h1>Page not found</h1>
+    <Box forwardedAs="p" my={3} mx="auto">
+      We couldn't find what you were looking for.
+    </Box>
+  </ScreenContainer>
+  <a href="https://dribbble.com/shots/2402048-Kylo-is-waiting">
+    <img
+      alt="Kylo is waiting"
+      src="https://cdn.dribbble.com/users/469578/screenshots/2402048/star_wars_kyloren_ren.gif"
+      width="400"
+    />
+  </a>
+  <ScreenContainer>
+    <Box forwardedAs="p" my={3} mx="auto">
+      Please contact the owner of the site that linked you to the original URL
+      and let them know their link is broken.
+    </Box>
+  </ScreenContainer>
+</Article>
+```

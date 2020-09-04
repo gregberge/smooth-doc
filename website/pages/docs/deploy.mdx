@@ -1,0 +1,37 @@
+---
+title: Deploy
+section: Guides
+slug: /docs/deploy/
+order: 11
+---
+
+# Deploy
+
+Make your website available for everyone.
+
+<carbon-ad />
+
+## Create production build
+
+Smooth DOC is just a Gatsby theme, to create an optimized production build, run:
+
+```js
+gatsby build
+```
+
+> Read more about directly in [Gatsby documentation](https://www.gatsbyjs.com/docs/quick-start/#create-a-production-build)
+
+## Deploy on Netlify
+
+Smooth DOC is already optimized for [Netlify](https://netlify.com/). It does several things for you:
+
+- `siteURL` is automatically filled for you (in production and deploy preview)
+- `robots.txt` will disallow indexing for deploy preview
+
+To deploy on [Netlify](https://netlify.com/), follow [Gatsby guide](https://www.gatsbyjs.com/docs/deploying-to-netlify/).
+
+## Deploy on other providers
+
+Since Smooth DOC is based on Gatsby and generates a static website, it can be deployed anywhere. Gatsby has a great [documentation about deploying a project](https://www.gatsbyjs.com/docs/deploying-and-hosting/).
+
+> Be careful of having `NODE_ENV=production` when you deploy, else the `robots.txt` will disallow indexing.

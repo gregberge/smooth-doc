@@ -1,0 +1,28 @@
+---
+section: Components
+title: Box
+slug: /docs/components/box/
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+import * as xstyled from '@xstyled/styled-components'
+
+<LiveConfig modules={{ '@xstyled/styled-components': xstyled }} />
+
+# Box
+
+A primitive to write CSS using props.
+
+<carbon-ad />
+
+## Usage
+
+Smooth DOC uses [xstyled](https://xstyled.dev/) under the hood. It gives you access to the `Box` component as a primitive to style everything without writing any line of CSS.
+
+```js live noInline
+import { Box } from '@xstyled/styled-components'
+
+render(<Box width={200} height={50} backgroundColor="primary" />)
+```
+
+> Read [xstyled guide](https://xstyled.dev/docs/style-using-props/) to know more about it.

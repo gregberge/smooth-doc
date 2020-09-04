@@ -1,0 +1,261 @@
+---
+title: Customize Theme
+section: Guides
+slug: /docs/theme/
+order: 5
+---
+
+import { Box } from '@xstyled/styled-components'
+import { LiveConfig } from 'smooth-doc/components'
+import { BuiltInColors } from '../../src/components/Colors'
+
+# Customize Theme
+
+Brand your documentation with a custom theme.
+
+<carbon-ad />
+
+## Engine & Specification
+
+Smooth DOC uses [xstyled](https://xstyled.dev/) and [styled-components](https://styled-components.com/) as CSS engine.
+
+The theme follows [System UI specification](https://system-ui.com/theme/).
+
+## Define theme
+
+Create a file `src/smooth-doc/theme.js` and expose a `theme` constant:
+
+```js
+// src/smooth-doc/theme.js
+import { theme as baseTheme } from 'smooth-doc/src/theme'
+
+export const theme = {
+  ...baseTheme,
+  // Custom theme
+}
+```
+
+## Colors
+
+### Change primary color
+
+Choose primary colors from built-in colors and provide it using `primaryColor` helper:
+
+```js
+// src/smooth-doc/theme.js
+import { theme as baseTheme, primaryColor } from 'smooth-doc/src/theme'
+
+export const theme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    ...primaryColor('red'),
+  },
+}
+```
+
+### Available colors
+
+Inspired by [Tailwind](https://tailwindcss.com/), we included several built-in colors.
+
+<BuiltInColors />
+
+### Use another primary color
+
+A primary color is a palette composed of 9 tons. To specify a custom primary color, you have to define every ton:
+
+```js
+// src/smooth-doc/theme.js
+import { theme as baseTheme } from 'smooth-doc/src/theme'
+
+export const theme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    'primary-100': '#FFFAF0',
+    'primary-200': '#FEEBC8',
+    'primary-300': '#FBD38D',
+    'primary-400': '#F6AD55',
+    'primary-500': '#ED8936',
+    'primary-600': '#DD6B20',
+    'primary-700': '#C05621',
+    'primary-800': '#9C4221',
+    'primary-900': '#7B341E',
+    primary: '#ED8936', // primary-500
+  },
+}
+```
+
+### Generating custom color palettes
+
+A common question we get is "how do I generate the 100–900 shades of my own custom colors?".
+
+Bad news: color is complicated and we've yet to find a tool that does a good job generating these sorts of color palettes. We picked all of Tailwind's default colors by hand, balancing them by eye. Sorry!
+
+### Change a specific color
+
+Smooth DOC uses palette as base color. It is possible to change a palette color or directly a feature color. Example to change the code editor background color:
+
+```js
+// src/smooth-doc/theme.js
+import { theme as baseTheme } from 'smooth-doc/src/theme'
+
+export const theme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    'editor-background': 'purple',
+  },
+}
+```
+
+> See [every colors available](https://github.com/gregberge/smooth-doc/blob/master/smooth-doc/src/theme.js). Since Theme are static, `th` method is not usable, you have to specify a constant.
+
+### Personalize dark mode
+
+Smooth DOC uses [xstyled dark mode](https://xstyled.dev/docs/color-modes/) feature. An entry `modes` in `colors` gives you opportunity to override colors for dark mode:
+
+```js
+// src/smooth-doc/theme.js
+import { theme as baseTheme } from 'smooth-doc/src/theme'
+
+export const theme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    modes: {
+      ...baseTheme.colors.modes,
+      dark: {
+        ...baseTheme.colors.modes.dark,
+        'editor-background': 'white',
+      },
+    },
+  },
+}
+```
+
+## Font
+
+### Change base font
+
+By default Smooth DOC uses [System Font Stack](https://css-tricks.com/snippets/css/system-font-stack/). You are free to customize it:
+
+```js
+// src/smooth-doc/theme.js
+import { theme as baseTheme } from 'smooth-doc/src/theme'
+
+export const theme = {
+  ...baseTheme,
+  fonts: {
+    ...baseTheme.fonts,
+    base: "'Comic Sans MS', sans-serif",
+  },
+}
+```
+
+### Use a Google Fonts
+
+To use a [Google Fonts](https://fonts.google.com/), install [Gatsby Google Fonts plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-fonts/) and use it:
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'source sans pro', // you can also specify font weights and styles
+        ],
+        display: 'swap',
+      },
+    },
+  ],
+}
+```
+
+You can now use it in your `theme.js`:
+
+```js
+// src/smooth-doc/theme.js
+import { theme as baseTheme } from 'smooth-doc/src/theme'
+
+export const theme = {
+  ...baseTheme,
+  fonts: {
+    ...baseTheme.fonts,
+    base: 'source sans pro',
+  },
+}
+```
+
+## Prism Theme
+
+Set `prism-theme` property to define a custom [Prism](https://prismjs.com/) theme:
+
+```js
+// src/smooth-doc/theme.js
+import { theme as baseTheme } from 'smooth-doc/src/theme'
+
+export const theme = {
+  ...baseTheme,
+  'prism-theme': () => ({
+    styles: [
+      {
+        types: ['variable', 'constant', 'deleted'],
+        style: {
+          color: 'rgb(224, 108, 117)',
+        },
+      },
+      {
+        types: ['punctuation', 'char', 'number'],
+        style: {
+          color: 'rgb(209, 154, 102)',
+        },
+      },
+      {
+        types: ['builtin', 'changed', 'namespace', 'class-name', 'tag'],
+        style: {
+          color: 'rgb(229, 192, 123)',
+        },
+      },
+      {
+        types: ['operator'],
+        style: {
+          color: 'rgb(171, 178, 191)',
+        },
+      },
+      {
+        types: ['inserted', 'string'],
+        style: {
+          color: 'rgb(152, 195, 121)',
+        },
+      },
+      {
+        types: ['attr-name', 'comment'],
+        style: {
+          fontStyle: 'italic',
+        },
+      },
+      {
+        types: ['function'],
+        style: {
+          color: 'rgb(97, 175, 239)',
+        },
+      },
+      {
+        types: ['keyword', 'selector'],
+        style: {
+          color: 'rgb(198, 120, 221)',
+        },
+      },
+      {
+        types: ['symbol'],
+        style: {
+          color: 'rgb(86, 182, 194)',
+        },
+      },
+    ],
+  }),
+}
+```

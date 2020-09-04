@@ -1,0 +1,36 @@
+---
+title: Logos
+section: Guides
+slug: /docs/images/
+order: 3
+---
+
+# Logos
+
+Learn how to change logos and social images.
+
+<carbon-ad />
+
+## Use your own logos
+
+Logos are automatically loaded from `images` directory:
+
+- `images/logo-manifest.png`: Define the logo used in `manifest.json` and as `favicon`
+- `images/logo-nav-light.{svg, png, jpg}`: Header logo used in light color mode
+- `images/logo-nav-dark.{svg, png, jpg}`: Header logo used in dark color mode
+- `images/logo-nav.{svg, png, jpg}`: Logo used if light or dark logos are not found
+
+Example of `images` directory structure:
+
+```
+images/
+├── logo-manifest.png
+├── logo-nav-dark.svg
+└── logo-nav-light.svg
+```
+
+> It is better to use a ratio `1x1` for `logo-manifest.png` and horizontal one for other logos.
+
+## Social sharing image
+
+Social sharing images are built-in supported in Smooth DOC. To use a custom social image, add `images/social.{jpg,png}`. Recommended size is 2560 × 1280.

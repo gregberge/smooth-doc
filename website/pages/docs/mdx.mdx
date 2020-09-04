@@ -1,0 +1,71 @@
+---
+title: Write MDX
+section: Guides
+slug: /docs/write-mdx/
+order: 2
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+
+# Write MDX
+
+Smooth DOC uses MDX under the hood. A powerful markup language!
+
+<carbon-ad />
+
+## Use markdown syntax
+
+MDX supports Markdown out of the box. Creating a page is easy as:
+
+```md
+# Title of the page
+
+Content of your page.
+```
+
+## Metadata
+
+Informations like title, slug and navigations informations takes place in the frontmatter. A section present at the top of the markdown file written in yaml syntax:
+
+```md
+---
+title: Write MDX # Title of your page
+slug: /docs/write-mdx/ # Slug of your page (uses file name as default)
+section: Usage # Sidebar navigation group title
+order: 2 # Order in the sidebar navigation group
+---
+
+Your page content...
+```
+
+## Code
+
+To include an highlighted code snippet, just use the markdown syntax:
+
+````md
+An example of code block:
+
+```js
+const foo = 'bar'
+```
+````
+
+Read [React Live Editor Guide](/docs/react-live-editor/) to learn how to create interactive examples.
+
+## Custom components
+
+MDX gives you ability to include your own components:
+
+```
+---
+name: Hello world
+---
+
+import { Button } from './Button'
+
+# Hello world
+
+Hello, I'm still a mdx file, but now I have a button component !
+
+<Button onClick={() => { alert("You clicked me"); }}>Click me</Button>
+```
