@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "4.0.3",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "gatsby develop",
@@ -10,6 +10,6 @@
     "gatsby": "^2.15.18",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "smooth-doc": "^4.0.3"
+    "smooth-doc": "^5.0.0"
   }
 }
