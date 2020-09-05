@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/gregberge/smooth-doc/compare/v4.0.3...v5.0.0) (2020-09-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* nearly everything has changed, please read doc.
+
+### Features
+
+* new version ([#10](https://github.com/gregberge/smooth-doc/issues/10)) ([262dfb1](https://github.com/gregberge/smooth-doc/commit/262dfb161795debb7c2801badbea3180fa5c95c8))
+* twitter support ([0295bf0](https://github.com/gregberge/smooth-doc/commit/0295bf038cfd0290ca8af73fcbec2939d03b5a35))
+
+
+### Bug Fixes
+
+* fix mobile menu ([7fb23dc](https://github.com/gregberge/smooth-doc/commit/7fb23dc48c566992196c18aecae8864022ce1365))
+* fix usage of "code" tag inside jsx ([7bab24e](https://github.com/gregberge/smooth-doc/commit/7bab24efa7eb8cc805c8d014364161179e88f9c4))
+
 ### [4.0.3](https://github.com/gregberge/smooth-doc/compare/v4.0.2...v4.0.3) (2020-07-11)
 
 
