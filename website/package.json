@@ -13,6 +13,7 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-helmet": "^6.1.0",
+    "react-icons": "^3.11.0",
     "smooth-doc": "^4.0.3"
   }
 }

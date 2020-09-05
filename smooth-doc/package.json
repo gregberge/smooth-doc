@@ -42,15 +42,15 @@
     "gatsby-transformer-sharp": "^2.5.13",
     "github-slugger": "^1.2.1",
     "mdast-util-to-string": "^1.0.7",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "polished": "^3.4.2",
     "prism-react-renderer": "^1.0.2",
     "prismjs": "^1.21.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^3.11.0",
     "react-live": "^2.2.2",
-    "reakit": "^1.2.1",
-    "styled-components": "^5.1.1",
+    "reakit": "^1.2.4",
+    "styled-components": "^5.2.0",
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {

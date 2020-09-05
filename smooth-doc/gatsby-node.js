@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const fetch = require('node-fetch')
 const { createFilePath } = require('gatsby-source-filesystem')
-const { getSiteURL } = require('./src/theme-options')
+const { getSiteUrl } = require('./src/theme-options')
 
 function createSchemaCustomization({ actions }) {
   const { createTypes } = actions
@@ -20,8 +20,9 @@ function createSchemaCustomization({ actions }) {
     type SiteSiteMetadata {
       title: String!
       description: String!
-      siteURL: String!
+      siteUrl: String!
       author: String
+      twitterAccount: String
       githubRepositoryURL: String
       sections: [String!]
       navItems: [NavItem!]
@@ -144,7 +145,7 @@ function onCreateMdxNode({ node, getNode, actions }, themeOptions) {
     value: getOrderField(),
   })
 
-  const url = new URL(getSiteURL(themeOptions))
+  const url = new URL(getSiteUrl(themeOptions))
   url.pathname = slug
 
   createNodeField({
@@ -213,7 +214,6 @@ async function createPages({ graphql, actions, reporter }) {
         toPath: node.fields.redirect,
         redirectInBrowser: true,
       })
-      return
     }
 
     createPage({

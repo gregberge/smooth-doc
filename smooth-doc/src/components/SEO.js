@@ -16,7 +16,7 @@ const SEOQuery = graphql`
       siteMetadata {
         title
         description
-        siteURL
+        siteUrl
         author
       }
     }
@@ -27,7 +27,7 @@ export function SEO({ title }) {
   const data = useStaticQuery(SEOQuery)
   const metaDescription = data.site.siteMetadata.description
   const metaTitle = title || data.site.siteMetadata.title
-  const url = data.site.siteMetadata.siteURL
+  const url = data.site.siteMetadata.siteUrl
   const image = data.socialImage
     ? url + data.socialImage.childImageSharp.fixed.src
     : null

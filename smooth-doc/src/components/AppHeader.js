@@ -11,7 +11,7 @@ import { DocSearch } from './DocSearch'
 import { NavLink } from './Nav'
 import { AppNav } from './AppNav'
 
-const QUERY = graphql`
+const AppHeaderQuery = graphql`
   query AppHeader {
     logos: allFile(filter: { name: { glob: "logo-nav*" } }) {
       nodes {
@@ -98,7 +98,7 @@ function useLogo(logos) {
 }
 
 export function AppHeader() {
-  const data = useStaticQuery(QUERY)
+  const data = useStaticQuery(AppHeaderQuery)
   const logo = useLogo(data.logos.nodes)
 
   return (

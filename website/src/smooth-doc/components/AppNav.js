@@ -1,4 +1,5 @@
 import React from 'react'
+import { RiTwitterFill } from 'react-icons/ri'
 import {
   Nav,
   NavList,
@@ -25,6 +26,15 @@ export function AppNav() {
         </NavListItem>
         <NavListItem>
           <NavLink to="/docs/">Docs</NavLink>
+        </NavListItem>
+        <NavListItem>
+          <NavLink
+            href="https://twitter.com/neoziro"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <RiTwitterFill style={{ width: 24, height: 24 }} />
+          </NavLink>
         </NavListItem>
         <NavListItem>
           <NavLink forwardedAs={ColorModeSwitcher} />

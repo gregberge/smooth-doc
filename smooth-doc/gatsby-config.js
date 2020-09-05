@@ -1,5 +1,5 @@
 const fs = require('fs')
-const { getSiteURL } = require('./src/theme-options')
+const { getSiteUrl } = require('./src/theme-options')
 
 function getLogoPath() {
   return fs.existsSync('images/logo-manifest.png')
@@ -22,21 +22,23 @@ function getOptions(themeOptions) {
  * @param {object} themeOptions
  * @param {string} themeOptions.name
  * @param {string} themeOptions.description
- * @param {string} [themeOptions.siteURL]
+ * @param {string} [themeOptions.siteUrl]
  * @param {string} [themeOptions.shortName]
  * @param {string[]} [themeOptions.sections]
  * @param {{ title: string, url: string }[]} [themeOptions.nav]
  * @param {string} [themeOptions.baseDirectory]
+ * @param {string} [themeOptions.twitterAccount]
  * @param {string} [themeOptions.githubRepositoryURL]
  * @param {string} [themeOptions.githubDocRepositoryURL]
  * @param {string} [themeOptions.githubDefaultBranch]
  * @param {string} [themeOptions.author]
  * @param {string} [themeOptions.carbonAdsURL]
  * @param {{ apiKey: string, indexName: string }} [themeOptions.docSearch]
+ * @param {object} [themeOptions.sitemap]
  */
 module.exports = (themeOptions) => {
   const options = getOptions(themeOptions)
-  const siteURL = getSiteURL(options)
+  const siteUrl = getSiteUrl(options)
   const logoPath = getLogoPath()
 
   return {
@@ -47,7 +49,7 @@ module.exports = (themeOptions) => {
       navItems: options.navItems,
       carbonAdsURL: options.carbonAdsURL,
       description: options.description,
-      siteURL,
+      siteUrl,
       author: options.author,
       docSearch: options.docSearch,
     },
@@ -123,7 +125,10 @@ module.exports = (themeOptions) => {
             },
           ]),
       // SEO
-      'gatsby-plugin-sitemap',
+      {
+        resolve: 'gatsby-plugin-sitemap',
+        options: themeOptions.sitemap || {},
+      },
       'gatsby-plugin-meta-redirect',
       {
         resolve: `gatsby-plugin-manifest`,

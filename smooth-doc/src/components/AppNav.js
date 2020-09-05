@@ -1,13 +1,14 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { RiGithubFill } from 'react-icons/ri'
+import { RiGithubFill, RiTwitterFill } from 'react-icons/ri'
 import { Nav, NavList, NavListItem, NavLink } from './Nav'
 import { ColorModeSwitcher } from './ColorModeSwitcher'
 
-const QUERY = graphql`
+const AppNavQuery = graphql`
   query AppNav {
     site {
       siteMetadata {
+        twitterAccount
         githubRepositoryURL
         navItems {
           title
@@ -19,7 +20,7 @@ const QUERY = graphql`
 `
 
 export function AppNav() {
-  const data = useStaticQuery(QUERY)
+  const data = useStaticQuery(AppNavQuery)
 
   return (
     <Nav>
@@ -34,12 +35,22 @@ export function AppNav() {
         {data.site.siteMetadata.githubRepositoryURL ? (
           <NavListItem>
             <NavLink
-              display="flex"
               href={data.site.siteMetadata.githubRepositoryURL}
               target="_blank"
               rel="noopener noreferrer"
             >
               <RiGithubFill style={{ width: 24, height: 24 }} />
+            </NavLink>
+          </NavListItem>
+        ) : null}
+        {data.site.siteMetadata.twitterAccount ? (
+          <NavListItem>
+            <NavLink
+              href={`https://twitter.com/${data.site.siteMetadata.twitterAccount}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RiTwitterFill style={{ width: 24, height: 24 }} />
             </NavLink>
           </NavListItem>
         ) : null}

@@ -5,7 +5,7 @@ module.exports = {
       options: {
         name: 'Smooth DOC Example',
         description: 'Ready to use documentation theme for Gatsby.',
-        siteURL: 'https://smooth-doc.com',
+        siteUrl: 'https://smooth-doc.com',
       },
     },
   ],
