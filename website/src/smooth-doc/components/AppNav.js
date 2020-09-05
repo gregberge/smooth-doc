@@ -29,6 +29,7 @@ export function AppNav() {
         </NavListItem>
         <NavListItem>
           <NavLink
+            forwardedAs="a"
             href="https://twitter.com/neoziro"
             target="_blank"
             rel="noopener noreferrer"
