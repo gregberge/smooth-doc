@@ -8,12 +8,10 @@
     "access": "public"
   },
   "scripts": {
-    "prepublishOnly": "yarn build:theme",
     "dev": "gatsby develop",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{js,md,mdx}\"",
-    "release": "standard-version && conventional-github-releaser --preset angular",
-    "generate:icons": "svgr -d src/components --icon --replace-attr-values \"#000=currentColor\" svgs"
+    "release": "standard-version && conventional-github-releaser --preset angular"
   },
   "peerDependencies": {
     "gatsby": "^2.15.0",
@@ -54,7 +52,6 @@
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
-    "@svgr/cli": "^5.4.0",
     "gatsby": "^2.15.18",
     "react": "^16.10.1",
     "react-dom": "^16.10.1"
