@@ -4,7 +4,10 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const SEOQuery = graphql`
   query SEOQuery {
-    socialImage: file(relativePath: { eq: "social.jpg" }) {
+    socialImage: file(
+      sourceInstanceName: { eq: "image" }
+      name: { eq: "social" }
+    ) {
       childImageSharp {
         fixed(width: 1280, height: 640) {
           ...GatsbyImageSharpFixed_noBase64

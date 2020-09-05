@@ -13,7 +13,12 @@ import { AppNav } from './AppNav'
 
 const AppHeaderQuery = graphql`
   query AppHeader {
-    logos: allFile(filter: { name: { glob: "logo-nav*" } }) {
+    logos: allFile(
+      filter: {
+        sourceInstanceName: { eq: "image" }
+        name: { glob: "logo-nav*" }
+      }
+    ) {
       nodes {
         name
         publicURL
