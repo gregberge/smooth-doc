@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.2](https://github.com/gregberge/smooth-doc/compare/v5.0.1...v5.0.2) (2020-09-05)
+
+
+### Bug Fixes
+
+* add missing preview-pages ([405a708](https://github.com/gregberge/smooth-doc/commit/405a7086b81490ab5bda1f7b4e2e6c9aa0d93fc7))
+
 ### [5.0.1](https://github.com/gregberge/smooth-doc/compare/v5.0.0...v5.0.1) (2020-09-05)
 
 
