@@ -3,7 +3,7 @@
   "version": "5.0.2",
   "main": "index.js",
   "author": "Greg Bergé <hey@gregberge.com>",
-  "license": "Commercial",
+  "license": "SEE LICENSE IN LICENSE",
   "publishConfig": {
     "access": "public"
   },
