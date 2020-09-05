@@ -1,5 +1,7 @@
 /*
 !/src/**/*
+!/pages/**/*
+!/images/**/*
 !/gatsby-*.js
 !/components.js
 !/index.js
