@@ -2,7 +2,7 @@
 !/src/**/*
 !/pages/**/*
 !/preview-pages/**/*
+!/components/**/**
 !/images/**/*
 !/gatsby-*.js
-!/components.js
 !/index.js
