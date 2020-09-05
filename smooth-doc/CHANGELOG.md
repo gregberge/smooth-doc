@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.5](https://github.com/gregberge/smooth-doc/compare/v5.0.4...v5.0.5) (2020-09-05)
+
+
+### Bug Fixes
+
+* fix absolute link ([ca5b66e](https://github.com/gregberge/smooth-doc/commit/ca5b66e9b73b0edda8e6fab3e61595583d9e2bac))
+* images querying ([5d0df09](https://github.com/gregberge/smooth-doc/commit/5d0df09ecd3270eaae141bf422963c1464cec8f1))
+
 ### [5.0.4](https://github.com/gregberge/smooth-doc/compare/v5.0.3...v5.0.4) (2020-09-05)
 
 
