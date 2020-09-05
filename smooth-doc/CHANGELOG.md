@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.4](https://github.com/gregberge/smooth-doc/compare/v5.0.3...v5.0.4) (2020-09-05)
+
+
+### Bug Fixes
+
+* fix buy smooth-doc link ([efe1046](https://github.com/gregberge/smooth-doc/commit/efe1046828e2e56b831da7a17bd125a027b82342))
+
 ### [5.0.3](https://github.com/gregberge/smooth-doc/compare/v5.0.2...v5.0.3) (2020-09-05)
 
 
