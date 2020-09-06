@@ -23,9 +23,11 @@ MDX supports Markdown out of the box. Creating a page is easy as:
 Content of your page.
 ```
 
+To learn more about markdown, see [markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/).
+
 ## Metadata
 
-Informations like title, slug and navigations informations takes place in the frontmatter. A section present at the top of the markdown file written in yaml syntax:
+Features like title, slug and navigation information take place in the frontmatter — a section present at the top of the markdown file written in YAML syntax.
 
 ```md
 ---
@@ -40,7 +42,7 @@ Your page content...
 
 ## Code
 
-To include an highlighted code snippet, just use the markdown syntax:
+To include a highlighted code snippet, use markdown code block syntax followed by language. Syntax highlighting is built-in thanks to [Prism](https://prismjs.com/). Almost all languages are supported.
 
 ````md
 An example of code block:
@@ -54,7 +56,7 @@ Read [React Live Editor Guide](/docs/react-live-editor/) to learn how to create 
 
 ## Custom components
 
-MDX gives you ability to include your own components:
+MDX allows you to include your own components. To do it, add an `import` statement directly in your MDX file and use your component.
 
 ```
 ---
@@ -65,7 +67,7 @@ import { Button } from './Button'
 
 # Hello world
 
-Hello, I'm still a mdx file, but now I have a button component !
+Hello, I'm still a MDX file, but now I have a button component !
 
 <Button onClick={() => { alert("You clicked me"); }}>Click me</Button>
 ```

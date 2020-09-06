@@ -3,7 +3,7 @@
 > **Important**
 >
 > - This package is a commercial library.
-> - To unlock full package and have right to use it, you have to buy a license on [Smooth DOC website](https://smooth-doc.com).
+> - To unlock full package and have the right to use it, you have to buy a license on [Smooth DOC website](https://smooth-doc.com).
 
 ## Resources
 
