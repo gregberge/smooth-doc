@@ -17,5 +17,12 @@ module.exports = {
         licenseKey: '10E9A447-D9E04BB6-83765C8F-8A1483B4',
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: 'UA-154496255-5',
+      },
+    },
   ],
 }
