@@ -104,7 +104,7 @@ function useLogo(logos) {
 
 export function AppHeader() {
   const data = useStaticQuery(AppHeaderQuery)
-  const logo = useLogo(data.logos.nodes)
+  const logo = useLogo(data.logos.nodes.reverse())
 
   return (
     <OuterHeader>
