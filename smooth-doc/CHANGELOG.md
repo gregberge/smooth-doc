@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.7](https://github.com/gregberge/smooth-doc/compare/v5.0.6...v5.0.7) (2020-09-09)
+
+
+### Bug Fixes
+
+* fix Gatsby Link warning ([5a71368](https://github.com/gregberge/smooth-doc/commit/5a713682eaed4303ccf147362fe8f86f9c4ec06f))
+* fix nav logo usage ([e05bd5e](https://github.com/gregberge/smooth-doc/commit/e05bd5edb6110ae6e073162a115594a4decfc11d))
+
 ### [5.0.6](https://github.com/gregberge/smooth-doc/compare/v5.0.5...v5.0.6) (2020-09-06)
 
 ### [5.0.5](https://github.com/gregberge/smooth-doc/compare/v5.0.4...v5.0.5) (2020-09-05)
