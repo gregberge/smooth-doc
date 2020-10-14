@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/gregberge/smooth-doc/compare/v5.0.7...v5.1.0) (2020-10-14)
+
+
+### Features
+
+* **open-source:** release it as open source ([646a778](https://github.com/gregberge/smooth-doc/commit/646a778274680139761db16277e4bd9f285fc367))
+
 ### [5.0.7](https://github.com/gregberge/smooth-doc/compare/v5.0.6...v5.0.7) (2020-09-09)
 
 
