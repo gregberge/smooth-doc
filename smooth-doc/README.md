@@ -1,13 +1,22 @@
-## Smooth DOC
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/gregberge/smooth-doc/master/resources/logo-colored-light.jpg" alt="Smooth DOC" title="Smooth DOC" width="300">
+</h1>
+<p align="center" style="font-size: 1.2rem;">Ready to use documentation theme for Gatsby.</p>
 
-> **Important**
->
-> - This package is a commercial library.
-> - To unlock full package and have the right to use it, you have to buy a license on [Smooth DOC website](https://smooth-doc.com).
+[![License](https://img.shields.io/npm/l/smoooth-doc.svg)](https://github.com/smooth-code/xstyled/blob/master/LICENSE)
+[![npm package](https://img.shields.io/npm/v/smoooth-doc/latest.svg)](https://www.npmjs.com/package/smoooth-doc)
+[![npm downloads](https://img.shields.io/npm/dm/smoooth-doc.svg)](https://www.npmjs.com/package/smoooth-doc)
 
-## Resources
+```bash
+npm install smoooth-doc gatsby react react-dom
+```
 
-- [Getting Started with Smooth DOC](https://smooth-doc.com/docs/getting-started/)
-- [Smooth DOC pricing and licensing](https://smooth-doc.com/docs/license/)
+## [Docs](https://smooth-doc.com)
 
-_Copyright © 2020 SMOOTH CODE SAS and/or its subsidiaries or affiliates. All Rights Reserved._
+**See the documentation at [smooth-doc.com](https://smooth-doc.com)** for more information about using Smooth DOC!
+
+## License
+
+Licensed under the MIT License, Copyright © 2020-present Greg Bergé.
+
+See [LICENSE](./LICENSE) for more information.
