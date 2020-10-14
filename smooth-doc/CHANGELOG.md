@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.1.1](https://github.com/gregberge/smooth-doc/compare/v5.1.0...v5.1.1) (2020-10-14)
+
+
+### Bug Fixes
+
+* **nav:** fix twitter account ([c3a79de](https://github.com/gregberge/smooth-doc/commit/c3a79de7a514259d6e053240155da63b9a842887))
+
 ## [5.1.0](https://github.com/gregberge/smooth-doc/compare/v5.0.7...v5.1.0) (2020-10-14)
 
 
