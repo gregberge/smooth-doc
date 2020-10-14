@@ -3,12 +3,12 @@
 </h1>
 <p align="center" style="font-size: 1.2rem;">Ready to use documentation theme for Gatsby.</p>
 
-[![License](https://img.shields.io/npm/l/smoooth-doc.svg)](https://github.com/smooth-code/xstyled/blob/master/LICENSE)
-[![npm package](https://img.shields.io/npm/v/smoooth-doc/latest.svg)](https://www.npmjs.com/package/smoooth-doc)
-[![npm downloads](https://img.shields.io/npm/dm/smoooth-doc.svg)](https://www.npmjs.com/package/smoooth-doc)
+[![License](https://img.shields.io/npm/l/smooth-doc.svg)](https://github.com/smooth-code/xstyled/blob/master/LICENSE)
+[![npm package](https://img.shields.io/npm/v/smooth-doc/latest.svg)](https://www.npmjs.com/package/smooth-doc)
+[![npm downloads](https://img.shields.io/npm/dm/smooth-doc.svg)](https://www.npmjs.com/package/smooth-doc)
 
 ```bash
-npm install smoooth-doc gatsby react react-dom
+npm install smooth-doc gatsby react react-dom
 ```
 
 ## [Docs](https://smooth-doc.com)
