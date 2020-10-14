@@ -15,9 +15,10 @@ const AppHeaderQuery = graphql`
   query AppHeader {
     logos: allFile(
       filter: {
-        sourceInstanceName: { eq: "image" }
+        sourceInstanceName: { in: ["image", "default-image"] }
         name: { glob: "logo-nav*" }
       }
+      sort: { fields: sourceInstanceName, order: DESC }
     ) {
       nodes {
         name
@@ -104,7 +105,7 @@ function useLogo(logos) {
 
 export function AppHeader() {
   const data = useStaticQuery(AppHeaderQuery)
-  const logo = useLogo(data.logos.nodes.reverse())
+  const logo = useLogo(data.logos.nodes)
 
   return (
     <OuterHeader>

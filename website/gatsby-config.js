@@ -14,7 +14,6 @@ module.exports = {
         sitemap: {
           exclude: ['/thanks/'],
         },
-        licenseKey: '10E9A447-D9E04BB6-83765C8F-8A1483B4',
       },
     },
     {

@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from '@xstyled/styled-components'
 
 export const InnerSiblingNavLink = styled.aBox`
-  font-size: 22;
+  font-size: 18;
   transition: fast;
   text-decoration: underline;
   color: on-background-primary;

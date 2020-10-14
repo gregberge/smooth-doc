@@ -7,37 +7,26 @@ function getLogoPath() {
     : `${__dirname}/images/logo-manifest.png`
 }
 
-function getOptions(themeOptions) {
-  if (!themeOptions.licenseKey) {
-    return {
-      name: 'Smooth DOC',
-      description: '',
-    }
-  }
-  return themeOptions
-}
-
 /**
  * Theme configuration.
- * @param {object} themeOptions
- * @param {string} themeOptions.name
- * @param {string} themeOptions.description
- * @param {string} [themeOptions.siteUrl]
- * @param {string} [themeOptions.shortName]
- * @param {string[]} [themeOptions.sections]
- * @param {{ title: string, url: string }[]} [themeOptions.nav]
- * @param {string} [themeOptions.baseDirectory]
- * @param {string} [themeOptions.twitterAccount]
- * @param {string} [themeOptions.githubRepositoryURL]
- * @param {string} [themeOptions.githubDocRepositoryURL]
- * @param {string} [themeOptions.githubDefaultBranch]
- * @param {string} [themeOptions.author]
- * @param {string} [themeOptions.carbonAdsURL]
- * @param {{ apiKey: string, indexName: string }} [themeOptions.docSearch]
- * @param {object} [themeOptions.sitemap]
+ * @param {object} options
+ * @param {string} options.name
+ * @param {string} options.description
+ * @param {string} [options.siteUrl]
+ * @param {string} [options.shortName]
+ * @param {string[]} [options.sections]
+ * @param {{ title: string, url: string }[]} [options.nav]
+ * @param {string} [options.baseDirectory]
+ * @param {string} [options.twitterAccount]
+ * @param {string} [options.githubRepositoryURL]
+ * @param {string} [options.githubDocRepositoryURL]
+ * @param {string} [options.githubDefaultBranch]
+ * @param {string} [options.author]
+ * @param {string} [options.carbonAdsURL]
+ * @param {{ apiKey: string, indexName: string }} [options.docSearch]
+ * @param {object} [options.sitemap]
  */
-module.exports = (themeOptions) => {
-  const options = getOptions(themeOptions)
+module.exports = (options) => {
   const siteUrl = getSiteUrl(options)
   const logoPath = getLogoPath()
 
@@ -88,46 +77,34 @@ module.exports = (themeOptions) => {
         resolve: 'gatsby-source-filesystem',
         options: {
           path: `${__dirname}/pages`,
-          name: 'page',
+          name: 'default-page',
         },
       },
       {
         resolve: 'gatsby-source-filesystem',
         options: {
           path: `${__dirname}/images`,
+          name: 'default-image',
+        },
+      },
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          path: `./pages`,
+          name: 'page',
+        },
+      },
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          path: `./images`,
           name: 'image',
         },
       },
-      ...(options.licenseKey
-        ? [
-            {
-              resolve: 'gatsby-source-filesystem',
-              options: {
-                path: `./pages`,
-                name: 'page',
-              },
-            },
-            {
-              resolve: 'gatsby-source-filesystem',
-              options: {
-                path: `./images`,
-                name: 'image',
-              },
-            },
-          ]
-        : [
-            {
-              resolve: 'gatsby-source-filesystem',
-              options: {
-                path: `${__dirname}/preview-pages`,
-                name: 'page',
-              },
-            },
-          ]),
       // SEO
       {
         resolve: 'gatsby-plugin-sitemap',
-        options: themeOptions.sitemap || {},
+        options: options.sitemap || {},
       },
       'gatsby-plugin-meta-redirect',
       {

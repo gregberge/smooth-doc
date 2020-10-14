@@ -15,6 +15,17 @@ const SEOQuery = graphql`
       }
     }
 
+    defaultSocialImage: file(
+      sourceInstanceName: { eq: "default-image" }
+      name: { eq: "social" }
+    ) {
+      childImageSharp {
+        fixed(width: 1280, height: 640) {
+          ...GatsbyImageSharpFixed_noBase64
+        }
+      }
+    }
+
     site {
       siteMetadata {
         title
@@ -31,9 +42,8 @@ export function SEO({ title }) {
   const metaDescription = data.site.siteMetadata.description
   const metaTitle = title || data.site.siteMetadata.title
   const url = data.site.siteMetadata.siteUrl
-  const image = data.socialImage
-    ? url + data.socialImage.childImageSharp.fixed.src
-    : null
+  const socialImage = data.defaultSocialImage || data.socialImage
+  const image = socialImage ? url + socialImage.childImageSharp.fixed.src : null
   return (
     <Helmet
       htmlAttributes={{ lang: 'en' }}

@@ -203,22 +203,15 @@ export const Article = styled.article`
   }
 
   > table {
+    display: block;
     border-collapse: collapse;
     border-spacing: 0;
-    display: block;
     margin-bottom: 2;
     margin-top: 3;
     overflow: auto;
     width: 100%;
-
-    thead {
-      border: 0;
-      font: inherit;
-      font-size: 100%;
-      margin: 0;
-      padding: 0;
-      vertical-align: baseline;
-    }
+    text-align: left;
+    font-size: 95%;
 
     tr {
       background-color: transparent;
@@ -226,16 +219,23 @@ export const Article = styled.article`
       border-color: layout-border;
     }
 
-    th {
-      background-color: inherit;
-      font-weight: 600;
-    }
-
     td,
     th {
-      border: 1;
+      border-top: 1;
+      border-bottom: 1;
       border-color: layout-border;
       padding: 2 3;
+    }
+
+    th {
+      color: on-background-light;
+      background-color: background-light;
+      font-weight: 600;
+      font-size: 100%;
+    }
+
+    td {
+      font-size: 85%;
     }
   }
 

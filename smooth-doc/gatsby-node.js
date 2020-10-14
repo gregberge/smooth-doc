@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const fetch = require('node-fetch')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { getSiteUrl } = require('./src/theme-options')
 
@@ -48,39 +47,14 @@ function createDirectoryIfNotExists({ reporter }, pathname) {
   }
 }
 
-async function checkLicense({ licenseKey }) {
-  const params = new URLSearchParams()
-  params.append('product_permalink', 'smooth-doc')
-  params.append('license_key', licenseKey)
-  const res = await fetch('https://api.gumroad.com/v2/licenses/verify', {
-    method: 'POST',
-    body: params,
-  })
-  const data = await res.json()
-  if (data.success) return true
-  return false
-}
-
-async function onPreBootstrap(options, themeOptions) {
-  const { cache } = options
-  // Check license key
-  if (themeOptions.licenseKey) {
-    if (await cache.get('checked-license')) return
-    const validLicense = await checkLicense(themeOptions)
-    if (!validLicense) {
-      options.reporter.panic(`Invalid license, please buy a valid license`)
-      return
-    }
-    await cache.set('checked-license', true)
-  }
-
+async function onPreBootstrap(options) {
   // Create all required directories
   createDirectoryIfNotExists(options, 'pages')
   createDirectoryIfNotExists(options, 'pages/docs')
   createDirectoryIfNotExists(options, 'images')
 }
 
-function onCreateMdxNode({ node, getNode, actions }, themeOptions) {
+function onCreateMdxNode({ node, getNode, actions }, options) {
   const { createNodeField } = actions
   const slug = node.frontmatter.slug || createFilePath({ node, getNode })
   const pageType = /\/pages\/docs\//.test(node.fileAbsolutePath)
@@ -145,7 +119,7 @@ function onCreateMdxNode({ node, getNode, actions }, themeOptions) {
     value: getOrderField(),
   })
 
-  const url = new URL(getSiteUrl(themeOptions))
+  const url = new URL(getSiteUrl(options))
   url.pathname = slug
 
   createNodeField({
@@ -160,7 +134,7 @@ function onCreateMdxNode({ node, getNode, actions }, themeOptions) {
       githubDocRepositoryURL,
       githubRepositoryURL,
       githubDefaultBranch = 'master',
-    } = themeOptions
+    } = options
     const repositoryURL = githubDocRepositoryURL || githubRepositoryURL
     if (!baseDirectory || !repositoryURL) return ''
     const relativePath = node.fileAbsolutePath.replace(baseDirectory, '')
