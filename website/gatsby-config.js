@@ -11,9 +11,9 @@ module.exports = {
         baseDirectory: path.resolve(__dirname, '../'),
         author: 'Greg Bergé',
         sections: ['About', 'Guide', 'Components', 'Reference'],
-        sitemap: {
-          exclude: ['/thanks/'],
-        },
+        navItems: [{ title: 'Docs', url: '/docs/' }],
+        twitterAccount: 'neoziro',
+        githubRepositoryURL: 'https://github.com/gregberge/smooth-doc/',
       },
     },
     {

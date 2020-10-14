@@ -38,6 +38,7 @@ module.exports = (options) => {
       navItems: options.navItems,
       carbonAdsURL: options.carbonAdsURL,
       description: options.description,
+      twitterAccount: options.twitterAccount,
       siteUrl,
       author: options.author,
       docSearch: options.docSearch,
