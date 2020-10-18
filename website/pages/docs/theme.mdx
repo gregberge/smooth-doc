@@ -388,7 +388,20 @@ export const theme = {
 
 ## Prism Theme
 
-Set `prism-theme` property to define a custom [Prism](https://prismjs.com/) theme:
+Set `prism-theme` property to set a [Prism](https://prismjs.com/) theme:
+
+```js
+// src/smooth-doc/theme.js
+import { theme as baseTheme } from 'smooth-doc/src/theme'
+import NightOwlTheme from 'prism-react-renderer/themes/nightOwl'
+
+export const theme = {
+  ...baseTheme,
+  'prism-theme': NightOwlTheme,
+}
+```
+
+You can also define a a custom theme:
 
 ```js
 // src/smooth-doc/theme.js
