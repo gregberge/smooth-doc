@@ -160,7 +160,7 @@ export function TableOfContents() {
         {headings.map((heading, i) =>
           heading.url ? (
             <li key={i} data-depth={heading.depth}>
-              <Link to={heading.url}>{heading.text}</Link>
+              <a href={heading.url}>{heading.text}</Link>
             </li>
           ) : null,
         )}
