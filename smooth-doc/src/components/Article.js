@@ -161,7 +161,6 @@ export const Article = styled.article`
     font-weight: 500;
     font-size: 18;
     line-height: 1.3;
-    color: subtitle;
   }
 
   > h2 + h3,
