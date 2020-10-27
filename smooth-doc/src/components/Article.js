@@ -172,6 +172,10 @@ export const Article = styled.article`
     margin-top: 3;
   }
 
+  > ul + p {
+    margin-top: 2;
+  }
+
   .editor {
     background-color: editor-background;
     color: editor-text;
