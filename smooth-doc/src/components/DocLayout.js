@@ -51,7 +51,7 @@ const Container = styled.div`
     'md',
     css`
       display: grid;
-      grid-template-columns: 200px minmax(0, 1fr);
+      grid-template-columns: 200px 0 minmax(0, 1fr);
       grid-gap: ${th.space(5)};
     `,
   )}
@@ -59,7 +59,7 @@ const Container = styled.div`
   ${up(
     'xl',
     css`
-      grid-template-columns: 200px minmax(0, 1fr) 200px;
+      grid-template-columns: 200px 0 minmax(0, 1fr) 200px;
     `,
   )}
 `
@@ -138,7 +138,7 @@ const MenuButton = styled.button`
 `
 
 function MobileSidebar({ children }) {
-  const dialog = useDialogState({ animated: true, modal: false })
+  const dialog = useDialogState({ animated: true })
   return (
     <>
       <Dialog {...dialog} as={SidebarDialog}>
@@ -183,11 +183,13 @@ export function DocLayout({ children, tableOfContents, editLink, ...props }) {
           <SidebarSticky>
             <SideNav {...sideNav} />
           </SidebarSticky>
-          {!upMd && (
-            <MobileSidebar>
-              <SideNav {...sideNav} />
-            </MobileSidebar>
-          )}
+          <div>
+            {!upMd && (
+              <MobileSidebar>
+                <SideNav {...sideNav} />
+              </MobileSidebar>
+            )}
+          </div>
           <Box pb={6} px={3}>
             <Article>
               {children}
