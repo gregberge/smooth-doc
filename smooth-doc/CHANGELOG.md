@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.1.2](https://github.com/gregberge/smooth-doc/compare/v5.1.1...v5.1.2) (2020-10-27)
+
+
+### Bug Fixes
+
+* **article:** fix ul + p margin top ([10bc66c](https://github.com/gregberge/smooth-doc/commit/10bc66c2fda21d221bccc4adbed3b59868cf31ed))
+* **article:** wrong color for h4 ([89bc9f8](https://github.com/gregberge/smooth-doc/commit/89bc9f8d587a6d92b2ead91c3b03fe42c348f292)), closes [#19](https://github.com/gregberge/smooth-doc/issues/19)
+* **code:** correctly display pre in summary ([c4e98b0](https://github.com/gregberge/smooth-doc/commit/c4e98b0362f6ceed3900bd21bf824684ea3136e9)), closes [#20](https://github.com/gregberge/smooth-doc/issues/20)
+* adds missing Link from Gatsby on 404 page ([#18](https://github.com/gregberge/smooth-doc/issues/18)) ([44ae3c8](https://github.com/gregberge/smooth-doc/commit/44ae3c8c43e386b46f9c9043fff1f12c7fe4a127)), closes [#15](https://github.com/gregberge/smooth-doc/issues/15)
+* fix blank page on mobile ([0e20849](https://github.com/gregberge/smooth-doc/commit/0e2084950722afbc08410b9e26b80e8a95aac2ec)), closes [#22](https://github.com/gregberge/smooth-doc/issues/22)
+* **Nav:** fix wrong size overflow ([c426296](https://github.com/gregberge/smooth-doc/commit/c426296b74361f156c1bd46ae36d34fadba46ab8)), closes [#24](https://github.com/gregberge/smooth-doc/issues/24)
+* **toc:** fix closing tag ([5136e1b](https://github.com/gregberge/smooth-doc/commit/5136e1bac1d318497aae83d554330058285e7427))
+* make anchor links work as they should ([#23](https://github.com/gregberge/smooth-doc/issues/23)) ([8b1da3a](https://github.com/gregberge/smooth-doc/commit/8b1da3a91e2aaf2e9ad5146a2a0717a0049dbf90)), closes [#17](https://github.com/gregberge/smooth-doc/issues/17)
+
 ### [5.1.1](https://github.com/gregberge/smooth-doc/compare/v5.1.0...v5.1.1) (2020-10-14)
 
 
