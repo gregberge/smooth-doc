@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/gregberge/smooth-doc/compare/v5.1.3...v5.2.0) (2020-10-27)
+
+
+### Features
+
+* **images:** add inline images support ([797140c](https://github.com/gregberge/smooth-doc/commit/797140c35ba7b4e928d64797fb9dbddfc2db7087))
+
 ### [5.1.3](https://github.com/gregberge/smooth-doc/compare/v5.1.2...v5.1.3) (2020-10-27)
 
 
