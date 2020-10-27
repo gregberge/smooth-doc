@@ -138,7 +138,7 @@ const MenuButton = styled.button`
 `
 
 function MobileSidebar({ children }) {
-  const dialog = useDialogState({ animated: true })
+  const dialog = useDialogState({ animated: true, modal: false })
   return (
     <>
       <Dialog {...dialog} as={SidebarDialog}>
