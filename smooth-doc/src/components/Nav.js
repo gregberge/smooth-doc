@@ -54,7 +54,6 @@ export const NavList = React.forwardRef((props, ref) => {
       row
       alignItems="center"
       flexWrap="nowrap"
-      mx={-2}
       forwardedAs="ul"
       {...props}
     />
