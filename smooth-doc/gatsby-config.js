@@ -52,6 +52,7 @@ module.exports = (options) => {
         },
       },
       'gatsby-plugin-styled-components',
+      'gatsby-remark-images',
       {
         resolve: 'gatsby-plugin-mdx',
         options: {
@@ -60,6 +61,12 @@ module.exports = (options) => {
               resolve: require.resolve(
                 './src/plugins/gatsby-remark-autolink-headers',
               ),
+            },
+            {
+              resolve: `gatsby-remark-images`,
+              options: {
+                maxWidth: 1200,
+              },
             },
           ],
         },

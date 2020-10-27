@@ -51,6 +51,7 @@
     "gatsby-plugin-sitemap": "^2.4.17",
     "gatsby-plugin-styled-components": "^3.3.14",
     "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-remark-images": "^3.3.39",
     "gatsby-source-filesystem": "^2.3.37",
     "gatsby-transformer-sharp": "^2.5.20",
     "github-slugger": "^1.2.1",
