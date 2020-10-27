@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled, { th } from '@xstyled/styled-components'
 
 const TOP_OFFSET = 100
@@ -160,7 +159,7 @@ export function TableOfContents() {
         {headings.map((heading, i) =>
           heading.url ? (
             <li key={i} data-depth={heading.depth}>
-              <a href={heading.url}>{heading.text}</Link>
+              <a href={heading.url}>{heading.text}</a>
             </li>
           ) : null,
         )}
