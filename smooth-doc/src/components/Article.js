@@ -16,7 +16,8 @@ export const Article = styled.article`
     background-color: background-mark;
   }
 
-  > pre {
+  > pre,
+  > summary > pre {
     overflow: auto;
     direction: ltr;
     text-align: left;
