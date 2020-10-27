@@ -14,6 +14,8 @@ module.exports = {
         navItems: [{ title: 'Docs', url: '/docs/' }],
         twitterAccount: 'neoziro',
         githubRepositoryURL: 'https://github.com/gregberge/smooth-doc/',
+        carbonAdsURL:
+          '//cdn.carbonads.com/carbon.js?serve=CE7IL2JN&placement=xstyleddev',
       },
     },
     {
