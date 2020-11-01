@@ -26,6 +26,12 @@ export const mdxComponents = {
     const codeChild = getCodeChild(children)
     return <pre>{codeChild ? transformCode(codeChild.props) : children}</pre>
   },
+  // transforms internal links in MDX into GatsbyLink components
+  a: ({ href, ...p }) => {
+    // Link don't support external links or anchors 
+    const isLink = href.indexOf('http') === -1 && href.indexOf('#') !== 0
+    return isLink ? <Link to={href} {...p} /> : <a href={href} {...p} />
+  },
 }
 
 export function MDXProvider({ children, components }) {
