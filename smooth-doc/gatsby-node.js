@@ -28,14 +28,6 @@ function createSchemaCustomization({ actions }) {
       carbonAdsURL: String
       docSearch: AlgoliaDocSearchMetadata
     }
-
-    type MdxFrontmatter {
-      title: String!
-      slug: String
-      section: String
-      order: Int
-      redirect: String
-    }
   `
   createTypes(typeDefs)
 }
