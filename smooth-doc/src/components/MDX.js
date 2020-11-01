@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { MDXProvider as BaseMDXProvider } from '@mdx-js/react'
 import { Code } from './Code'
 import { CarbonAd } from './CarbonAd'
