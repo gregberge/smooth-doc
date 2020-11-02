@@ -16,6 +16,10 @@ module.exports = {
         githubRepositoryURL: 'https://github.com/gregberge/smooth-doc/',
         carbonAdsURL:
           '//cdn.carbonads.com/carbon.js?serve=CE7IL2JN&placement=xstyleddev',
+        docSearch: {
+          apiKey: 'a0c23a738fe1cfffa923daba2eb185be',
+          indexName: 'smooth-doc',
+        },
       },
     },
     {
