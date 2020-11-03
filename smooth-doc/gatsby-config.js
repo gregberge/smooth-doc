@@ -53,6 +53,7 @@ module.exports = (options) => {
       },
       'gatsby-plugin-styled-components',
       'gatsby-remark-images',
+      'gatsby-plugin-catch-links',
       {
         resolve: 'gatsby-plugin-mdx',
         options: {
