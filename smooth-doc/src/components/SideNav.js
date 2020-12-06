@@ -77,6 +77,8 @@ const NavGroupMenuItem = styled.li`
   list-style-type: none;
   margin: 2 0 0 -2px;
   padding: 0;
+  font-size: 14;
+  font-weight: 500;
 
   a {
     color: on-background-light;
@@ -87,15 +89,18 @@ const NavGroupMenuItem = styled.li`
     border-left: 3;
     border-color: transparent;
     text-decoration: none;
+    opacity: 0.85;
 
     &:hover {
       color: on-background;
+      opacity: 1;
     }
 
     &[aria-current='page'] {
       font-weight: 600;
       border-color: primary;
       color: on-background;
+      opacity: 1;
     }
   }
 `

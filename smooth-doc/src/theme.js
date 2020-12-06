@@ -127,7 +127,7 @@ export const theme = {
     'control-focus': th.shadow('focus'),
   },
   sizes: {
-    screen: 1280,
+    screen: 1440,
   },
   colors: {
     black: '#000',

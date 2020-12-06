@@ -111,7 +111,8 @@ const TocContainer = styled.div`
 
   h4 {
     margin: 0;
-    font-size: 13;
+    font-size: 14;
+    font-weight: 500;
     text-transform: uppercase;
     color: on-background-light;
   }
@@ -134,16 +135,19 @@ const TocContainer = styled.div`
     transition: fast;
     color: on-background-light;
     text-decoration: none;
+    opacity: 0.85;
 
     &[aria-current] {
       font-weight: 500;
       color: on-background;
       transform: translateX(2px);
+      opacity: 1;
     }
 
     &:hover {
       color: on-background;
       transform: translateX(2px);
+      opacity: 1;
     }
   }
 `

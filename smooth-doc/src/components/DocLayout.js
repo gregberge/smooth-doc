@@ -51,15 +51,23 @@ const Container = styled.div`
     'md',
     css`
       display: grid;
-      grid-template-columns: 200px 0 minmax(0, 1fr);
+      grid-template-columns: 288px minmax(0, 1fr);
       grid-gap: ${th.space(5)};
+
+      .sidebar-container {
+        display: none;
+      }
     `,
   )}
 
   ${up(
     'xl',
     css`
-      grid-template-columns: 200px 0 minmax(0, 1fr) 200px;
+      grid-template-columns: 288px minmax(0, 1fr) 288px;
+
+      .sidebar-container {
+        display: none;
+      }
     `,
   )}
 `
@@ -79,7 +87,7 @@ const SidebarSticky = styled.aside`
   padding: 4 0;
   overflow-y: auto;
   height: calc(100vh - 50px);
-  width: 200px;
+  width: 288px;
 
   ${down(
     'md',
@@ -183,7 +191,7 @@ export function DocLayout({ children, tableOfContents, editLink, ...props }) {
           <SidebarSticky>
             <SideNav {...sideNav} />
           </SidebarSticky>
-          <div>
+          <div className="sidebar-container">
             {!upMd && (
               <MobileSidebar>
                 <SideNav {...sideNav} />
