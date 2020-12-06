@@ -73,6 +73,10 @@ Once defined, you have access to the module in live editor:
 ```js live noInline
 import { Box } from '@xstyled/styled-components'
 
-// I can use lodash here.
-render(<Box color="red">Example</Box>)
+// I can use xstyled here.
+render(
+  <Box $color="red">
+    <span>Example</span>
+  </Box>,
+)
 ```
