@@ -129,6 +129,20 @@ export const theme = {
   sizes: {
     screen: 1440,
   },
+  space: {
+    0: 0,
+    1: 4,
+    2: 8,
+    3: 16,
+    4: 24,
+    5: 48,
+    6: 96,
+    7: 144,
+    8: 192,
+    9: 240,
+    'preview-padding-y': 16,
+    'preview-padding-x': 24,
+  },
   colors: {
     black: '#000',
     white: '#fff',

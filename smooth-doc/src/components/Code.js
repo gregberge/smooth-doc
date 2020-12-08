@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { useTheme, th } from '@xstyled/styled-components'
+import styled, { useTheme, th, up, css } from '@xstyled/styled-components'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import {
   LiveProvider,
@@ -9,35 +9,71 @@ import {
 } from 'react-live'
 import { mdx } from '@mdx-js/react'
 
-const Editor = styled.div`
-  padding: 3 0;
+const Pre = styled.pre`
   font-size: 15;
   line-height: 1.45;
   word-break: normal;
+  overflow: auto;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  margin: 3 -3;
+  background-color: editor-background;
+  color: editor-on;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  hyphens: none;
+  padding: 4 0;
+  border-left: ${th.space(4)} solid transparent;
+  border-right: ${th.space(4)} solid transparent;
 
   textarea {
     &:focus {
       outline: none;
     }
   }
+
+  ${up(
+    'sm',
+    css`
+      border-radius: editor;
+      margin: 3 -2;
+    `,
+  )}
 `
 
 const LivePreview = styled(BaseLivePreview)`
-  padding: 3 4;
-  margin: 3 0 0;
-  border: 1;
+  padding: preview-padding-y preview-padding-x;
+  margin: 3 -3 -3;
+  border-top: 1;
   border-color: editor-border;
   border-image: initial;
-  border-radius: editor;
+
   white-space: normal;
   font-family: base;
+  overflow: hidden;
 
   background-color: background;
   color: on-background;
 
-  & + ${Editor} {
-    margin-top: 2;
-  }
+  ${up(
+    'sm',
+    css`
+      border-right: 1;
+      border-left: 1;
+      border-radius: editor;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-color: editor-border;
+      margin-left: -2;
+      margin-right: -2;
+    `,
+  )}
 `
 
 const globalModules = {
@@ -96,13 +132,7 @@ export function usePrismTheme() {
   return th('prism-theme')({ theme })
 }
 
-export function Code({
-  children,
-  lang = 'markup',
-  live,
-  noInline,
-  editorStyle,
-}) {
+export function Code({ children, lang = 'markup', live, noInline }) {
   const prismTheme = usePrismTheme()
   if (live) {
     return (
@@ -115,33 +145,34 @@ export function Code({
         noInline={noInline}
       >
         <LivePreview />
-        <Editor style={editorStyle}>
+        <Pre
+          as="div"
+          style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
+        >
           <LiveEditor padding={0} />
-        </Editor>
+        </Pre>
         <LiveError />
       </LiveProvider>
     )
   }
   return (
-    <Editor style={editorStyle}>
-      <Highlight
-        {...defaultProps}
-        code={children.trim()}
-        language={lang}
-        theme={prismTheme}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={style}>
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
-    </Editor>
+    <Highlight
+      {...defaultProps}
+      code={children.trim()}
+      language={lang}
+      theme={prismTheme}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <Pre className={className} style={style}>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </Pre>
+      )}
+    </Highlight>
   )
 }

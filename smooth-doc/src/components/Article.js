@@ -1,4 +1,4 @@
-import styled, { css, up, down, th } from '@xstyled/styled-components'
+import styled, { css, up, down } from '@xstyled/styled-components'
 
 export const Article = styled.article`
   .anchor {
@@ -14,35 +14,6 @@ export const Article = styled.article`
 
   mark {
     background-color: background-mark;
-  }
-
-  > pre,
-  > summary > pre {
-    overflow: auto;
-    direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    margin: 3 -3;
-    background-color: editor-background;
-    color: editor-on;
-    direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    hyphens: none;
-    border-left: ${th.space(4)} solid transparent;
-    border-right: ${th.space(4)} solid transparent;
-
-    ${up(
-      'sm',
-      css`
-        border-radius: editor;
-        margin: 3 -2;
-      `,
-    )}
   }
 
   > p {

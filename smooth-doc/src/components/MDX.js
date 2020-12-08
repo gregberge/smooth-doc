@@ -25,7 +25,7 @@ export const mdxComponents = {
   'carbon-ad': () => <CarbonAd />,
   pre: ({ children }) => {
     const codeChild = getCodeChild(children)
-    return <pre>{codeChild ? transformCode(codeChild.props) : children}</pre>
+    return codeChild ? transformCode(codeChild.props) : <pre>{children}</pre>
   },
   table: ({ children }) => {
     return (
