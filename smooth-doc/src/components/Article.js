@@ -206,43 +206,6 @@ export const Article = styled.article`
     padding: 1 2;
   }
 
-  > table {
-    display: block;
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin-bottom: 2;
-    margin-top: 3;
-    overflow: auto;
-    width: 100%;
-    text-align: left;
-    font-size: 95%;
-
-    tr {
-      background-color: transparent;
-      border-top: 1;
-      border-color: layout-border;
-    }
-
-    td,
-    th {
-      border-top: 1;
-      border-bottom: 1;
-      border-color: layout-border;
-      padding: 2 3;
-    }
-
-    th {
-      color: on-background-light;
-      background-color: background-light;
-      font-weight: 600;
-      font-size: 100%;
-    }
-
-    td {
-      font-size: 85%;
-    }
-  }
-
   img {
     max-width: 100%;
   }
