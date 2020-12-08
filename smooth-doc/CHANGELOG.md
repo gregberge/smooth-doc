@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.4.0](https://github.com/gregberge/smooth-doc/compare/v5.3.0...v5.4.0) (2020-12-08)
+
+
+### Features
+
+* enhance code style ([caf4d05](https://github.com/gregberge/smooth-doc/commit/caf4d05b09a223f9cc11e16a32ad5f3f2a998907))
+* optimize table display ([0c38ccf](https://github.com/gregberge/smooth-doc/commit/0c38ccf0223567f30ac6091a7959932fb8bb8865))
+
 ## [5.3.0](https://github.com/gregberge/smooth-doc/compare/v5.2.1...v5.3.0) (2020-12-06)
 
 
