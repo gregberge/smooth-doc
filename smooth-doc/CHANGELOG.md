@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.4.1](https://github.com/gregberge/smooth-doc/compare/v5.4.0...v5.4.1) (2020-12-13)
+
+
+### Bug Fixes
+
+* **nav:** fix automatic nav sorting ([5f29739](https://github.com/gregberge/smooth-doc/commit/5f29739ebb9178aa5d119aaf1e7eb0673e7ab55c))
+
 ## [5.4.0](https://github.com/gregberge/smooth-doc/compare/v5.3.0...v5.4.0) (2020-12-08)
 
 
