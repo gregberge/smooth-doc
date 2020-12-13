@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.4.3](https://github.com/gregberge/smooth-doc/compare/v5.4.2...v5.4.3) (2020-12-13)
+
+
+### Bug Fixes
+
+* avoid losing nav state between pages ([1991aa6](https://github.com/gregberge/smooth-doc/commit/1991aa6cfae4c73d42a35ed3fe220cd7eae216a3))
+
 ### [5.4.2](https://github.com/gregberge/smooth-doc/compare/v5.4.1...v5.4.2) (2020-12-13)
 
 
