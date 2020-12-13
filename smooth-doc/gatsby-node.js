@@ -107,7 +107,7 @@ function onCreateMdxNode({ node, getNode, actions }, options) {
     if (!Number.isNaN(Number(node.frontmatter.order))) {
       return node.frontmatter.order
     }
-    return null
+    return -9999
   }
 
   createNodeField({
@@ -195,7 +195,6 @@ async function createPages({ graphql, actions, reporter }) {
       ),
       context: {
         id: node.id,
-        pageType: node.fields.pageType,
       },
     })
   })

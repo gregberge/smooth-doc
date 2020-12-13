@@ -37,13 +37,16 @@ const createOrFindGroup = (name, groups) => {
   return group
 }
 
+const DEFAULT_ORDER_VALUE = -9999
+
 const sortNodes = (a, b) => {
   const diff =
-    a.fields.order != null && b.fields.order != null
+    a.fields.order !== DEFAULT_ORDER_VALUE &&
+    b.fields.order !== DEFAULT_ORDER_VALUE
       ? a.fields.order - b.fields.order
-      : a.fields.order != null
+      : a.fields.order !== DEFAULT_ORDER_VALUE
       ? -1
-      : b.fields.order != null
+      : b.fields.order !== DEFAULT_ORDER_VALUE
       ? 1
       : a.fields.title.localeCompare(b.fields.title)
   return diff === 0 ? 0 : diff > 0 ? 1 : -1
