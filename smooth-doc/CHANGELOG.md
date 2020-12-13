@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.4.5](https://github.com/gregberge/smooth-doc/compare/v5.4.4...v5.4.5) (2020-12-13)
+
+
+### Bug Fixes
+
+* fix 404 in dev ([af946fc](https://github.com/gregberge/smooth-doc/commit/af946fc5f118b26780a1b3f649c08e0c16a22d68))
+
 ### [5.4.4](https://github.com/gregberge/smooth-doc/compare/v5.4.3...v5.4.4) (2020-12-13)
 
 
