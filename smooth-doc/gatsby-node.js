@@ -107,9 +107,6 @@ function onCreateMdxNode({ node, getNode, actions }, options) {
     if (!Number.isNaN(Number(node.frontmatter.order))) {
       return node.frontmatter.order
     }
-    if (node.frontmatter.title) {
-      return 1e9 + node.frontmatter.title.charCodeAt(0)
-    }
     return null
   }
 

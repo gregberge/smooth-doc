@@ -38,7 +38,14 @@ const createOrFindGroup = (name, groups) => {
 }
 
 const sortNodes = (a, b) => {
-  const diff = a.fields.order - b.fields.order
+  const diff =
+    a.fields.order != null && b.fields.order != null
+      ? a.fields.order - b.fields.order
+      : a.fields.order != null
+      ? -1
+      : b.fields.order != null
+      ? 1
+      : a.fields.title.localeCompare(b.fields.title)
   return diff === 0 ? 0 : diff > 0 ? 1 : -1
 }
 
