@@ -8,6 +8,7 @@ import styled, {
   useUp,
 } from '@xstyled/styled-components'
 import { useDialogState, Dialog, DialogDisclosure } from 'reakit/Dialog'
+import { useScrollRestoration } from 'gatsby'
 import { Portal } from 'reakit/Portal'
 import { VscChevronUp } from 'react-icons/vsc'
 import { RiPencilLine } from 'react-icons/ri'
@@ -184,11 +185,12 @@ function PrevNextLinks(props) {
 export function DocLayout({ children, tableOfContents, editLink, ...props }) {
   const upMd = useUp('md')
   const sideNav = useSideNavState()
+  const scrollRestoration = useScrollRestoration('side-nav')
   return (
     <PageLayout {...props}>
       <ScreenContainer px={0}>
         <Container>
-          <SidebarSticky>
+          <SidebarSticky {...scrollRestoration}>
             <SideNav {...sideNav} />
           </SidebarSticky>
           <div className="sidebar-container">
