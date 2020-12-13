@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.4.2](https://github.com/gregberge/smooth-doc/compare/v5.4.1...v5.4.2) (2020-12-13)
+
+
+### Bug Fixes
+
+* preserve scroll in side nav ([50e76c2](https://github.com/gregberge/smooth-doc/commit/50e76c23503074ad691623f2dcf225089f1f2f6e))
+
 ### [5.4.1](https://github.com/gregberge/smooth-doc/compare/v5.4.0...v5.4.1) (2020-12-13)
 
 
