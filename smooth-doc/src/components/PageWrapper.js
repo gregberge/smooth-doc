@@ -8,6 +8,7 @@ export function PageWrapper({
     data: { mdx },
   },
 }) {
+  if (!mdx?.fields?.pageType) return children
   switch (mdx.fields.pageType) {
     case 'doc':
       return (
@@ -22,6 +23,6 @@ export function PageWrapper({
     case 'page':
       return <PageLayout title={mdx.fields.title}>{children}</PageLayout>
     default:
-      return null
+      return children
   }
 }
