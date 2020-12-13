@@ -195,6 +195,7 @@ async function createPages({ graphql, actions, reporter }) {
       ),
       context: {
         id: node.id,
+        pageType: node.fields.pageType,
       },
     })
   })
