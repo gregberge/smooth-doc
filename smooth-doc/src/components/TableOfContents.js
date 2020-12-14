@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from '@reach/router'
 import styled, { th } from '@xstyled/styled-components'
 
 const TOP_OFFSET = 100
@@ -25,12 +26,13 @@ function getAnchorHeaderIdentifier(el) {
 }
 
 export function useTocHighlight(ref) {
+  const { pathname } = useLocation()
   const [lastActiveLink, setLastActiveLink] = React.useState(undefined)
   const [headings, setHeadings] = React.useState([])
 
   React.useEffect(() => {
     setHeadings(getHeaderAnchors().map(getHeaderDataFromAnchor))
-  }, [])
+  }, [pathname])
 
   React.useEffect(() => {
     let headersAnchors = []
