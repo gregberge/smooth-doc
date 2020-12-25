@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.5.0](https://github.com/gregberge/smooth-doc/compare/v5.4.6...v5.5.0) (2020-12-25)
+
+
+### Features
+
+* reduce text sizes ([97f28cd](https://github.com/gregberge/smooth-doc/commit/97f28cd3a3f7998b18a170f57e744c2715f7de6c))
+
 ### [5.4.6](https://github.com/gregberge/smooth-doc/compare/v5.4.5...v5.4.6) (2020-12-14)
 
 
