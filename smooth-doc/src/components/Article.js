@@ -17,21 +17,10 @@ export const Article = styled.article`
   }
 
   > p {
-    margin-top: 4;
-    font-size: 17;
-    line-height: 1.7;
+    margin: 3 0;
+    font-size: 16;
+    line-height: 1.6;
     max-width: 52em;
-
-    &:first-of-type {
-      margin-top: 3;
-    }
-
-    ${up(
-      'lg',
-      css`
-        font-size: 16;
-      `,
-    )}
   }
 
   /* Intro */
@@ -44,7 +33,8 @@ export const Article = styled.article`
     ${up(
       'xl',
       css`
-        font-size: 24;
+        font-size: 22;
+        line-height: 1.2;
       `,
     )};
 
@@ -68,35 +58,20 @@ export const Article = styled.article`
   }
 
   > h1 {
-    font-size: 40;
+    font-size: 32;
     line-height: 1.1;
     font-weight: 600;
-    margin-bottom: 2;
-    margin-top: 40;
-
-    ${up(
-      'md',
-      css`
-        font-size: 48;
-        font-weight: 700;
-      `,
-    )};
+    margin: 40 0 2;
   }
 
   > h2 {
+    font-size: 24;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 4 0;
+    padding-top: 3;
     border-top: 1;
     border-color: layout-border;
-    margin-top: 5;
-    padding-top: 4;
-    line-height: 1.2;
-    font-size: 20;
-
-    ${up(
-      'lg',
-      css`
-        font-size: 30;
-      `,
-    )};
   }
 
   > h1 + h2,
@@ -107,8 +82,10 @@ export const Article = styled.article`
   }
 
   > h3 {
-    font-size: 20;
-    padding-top: 4;
+    font-size: 18;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 4 0 3;
 
     ${down(
       'sm',
@@ -117,26 +94,13 @@ export const Article = styled.article`
         word-break: break-word;
       `,
     )}
-
-    ${up(
-      'xl',
-      css`
-        font-size: 22;
-        line-height: 1.3;
-      `,
-    )}
   }
 
   > h4 {
-    margin-top: 5;
     font-weight: 500;
-    font-size: 18;
-    line-height: 1.3;
-  }
-
-  > h2 + h3,
-  > h2 + h3:first-of-type {
-    padding-top: 3;
+    font-size: 16;
+    line-height: 1.2;
+    margin: 3 0;
   }
 
   > h4 + p {
