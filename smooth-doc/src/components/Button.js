@@ -23,7 +23,6 @@ const InnerButton = styled.buttonBox`
   appearance: none;
   border-radius: base;
   transition: base;
-  color: dusk-dark;
   font-weight: 500;
   border: 0;
   display: inline-flex;
@@ -64,22 +63,23 @@ const InnerButton = styled.buttonBox`
 
   &[data-variant='neutral'] {
     ${variant({
-      background: 'grey-300',
-      backgroundHover: 'grey-400',
+      background: 'gray-300',
+      backgroundHover: 'gray-400',
       on: 'black',
     })}
   }
 `
 
 export const Button = React.forwardRef(
-  ({ variant = 'primary', ...props }, ref) => {
+  ({ variant = 'primary', children, ...props }, ref) => {
     return (
-      <ReakitButton
-        ref={ref}
-        as={InnerButton}
-        data-variant={variant}
-        {...props}
-      />
+      <ReakitButton ref={ref} data-variant={variant}>
+        {(buttonProps) => (
+          <InnerButton {...buttonProps} {...props}>
+            {children}
+          </InnerButton>
+        )}
+      </ReakitButton>
     )
   },
 )

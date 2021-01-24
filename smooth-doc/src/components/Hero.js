@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { up, css, Box } from '@xstyled/styled-components'
+import styled, { up, css, x } from '@xstyled/styled-components'
 import { ScreenContainer } from './ScreenContainer'
 
 export const HeroTitle = styled.h1Box`
@@ -27,6 +27,7 @@ export const HeroTitle = styled.h1Box`
 
 export const HeroTeaser = styled.pBox`
   font-size: 18;
+  margin: 3 0;
 
   ${up(
     'md',
@@ -83,7 +84,7 @@ export const Hero = React.forwardRef(
 )
 
 export const HeroBody = React.forwardRef((props, ref) => {
-  return <Box ref={ref} width={{ md: 0.5 }} {...props} />
+  return <x.div ref={ref} w={{ md: 0.5 }} {...props} />
 })
 
 export const HeroSection = styled.sectionBox`
@@ -94,7 +95,7 @@ export const HeroSection = styled.sectionBox`
 
 export const HeroActionList = React.forwardRef((props, ref) => {
   return (
-    <Box
+    <x.div
       ref={ref}
       row
       m={-2}
@@ -105,5 +106,5 @@ export const HeroActionList = React.forwardRef((props, ref) => {
 })
 
 export const HeroAction = React.forwardRef((props, ref) => {
-  return <Box ref={ref} col="auto" p={2} {...props} />
+  return <x.div ref={ref} col="auto" p={2} {...props} />
 })

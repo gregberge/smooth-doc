@@ -2,6 +2,7 @@
   "root": true,
   "extends": ["smooth", "smooth/react", "smooth/project"],
   "rules": {
+    "arrow-body-style": "off",
     "react/destructuring-assignment": "off"
   },
   "env": {

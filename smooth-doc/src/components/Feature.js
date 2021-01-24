@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
-import styled, { th, Box } from '@xstyled/styled-components'
+import styled, { th, x } from '@xstyled/styled-components'
 import { ScreenContainer } from './ScreenContainer'
 
 const InnerFeature = styled.box`
@@ -52,9 +52,8 @@ export const FeatureList = React.forwardRef((props, ref) => (
 ))
 
 export const FeatureSection = React.forwardRef((props, ref) => (
-  <Box
+  <x.section
     ref={ref}
-    forwardedAs="section"
     py={4}
     borderTop={1}
     borderBottom={1}

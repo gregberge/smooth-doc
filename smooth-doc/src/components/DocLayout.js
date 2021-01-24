@@ -1,12 +1,5 @@
 import React from 'react'
-import styled, {
-  Box,
-  css,
-  up,
-  down,
-  th,
-  useUp,
-} from '@xstyled/styled-components'
+import styled, { x, css, up, down, th, useUp } from '@xstyled/styled-components'
 import { useDialogState, Dialog, DialogDisclosure } from 'reakit/Dialog'
 import { Portal } from 'reakit/Portal'
 import { VscChevronUp } from 'react-icons/vsc'
@@ -198,25 +191,24 @@ export function DocLayout({ children, tableOfContents, editLink, ...props }) {
               </MobileSidebar>
             )}
           </div>
-          <Box pb={6} px={3}>
+          <x.div pb={6} px={3}>
             <Article>
               {children}
               {editLink && (
-                <Box
+                <x.a
                   mt={5}
                   display="grid"
                   gridTemplateColumns="min-content max-content"
                   gridGap={1}
                   alignItems="center"
-                  forwardedAs="a"
                   href={editLink}
                 >
                   <RiPencilLine /> Edit this page on GitHub
-                </Box>
+                </x.a>
               )}
               <PrevNextLinks {...sideNav} />
             </Article>
-          </Box>
+          </x.div>
           <TocContainer>
             <TableOfContents />
           </TocContainer>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled, { Box, th, down, css } from '@xstyled/styled-components'
+import styled, { x, th, down, css } from '@xstyled/styled-components'
 
 export const Nav = styled.navBox`
   ${down(
@@ -33,7 +33,7 @@ const InnerNavLink = styled.aBox`
 `
 
 export const NavLink = React.forwardRef((props, ref) => {
-  return <InnerNavLink ref={ref} forwardedAs={Link} {...props} />
+  return <InnerNavLink ref={ref} as={Link} {...props} />
 })
 
 export const NavListItem = styled.liBox`
@@ -47,14 +47,13 @@ export const NavListItem = styled.liBox`
 
 export const NavList = React.forwardRef((props, ref) => {
   return (
-    <Box
+    <x.ul
       ref={ref}
       m={0}
       p={0}
       row
       alignItems="center"
       flexWrap="nowrap"
-      forwardedAs="ul"
       {...props}
     />
   )
