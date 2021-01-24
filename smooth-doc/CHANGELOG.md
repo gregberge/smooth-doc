@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/gregberge/smooth-doc/compare/v5.5.0...v6.0.0) (2021-01-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade to xstyled v2, see [xstyled upgrade
+guide](https://xstyled.dev/docs/upgrade-guide/).
+
+### Features
+
+* **docsearch:** use new version ([#36](https://github.com/gregberge/smooth-doc/issues/36)) ([7c92c3c](https://github.com/gregberge/smooth-doc/commit/7c92c3c12a76f8581e066160754685910d954745))
+
+
+### Bug Fixes
+
+* **404:** fix 404 issues ([#35](https://github.com/gregberge/smooth-doc/issues/35)) ([aaf9880](https://github.com/gregberge/smooth-doc/commit/aaf988097d9ce79d29e46c96b66446e0bbf2ea96))
+
+
+* upgrade to xstyled v2 ([#34](https://github.com/gregberge/smooth-doc/issues/34)) ([d4ff649](https://github.com/gregberge/smooth-doc/commit/d4ff6491eb9cc7a6f06d9f58f4ef5714c235cdd2))
+
 ## [5.5.0](https://github.com/gregberge/smooth-doc/compare/v5.4.6...v5.5.0) (2020-12-25)
 
 
