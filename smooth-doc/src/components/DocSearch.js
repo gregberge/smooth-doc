@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, createGlobalStyle, th } from '@xstyled/styled-components'
+import { x, createGlobalStyle, th } from '@xstyled/styled-components'
 import { RiSearchEyeLine } from 'react-icons/ri'
 import { Input, InputGroup, InputGroupIcon } from './Input'
 
@@ -65,7 +65,7 @@ export function DocSearch({ apiKey, indexName }) {
   return (
     <>
       <DocSearchStyle />
-      <Box>
+      <x.div>
         <InputGroup>
           <InputGroupIcon>
             <RiSearchEyeLine />
@@ -76,7 +76,7 @@ export function DocSearch({ apiKey, indexName }) {
             placeholder="Search..."
           />
         </InputGroup>
-      </Box>
+      </x.div>
     </>
   )
 }

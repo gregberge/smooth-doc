@@ -1,11 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import styled, {
-  Box,
-  useColorMode,
-  down,
-  css,
-} from '@xstyled/styled-components'
+import styled, { x, useColorMode, down, css } from '@xstyled/styled-components'
 import { ScreenContainer } from './ScreenContainer'
 import { DocSearch } from './DocSearch'
 import { NavLink } from './Nav'
@@ -113,8 +108,8 @@ export function AppHeader() {
         <NavSkipLink tabindex="0" href="#main">
           Skip to content
         </NavSkipLink>
-        <Box row alignItems="center" flexWrap="nowrap" mx={-2}>
-          <Box col px={2} display="flex">
+        <x.div row alignItems="center" flexWrap="nowrap" mx={-2}>
+          <x.div col px={2} display="flex">
             <NavLink
               row
               display="inline-flex"
@@ -124,36 +119,34 @@ export function AppHeader() {
               to="/"
             >
               {logo ? (
-                <Box
+                <x.img
                   col="auto"
                   px={2}
                   height={32}
-                  forwardedAs="img"
                   src={logo.publicURL}
                   alt={data.site.siteMetadata.title}
                 />
               ) : (
-                <Box
+                <x.h2
                   col="auto"
                   flex="0 1 auto"
                   px={2}
-                  forwardedAs="h2"
                   alignItems="center"
                   fontSize={18}
                   m={0}
                 >
                   {data.site.siteMetadata.title}
-                </Box>
+                </x.h2>
               )}
             </NavLink>
-          </Box>
+          </x.div>
           {data.site.siteMetadata.docSearch ? (
-            <Box col="auto" px={2} display={{ xs: 'none', md: 'block' }}>
+            <x.div col="auto" px={2} display={{ xs: 'none', md: 'block' }}>
               <DocSearch {...data.site.siteMetadata.docSearch} />
-            </Box>
+            </x.div>
           ) : null}
           <AppNav col="auto" px={2} />
-        </Box>
+        </x.div>
       </ScreenContainer>
     </OuterHeader>
   )

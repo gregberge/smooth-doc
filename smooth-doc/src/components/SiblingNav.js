@@ -26,7 +26,7 @@ export const SiblingNavLink = React.forwardRef(
     return (
       <InnerSiblingNavLink
         ref={ref}
-        forwardedAs={Link}
+        as={Link}
         data-type={type}
         gridArea={type}
         {...props}

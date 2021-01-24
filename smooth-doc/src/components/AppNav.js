@@ -35,7 +35,7 @@ export function AppNav() {
         {data.site.siteMetadata.githubRepositoryURL ? (
           <NavListItem>
             <NavLink
-              forwardedAs="a"
+              as="a"
               href={data.site.siteMetadata.githubRepositoryURL}
               target="_blank"
               rel="noopener noreferrer"
@@ -47,7 +47,7 @@ export function AppNav() {
         {data.site.siteMetadata.twitterAccount ? (
           <NavListItem>
             <NavLink
-              forwardedAs="a"
+              as="a"
               href={`https://twitter.com/${data.site.siteMetadata.twitterAccount}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -57,7 +57,7 @@ export function AppNav() {
           </NavListItem>
         ) : null}
         <NavListItem>
-          <NavLink forwardedAs={ColorModeSwitcher} />
+          <NavLink as={ColorModeSwitcher} />
         </NavListItem>
       </NavList>
     </Nav>

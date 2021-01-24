@@ -6,12 +6,12 @@ slug: /docs/components/button/
 
 import { Link } from 'gatsby'
 import { Button } from 'smooth-doc/components'
-import { Box } from '@xstyled/styled-components'
+import { x } from '@xstyled/styled-components'
 
 <smoothDocComponents.LiveConfig
   modules={{
     gatsby: { Link },
-    '@xstyled/styled-components': { Box },
+    '@xstyled/styled-components': { x },
     'smooth-doc/components': { Button },
   }}
 />
@@ -35,24 +35,24 @@ render(<Button>A simple button</Button>)
 Use `variant` property to define button variant. Four variants are available: "primary", "success", "danger" and "neutral". The default variant is "primary".
 
 ```js live noInline
-import { Box } from '@xstyled/styled-components'
+import { x.div } from '@xstyled/styled-components'
 import { Button } from 'smooth-doc/components'
 
 render(
-  <Box row m={-2}>
-    <Box col="auto" p={2}>
+  <x.div row m={-2}>
+    <x.div col="auto" p={2}>
       <Button variant="primary">Primary</Button>
-    </Box>
-    <Box col="auto" p={2}>
+    </x.div>
+    <x.div col="auto" p={2}>
       <Button variant="success">Success</Button>
-    </Box>
-    <Box col="auto" p={2}>
+    </x.div>
+    <x.div col="auto" p={2}>
       <Button variant="danger">Danger</Button>
-    </Box>
-    <Box col="auto" p={2}>
+    </x.div>
+    <x.div col="auto" p={2}>
       <Button variant="neutral">Neutral</Button>
-    </Box>
-  </Box>,
+    </x.div>
+  </x.div>,
 )
 ```
 
@@ -68,14 +68,14 @@ render(<Button disabled>Disabled button</Button>)
 
 ## Link as Button
 
-It is common to have to display a button that actually behaves like a link. The `forwardedAs` prop replaces the intrinsic component of the button.
+It is common to have to display a button that actually behaves like a link. The `as` prop replaces the intrinsic component of the button.
 
 ```js live noInline
 import { Link } from 'gatsby'
 import { Button } from 'smooth-doc/components'
 
 render(
-  <Button forwardedAs={Link} to="/docs/getting-started/">
+  <Button as={Link} to="/docs/getting-started/">
     Getting Started
   </Button>,
 )

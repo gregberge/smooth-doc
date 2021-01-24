@@ -5,10 +5,10 @@ slug: /docs/react-live-editor/
 order: 4
 ---
 
-import { Box } from '@xstyled/styled-components'
+import { x } from '@xstyled/styled-components'
 import { LiveConfig } from 'smooth-doc/components'
 
-<LiveConfig modules={{ '@xstyled/styled-components': { Box } }} />
+<LiveConfig modules={{ '@xstyled/styled-components': { x } }} />
 
 # React Live Editor
 
@@ -61,22 +61,22 @@ Importing modules is possible in a React Live Editor using ESM `import` syntax. 
 title: Doc Page
 ---
 
-import { Box } from '@xstyled/styled-components'
+import { x } from '@xstyled/styled-components'
 import { LiveConfig } from 'smooth-doc/components'
 
-<!-- Define `@xstyled/styled-components` module as `{ Box }` -->
-<LiveConfig modules={{ '@xstyled/styled-components': { Box } }} />
+<!-- Define `@xstyled/styled-components` module as `{ x }` -->
+<LiveConfig modules={{ '@xstyled/styled-components': { x } }} />
 ```
 
 Once defined, you have access to the module in live editor:
 
 ```js live noInline
-import { Box } from '@xstyled/styled-components'
+import { x } from '@xstyled/styled-components'
 
 // I can use xstyled here.
 render(
-  <Box $color="red">
+  <x.div color="red">
     <span>Example</span>
-  </Box>,
+  </x.div>,
 )
 ```

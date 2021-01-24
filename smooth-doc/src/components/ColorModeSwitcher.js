@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, useColorMode } from '@xstyled/styled-components'
+import { x, useColorMode } from '@xstyled/styled-components'
 import { RiMoonClearLine, RiSunLine } from 'react-icons/ri'
 
 const modeIcons = {
@@ -15,14 +15,13 @@ export const ColorModeSwitcher = React.forwardRef((props, ref) => {
   const [mode, setMode] = useColorMode()
   const Icon = modeIcons[mode]
   return (
-    <Box
+    <x.button
       ref={ref}
-      forwardedAs="button"
       type="button"
       onClick={() => setMode(getInverseMode)}
       {...props}
     >
       <Icon style={{ width: 24, height: 24 }} />
-    </Box>
+    </x.button>
   )
 })
