@@ -165,6 +165,11 @@ async function createPages({ graphql, actions, reporter }) {
               pageType
               redirect
             }
+            parent {
+              ... on File {
+                sourceInstanceName
+              }
+            }
           }
         }
       }
@@ -176,9 +181,19 @@ async function createPages({ graphql, actions, reporter }) {
     return
   }
 
+  const filteredEdges = data.allMdx.edges.filter((edge) => {
+    if (edge.node.parent.sourceInstanceName === 'default-page') {
+      const { slug } = edge.node.fields
+      const hasCustom404 = data.allMdx.edges.find(
+        (_edge) => edge !== _edge && _edge.node.fields.slug === slug,
+      )
+      return !hasCustom404
+    }
+    return true
+  })
+
   // Create pages
-  const { edges } = data.allMdx
-  edges.forEach(({ node }) => {
+  filteredEdges.forEach(({ node }) => {
     if (node.fields.redirect) {
       createRedirect({
         fromPath: node.fields.slug,
