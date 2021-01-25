@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](https://github.com/gregberge/smooth-doc/compare/v6.0.0...v6.0.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* replace NETLIFY_ENV by CONTEXT ([f004872](https://github.com/gregberge/smooth-doc/commit/f00487270f3c72d2ef441cdc3af7e06a01d9f304))
+
 ## [6.0.0](https://github.com/gregberge/smooth-doc/compare/v5.5.0...v6.0.0) (2021-01-24)
 
 
