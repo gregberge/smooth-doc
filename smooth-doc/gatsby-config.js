@@ -57,6 +57,7 @@ module.exports = (options) => {
       {
         resolve: 'gatsby-plugin-mdx',
         options: {
+          extensions: [`.mdx`, `.md`],
           gatsbyRemarkPlugins: [
             {
               resolve: require.resolve(
