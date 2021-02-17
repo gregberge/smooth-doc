@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/gregberge/smooth-doc/compare/v6.0.1...v6.1.0) (2021-02-17)
+
+
+### Features
+
+* add support for .md files ([#39](https://github.com/gregberge/smooth-doc/issues/39)) ([caaab0d](https://github.com/gregberge/smooth-doc/commit/caaab0d73f55c011abe99ea9d3637ec484e6cdf5)), closes [#37](https://github.com/gregberge/smooth-doc/issues/37)
+
+
+### Bug Fixes
+
+* fix babel plugin xstyled ([cc68dcf](https://github.com/gregberge/smooth-doc/commit/cc68dcff9f8893b15db4869ac4c563a3d965e733))
+
 ### [6.0.1](https://github.com/gregberge/smooth-doc/compare/v6.0.0...v6.0.1) (2021-01-25)
 
 
