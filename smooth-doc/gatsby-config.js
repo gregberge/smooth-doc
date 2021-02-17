@@ -51,7 +51,12 @@ module.exports = (options) => {
           modules: ['smooth-doc'],
         },
       },
-      'gatsby-plugin-styled-components',
+      {
+        resolve: 'gatsby-plugin-styled-components',
+        options: {
+          topLevelImportPaths: ['@xstyled/styled-components'],
+        },
+      },
       'gatsby-remark-images',
       'gatsby-plugin-catch-links',
       {
