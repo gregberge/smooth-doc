@@ -26,24 +26,24 @@ _Before_ submitting a pull request, please make sure the following is done…
 
     Note: Replace `<your_username>` with your GitHub username
 
-2.  This project uses [Yarn](https://code.fb.com/web/yarn-a-new-package-manager-for-javascript/) for running development scripts. If you haven't already done so, please [install yarn](https://yarnpkg.com/en/docs/install).
+2.  This project uses [npm v7](https://github.blog/2021-02-02-npm-7-is-now-generally-available/).
 
-3.  Run `yarn install`. On Windows: To install [Yarn](https://yarnpkg.com/en/docs/install#windows-tab) on Windows you may need to download either node.js or Chocolatey<br />
-
-    ```sh
-    yarn install
-    ```
-
-    To check your version of Yarn and ensure it's installed you can type:
+3.  Run `npm i`
 
     ```sh
-    yarn --version
+    npm i
     ```
 
-4.  Run documentation website usign `yarn workspace website dev`.
+    To check your version of npm and ensure it's v7 you can type:
+
+    ```sh
+    npm --version
+    ```
+
+4.  Run documentation website using `cd website && npm run dev`.
 
     ```sh-session
-    $ yarn workspace website dev
+    $ cd website && npm run dev
     ```
 
 5.  If you've changed APIs, update the documentation.
@@ -51,13 +51,7 @@ _Before_ submitting a pull request, please make sure the following is done…
 6.  Ensure the linting is good via `yarn lint`.
 
     ```sh-session
-    $ yarn lint
-    ```
-
-7.  Ensure the test suite passes via `yarn test`.
-
-    ```sh-session
-    $ yarn test
+    $ npm run lint
     ```
 
 ## Bugs
