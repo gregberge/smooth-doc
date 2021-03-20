@@ -15,7 +15,7 @@ function getLogoPath() {
  * @param {string} [options.siteUrl]
  * @param {string} [options.shortName]
  * @param {string[]} [options.sections]
- * @param {{ title: string, url: string }[]} [options.nav]
+ * @param {{ title: string, url: string }[]} [options.navItems]
  * @param {string} [options.baseDirectory]
  * @param {string} [options.twitterAccount]
  * @param {string} [options.githubRepositoryURL]
