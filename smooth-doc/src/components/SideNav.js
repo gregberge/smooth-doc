@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import styled from '@xstyled/styled-components'
+// eslint-disable-next-line import/no-unresolved
 import { useLocation } from '@reach/router'
 
 const SideNavQuery = graphql`

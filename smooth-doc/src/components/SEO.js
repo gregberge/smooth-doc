@@ -9,9 +9,7 @@ const SEOQuery = graphql`
       name: { eq: "social" }
     ) {
       childImageSharp {
-        fixed(width: 1280, height: 640) {
-          ...GatsbyImageSharpFixed_noBase64
-        }
+        gatsbyImageData(layout: FIXED, width: 1280, height: 640)
       }
     }
 
@@ -20,9 +18,7 @@ const SEOQuery = graphql`
       name: { eq: "social" }
     ) {
       childImageSharp {
-        fixed(width: 1280, height: 640) {
-          ...GatsbyImageSharpFixed_noBase64
-        }
+        gatsbyImageData(layout: FIXED, width: 1280, height: 640)
       }
     }
 
@@ -43,7 +39,9 @@ export function SEO({ title }) {
   const metaTitle = title || data.site.siteMetadata.title
   const url = data.site.siteMetadata.siteUrl
   const socialImage = data.defaultSocialImage || data.socialImage
-  const image = socialImage ? url + socialImage.childImageSharp.fixed.src : null
+  const image = socialImage
+    ? url + socialImage.childImageSharp.gatsbyImageData.images.fallback.src
+    : null
   return (
     <Helmet
       htmlAttributes={{ lang: 'en' }}

@@ -215,9 +215,39 @@ async function createPages({ graphql, actions, reporter }) {
   })
 }
 
+const pluginOptionsSchema = (/** @type {{ Joi: import('joi') }} */ { Joi }) => {
+  return Joi.object({
+    // Validate that the anonymize option is defined by the user and is a boolean
+    name: Joi.string().required(),
+    description: Joi.string().required(),
+    siteUrl: Joi.string(),
+    shortName: Joi.string(),
+    sections: Joi.array().items(Joi.string()),
+    navItems: Joi.array().items(
+      Joi.object({
+        title: Joi.string().required(),
+        url: Joi.string().required(),
+      }),
+    ),
+    baseDirectory: Joi.string(),
+    twitterAccount: Joi.string(),
+    githubRepositoryURL: Joi.string(),
+    githubDocRepositoryURL: Joi.string(),
+    githubDefaultBranch: Joi.string(),
+    author: Joi.string(),
+    carbonAdsURL: Joi.string(),
+    docSearch: Joi.object({
+      apiKey: Joi.string().required(),
+      indexName: Joi.string().required(),
+    }),
+    sitemap: Joi.object(),
+  })
+}
+
 module.exports = {
   createSchemaCustomization,
   onPreBootstrap,
   onCreateNode,
   createPages,
+  pluginOptionsSchema,
 }
