@@ -10,7 +10,7 @@
     "docs",
     "docusaurus"
   ],
-  "version": "6.1.0",
+  "version": "7.0.0",
   "main": "index.js",
   "author": "Greg Bergé <hey@gregberge.com>",
   "repository": "github:gregberge/smooth-doc",

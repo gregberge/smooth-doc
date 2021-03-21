@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/gregberge/smooth-doc/compare/v6.1.0...v7.0.0) (2021-03-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade to Gatsby v3.
+
+See https://www.gatsbyjs.com/docs/reference/release-notes/image-migration-guide/.
+
+### Features
+
+* Gatsby v3 ([58bfdcd](https://github.com/gregberge/smooth-doc/commit/58bfdcd9a14ba8163f6f12c68028dd5afaad69f5))
+
 ## [6.1.0](https://github.com/gregberge/smooth-doc/compare/v6.0.1...v6.1.0) (2021-02-17)
 
 
