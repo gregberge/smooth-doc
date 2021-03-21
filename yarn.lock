@@ -17698,7 +17698,7 @@ fsevents@~2.3.1:
     styled-components: ^5.2.1
     unist-util-visit: ^2.0.3
   peerDependencies:
-    gatsby: ^2.15.0
+    gatsby: ^3.0.0
     react: "*"
     react-dom: "*"
   languageName: unknown
