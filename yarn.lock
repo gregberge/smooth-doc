@@ -1772,14 +1772,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docsearch/css@npm:^1.0.0-alpha.28":
+"@docsearch/css@npm:^1.0.0-alpha.22, @docsearch/css@npm:^1.0.0-alpha.28":
   version: 1.0.0-alpha.28
   resolution: "@docsearch/css@npm:1.0.0-alpha.28"
   checksum: 77158cad50e5e5de41334e2dbea765e0d76c6153ea9bcf7859669e786116b1e5fda3ef78e1bae188459e90d551166753ca3a138229bdc6db96dc4e024dd84058
   languageName: node
   linkType: hard
 
-"@docsearch/react@npm:^1.0.0-alpha.28":
+"@docsearch/react@npm:^1.0.0-alpha.14, @docsearch/react@npm:^1.0.0-alpha.28":
   version: 1.0.0-alpha.28
   resolution: "@docsearch/react@npm:1.0.0-alpha.28"
   dependencies:
@@ -3541,12 +3541,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xstyled/core@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@xstyled/core@npm:2.5.0"
+  dependencies:
+    "@xstyled/system": ^2.5.0
+  checksum: 8dc9c9604693a8841cae25d3482619fcb8e786c6fba54c8fc9f040aebda9b6e4b545c1bb815446173ba00aa11a63e43c628207c37334978b5bc9058c74bb1c63
+  languageName: node
+  linkType: hard
+
 "@xstyled/core@npm:^3.0.0":
   version: 3.0.0
   resolution: "@xstyled/core@npm:3.0.0"
   dependencies:
     "@xstyled/system": ^3.0.0
   checksum: 0f41e7e0ed5b70d4b238ec31ee1df9450aaf51b1838e261a683ac2d7b3ace8537dcb29bb6b7765a30f1c19f9ac444a16bdbdd43cdc7328122b9d1b04d6c566c3
+  languageName: node
+  linkType: hard
+
+"@xstyled/styled-components@npm:^2.2.3":
+  version: 2.5.0
+  resolution: "@xstyled/styled-components@npm:2.5.0"
+  dependencies:
+    "@xstyled/core": ^2.5.0
+    "@xstyled/system": ^2.5.0
+    "@xstyled/util": ^2.2.3
+  peerDependencies:
+    styled-components: ^4.0.0 || ^5.0.0
+  checksum: 630734a6871f7e0a1c6abb7e828219ef30e13e9758665ac5a4c12b2a0ebc8f58da7bfa82ba2d7c45ef584bc56935d2e75ba04ccb74c6409067f3409b2d4c73d6
   languageName: node
   linkType: hard
 
@@ -3563,6 +3585,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xstyled/system@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@xstyled/system@npm:2.5.0"
+  dependencies:
+    "@xstyled/util": ^2.2.3
+    csstype: ^3.0.7
+  checksum: 7c78dc67199d4a8c4ca175561f08d081232ed770c4cccb5c44850f575cea2f8e51edfe23a53c1cdbf2fd658ccbfab70cf7fd7634e18506270b3629bafdc4b9ef
+  languageName: node
+  linkType: hard
+
 "@xstyled/system@npm:^3.0.0":
   version: 3.0.0
   resolution: "@xstyled/system@npm:3.0.0"
@@ -3570,6 +3602,13 @@ __metadata:
     "@xstyled/util": ^3.0.0
     csstype: ^3.0.8
   checksum: 1fd72fa4db7b6cc72aa2ee5f7ffb2781881dbf67047dd5a2dda4d4a81e92af3b9b2653b0fe92649c455dc65a8c603e5b9c6fed2375a2ef1db18cbac170d41fd2
+  languageName: node
+  linkType: hard
+
+"@xstyled/util@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@xstyled/util@npm:2.2.3"
+  checksum: c8d9e91fdaf0f09b179fcbac51ca8b65c4b5c38c3a3a645c38bfe004739ae7aaf8d7f9a357a7f873d31a7fa6432af23aa24162f9b5ad11b1b9a046a8d0695dcf
   languageName: node
   linkType: hard
 
@@ -5413,7 +5452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio@npm:^1.0.0-rc.9":
+"cheerio@npm:^1.0.0-rc.3, cheerio@npm:^1.0.0-rc.9":
   version: 1.0.0-rc.9
   resolution: "cheerio@npm:1.0.0-rc.9"
   dependencies:
@@ -6593,7 +6632,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-selector-parser@npm:^1.0.0":
+"css-selector-parser@npm:^1.0.0, css-selector-parser@npm:^1.1.0":
   version: 1.4.1
   resolution: "css-selector-parser@npm:1.4.1"
   checksum: 1f5332e601c9bb402d804b7561dfe067cf50888c62c5c66aa9754b13e29d50d29b1b1e0798cdda7235eac2e83b1320e42f597b0976c893fe182c0f9c7a2dac59
@@ -6771,7 +6810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.0.8":
+"csstype@npm:^3.0.7, csstype@npm:^3.0.8":
   version: 3.0.8
   resolution: "csstype@npm:3.0.8"
   checksum: e15233592a2c580fd72c4346a5c921044b8f4f29bcb81628a81199c4d6a91eb8f8e4875f440ef9c990e85f179a3370f3b842fe55e4743119ad0ce712519e7123
@@ -9423,7 +9462,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-core-utils@npm:^2.5.0":
+"gatsby-core-utils@npm:^2.2.0, gatsby-core-utils@npm:^2.5.0":
   version: 2.5.0
   resolution: "gatsby-core-utils@npm:2.5.0"
   dependencies:
@@ -9497,7 +9536,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-catch-links@npm:^3.5.0":
+"gatsby-plugin-catch-links@npm:^3.1.0, gatsby-plugin-catch-links@npm:^3.5.0":
   version: 3.5.0
   resolution: "gatsby-plugin-catch-links@npm:3.5.0"
   dependencies:
@@ -9535,7 +9574,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-image@npm:^1.5.0":
+"gatsby-plugin-image@npm:^1.1.1, gatsby-plugin-image@npm:^1.5.0":
   version: 1.5.0
   resolution: "gatsby-plugin-image@npm:1.5.0"
   dependencies:
@@ -9562,7 +9601,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-manifest@npm:^3.5.0":
+"gatsby-plugin-manifest@npm:^3.1.0, gatsby-plugin-manifest@npm:^3.5.0":
   version: 3.5.0
   resolution: "gatsby-plugin-manifest@npm:3.5.0"
   dependencies:
@@ -9577,7 +9616,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-mdx@npm:^2.5.1":
+"gatsby-plugin-mdx@npm:^2.1.0, gatsby-plugin-mdx@npm:^2.5.1":
   version: 2.5.1
   resolution: "gatsby-plugin-mdx@npm:2.5.1"
   dependencies:
@@ -9653,7 +9692,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-react-helmet@npm:^4.5.0":
+"gatsby-plugin-react-helmet@npm:^4.1.0, gatsby-plugin-react-helmet@npm:^4.5.0":
   version: 4.5.0
   resolution: "gatsby-plugin-react-helmet@npm:4.5.0"
   dependencies:
@@ -9665,7 +9704,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-robots-txt@npm:^1.6.2":
+"gatsby-plugin-robots-txt@npm:^1.5.5, gatsby-plugin-robots-txt@npm:^1.6.2":
   version: 1.6.2
   resolution: "gatsby-plugin-robots-txt@npm:1.6.2"
   dependencies:
@@ -9677,7 +9716,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sharp@npm:^3.5.0":
+"gatsby-plugin-sharp@npm:^3.1.1, gatsby-plugin-sharp@npm:^3.5.0":
   version: 3.5.0
   resolution: "gatsby-plugin-sharp@npm:3.5.0"
   dependencies:
@@ -9707,6 +9746,23 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-sitemap@npm:^3.1.0":
+  version: 3.3.0
+  resolution: "gatsby-plugin-sitemap@npm:3.3.0"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    common-tags: ^1.8.0
+    minimatch: ^3.0.4
+    pify: ^3.0.0
+    sitemap: ^1.13.0
+  peerDependencies:
+    gatsby: ^3.0.0-next.0
+    react: ^16.9.0 || ^17.0.0
+    react-dom: ^16.9.0 || ^17.0.0
+  checksum: 18aa0ab50f6a343156b899c06c4cfd90fc36cf9303277937178fe6a91b59489a800b135435e7bdb28c66d96a380f620f5f2ab6606253a02c17a80d578e6757fd
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-sitemap@npm:^4.1.0":
   version: 4.1.0
   resolution: "gatsby-plugin-sitemap@npm:4.1.0"
@@ -9723,7 +9779,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-styled-components@npm:^4.5.0":
+"gatsby-plugin-styled-components@npm:^4.1.0, gatsby-plugin-styled-components@npm:^4.5.0":
   version: 4.5.0
   resolution: "gatsby-plugin-styled-components@npm:4.5.0"
   dependencies:
@@ -9856,6 +9912,28 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"gatsby-remark-images@npm:^4.1.0":
+  version: 4.2.0
+  resolution: "gatsby-remark-images@npm:4.2.0"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    chalk: ^4.1.0
+    cheerio: ^1.0.0-rc.3
+    gatsby-core-utils: ^2.2.0
+    is-relative-url: ^3.0.0
+    lodash: ^4.17.21
+    mdast-util-definitions: ^1.2.5
+    potrace: ^2.1.8
+    query-string: ^6.13.3
+    unist-util-select: ^1.5.0
+    unist-util-visit-parents: ^2.1.2
+  peerDependencies:
+    gatsby: ^3.0.0-next.0
+    gatsby-plugin-sharp: ^3.0.0-next.0
+  checksum: 1df020720ae86d764aa86295027fdb8e4507b2fc8799474d8514e6c7a68438890081eea692e7125e4585b39a20514f5e187d934b49794fe4b4e829fd3be23450
+  languageName: node
+  linkType: hard
+
 "gatsby-remark-images@npm:^5.2.1":
   version: 5.2.1
   resolution: "gatsby-remark-images@npm:5.2.1"
@@ -9878,7 +9956,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-source-filesystem@npm:^3.5.0":
+"gatsby-source-filesystem@npm:^3.1.0, gatsby-source-filesystem@npm:^3.5.0":
   version: 3.5.0
   resolution: "gatsby-source-filesystem@npm:3.5.0"
   dependencies:
@@ -9945,7 +10023,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gatsby-transformer-sharp@npm:^3.5.0":
+"gatsby-transformer-sharp@npm:^3.1.0, gatsby-transformer-sharp@npm:^3.5.0":
   version: 3.5.0
   resolution: "gatsby-transformer-sharp@npm:3.5.0"
   dependencies:
@@ -13481,6 +13559,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"mdast-util-definitions@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "mdast-util-definitions@npm:1.2.5"
+  dependencies:
+    unist-util-visit: ^1.0.0
+  checksum: 6f17efb7198d4af0c0007103a4a3cf6725aa008eda397db969b6dd60251c4c455551507259d0cd93e50c7b7a3963f05307853245dda8a58fa186e34186e54d9d
+  languageName: node
+  linkType: hard
+
 "mdast-util-definitions@npm:^4.0.0":
   version: 4.0.0
   resolution: "mdast-util-definitions@npm:4.0.0"
@@ -14569,7 +14656,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"nth-check@npm:^1.0.2, nth-check@npm:~1.0.1":
+"nth-check@npm:^1.0.1, nth-check@npm:^1.0.2, nth-check@npm:~1.0.1":
   version: 1.0.2
   resolution: "nth-check@npm:1.0.2"
   dependencies:
@@ -15687,7 +15774,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"polished@npm:^4.1.2":
+"polished@npm:^4.1.0, polished@npm:^4.1.2":
   version: 4.1.2
   resolution: "polished@npm:4.1.2"
   dependencies:
@@ -16262,7 +16349,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"prism-react-renderer@npm:^1.2.1":
+"prism-react-renderer@npm:^1.0.2, prism-react-renderer@npm:^1.2.1":
   version: 1.2.1
   resolution: "prism-react-renderer@npm:1.2.1"
   peerDependencies:
@@ -16952,7 +17039,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"reakit@npm:^1.3.8":
+"reakit@npm:^1.3.5, reakit@npm:^1.3.8":
   version: 1.3.8
   resolution: "reakit@npm:1.3.8"
   dependencies:
@@ -18128,6 +18215,16 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"sitemap@npm:^1.13.0":
+  version: 1.13.0
+  resolution: "sitemap@npm:1.13.0"
+  dependencies:
+    underscore: ^1.7.0
+    url-join: ^1.1.0
+  checksum: 62aa832a7c126d8f45100328783cf4d1197db2fc146f5f5ad80c4b779efdcc69d6a83acad10d6b6056f442315274909b246cf79475abc5dc2dabb8a7fbe84d0d
+  languageName: node
+  linkType: hard
+
 "sitemap@npm:^6.3.0":
   version: 6.4.0
   resolution: "sitemap@npm:6.4.0"
@@ -18174,7 +18271,51 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"smooth-doc@^7.0.1, smooth-doc@workspace:smooth-doc":
+"smooth-doc@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "smooth-doc@npm:7.0.1"
+  dependencies:
+    "@docsearch/css": ^1.0.0-alpha.22
+    "@docsearch/react": ^1.0.0-alpha.14
+    "@mdx-js/mdx": ^1.6.22
+    "@mdx-js/react": ^1.6.22
+    "@xstyled/styled-components": ^2.2.3
+    babel-plugin-styled-components: ^1.12.0
+    fs-extra: ^9.1.0
+    gatsby-plugin-catch-links: ^3.1.0
+    gatsby-plugin-compile-es6-packages: ^2.1.0
+    gatsby-plugin-image: ^1.1.1
+    gatsby-plugin-manifest: ^3.1.0
+    gatsby-plugin-mdx: ^2.1.0
+    gatsby-plugin-meta-redirect: ^1.1.1
+    gatsby-plugin-react-helmet: ^4.1.0
+    gatsby-plugin-robots-txt: ^1.5.5
+    gatsby-plugin-sharp: ^3.1.1
+    gatsby-plugin-sitemap: ^3.1.0
+    gatsby-plugin-styled-components: ^4.1.0
+    gatsby-remark-images: ^4.1.0
+    gatsby-source-filesystem: ^3.1.0
+    gatsby-transformer-sharp: ^3.1.0
+    github-slugger: ^1.3.0
+    mdast-util-to-string: ^2.0.0
+    polished: ^4.1.0
+    prism-react-renderer: ^1.0.2
+    prismjs: ^1.23.0
+    react-helmet: ^6.1.0
+    react-icons: ^4.2.0
+    react-live: ^2.2.3
+    reakit: ^1.3.5
+    styled-components: ^5.2.1
+    unist-util-visit: ^2.0.3
+  peerDependencies:
+    gatsby: ^3.0.0
+    react: "*"
+    react-dom: "*"
+  checksum: 6f6b41069222d6a4ada8994bab1c5754b256999d7db6be832bd2d87cb672d8d64bbfc7f5e59daed82e094cb82ca56a31b5c548512bdbae139dc44a771998bda4
+  languageName: node
+  linkType: hard
+
+"smooth-doc@workspace:smooth-doc":
   version: 0.0.0-use.local
   resolution: "smooth-doc@workspace:smooth-doc"
   dependencies:
@@ -19071,7 +19212,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^5.3.0":
+"styled-components@npm:^5.2.1, styled-components@npm:^5.3.0":
   version: 5.3.0
   resolution: "styled-components@npm:5.3.0"
   dependencies:
@@ -19883,6 +20024,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"underscore@npm:^1.7.0":
+  version: 1.13.1
+  resolution: "underscore@npm:1.13.1"
+  checksum: 19527b2db3d34f783c3f2db9716a2c1221fef2958866925545697c46f430f59d1b384b8105cc7e7c809bdf0dc9075f2bfff90b8fb270b9d3a6c58347de2dd79d
+  languageName: node
+  linkType: hard
+
 "unescape@npm:^1.0.1":
   version: 1.0.1
   resolution: "unescape@npm:1.0.1"
@@ -20134,6 +20282,17 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"unist-util-select@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "unist-util-select@npm:1.5.0"
+  dependencies:
+    css-selector-parser: ^1.1.0
+    debug: ^2.2.0
+    nth-check: ^1.0.1
+  checksum: 0f0cc407d4a534ea9facb4bf7339cf3aaf25d59c30b30a9c92f2ef7b393dd67d415748f2c6103db07f5a09ac79e3df23a87339e347f9e1d476067a1c224aaa13
+  languageName: node
+  linkType: hard
+
 "unist-util-select@npm:^3.0.4":
   version: 3.0.4
   resolution: "unist-util-select@npm:3.0.4"
@@ -20170,7 +20329,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"unist-util-visit-parents@npm:^2.0.0":
+"unist-util-visit-parents@npm:^2.0.0, unist-util-visit-parents@npm:^2.1.2":
   version: 2.1.2
   resolution: "unist-util-visit-parents@npm:2.1.2"
   dependencies:
@@ -20200,7 +20359,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"unist-util-visit@npm:^1.1.0, unist-util-visit@npm:^1.4.1":
+"unist-util-visit@npm:^1.0.0, unist-util-visit@npm:^1.1.0, unist-util-visit@npm:^1.4.1":
   version: 1.4.1
   resolution: "unist-util-visit@npm:1.4.1"
   dependencies:
@@ -20321,6 +20480,13 @@ resolve@^2.0.0-next.3:
   version: 0.1.0
   resolution: "urix@npm:0.1.0"
   checksum: 6bdfca4e7fb7d035537068a47a04ace1bacfa32e6b1aaf54c5a0340c83125a186d59109a19b9a3a1c1f986d3eb718b82faf9ad03d53cb99cf868068580b15b3b
+  languageName: node
+  linkType: hard
+
+"url-join@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "url-join@npm:1.1.0"
+  checksum: 2f42ba3642f3fa879b12eaa31d085055a67e650c4ad08a44983e155cbcc3dee888e885f31b084d33d819b19e8c764f04d25bf63d7357c59796d7bc9a0e996999
   languageName: node
   linkType: hard
 
