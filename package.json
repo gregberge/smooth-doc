@@ -1,32 +1,42 @@
 {
-  "private": true,
-  "workspaces": [
-    "smooth-doc",
-    "website"
-  ],
+  "name": "next-smooth-doc",
+  "author": "lwz7512@gmail.com",
+  "version": "1.0.0",
+  "description": "Smooth-doc based on Next.js & mdx.",
   "scripts": {
-    "format": "prettier --write \"**/*.{js,md,mdx}\"",
-    "lint": "eslint ."
+    "dev": "next",
+    "dev:watch": "next-remote-watch ./docs",
+    "build": "next build",
+    "export": "next export",
+    "start": "serve out"
+  },
+  "dependencies": {
+    "@docsearch/css": "^1.0.0-alpha.28",
+    "@docsearch/react": "^1.0.0-alpha.28",
+    "@xstyled/styled-components": "^3.0.0",
+    "gray-matter": "^4.0.2",
+    "next": "latest",
+    "next-mdx-remote": "^3.0.1",
+    "next-remote-watch": "1.0.0",
+    "polished": "^4.1.2",
+    "prism-react-renderer": "^1.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.2.0",
+    "react-is": "^17.0.2",
+    "react-live": "^2.2.3",
+    "reakit": "^1.3.8",
+    "remark": "13.0.0",
+    "remark-html": "13.0.1",
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.3",
-    "@babel/core": "^7.14.3",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.27.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-smooth": "^2.1.1",
-    "eslint-plugin-import": "^2.23.3",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.3.0"
+    "babel-plugin-styled-components": "^1.12.0",
+    "github-slugger": "^1.3.0",
+    "mdast-util-to-string": "^2.0.0",
+    "serve": "^11.3.2",
+    "unist-util-visit": "^2.0.3"
   },
-  "resolutions": {
-    "gatsby": "^v3.0.0",
-    "graphql": "^15.4.0",
-    "graphql-compose": "^7.25.0",
-    "webpack": "^5.24.2"
-  }
+  "license": "MIT"
 }

@@ -1,0 +1,72 @@
+---
+title: Getting Started
+section: Guides
+slug: /docs/getting-started/
+order: 1
+---
+
+
+# Overview
+
+Getting started with Smooth DOC.
+
+<carbon-ad />
+
+## What is Smooth DOC?
+
+Smooth DOC is a ready-to-use [Gatsby](https://gatsbyjs.com/) theme to create a documentation website like this one. Creating a pro-quality website like this one takes weeks. Smooth DOC saves you lot of time and lets you focus on the content.
+
+## Why I created it?
+
+As the maintainer of large libraries such as [SVGR](https://react-svgr.com/), [Loadable Components](https://loadable-components.com/) or [xstyled](https://xstyled.dev/), I had to create lot of documentation websites.
+
+I quickly created a system to be able to generate these many sites. At this time, Gatsby was still in boxes and other tools were not flexible enough for me.
+
+Initially Smooth DOC was just a utility library to share common React components. Over the years, I added more and more features: Carbon Ads, React Live Editor, Dark Mode, SEO...
+
+Converting it into a Gatsby theme made it very portable and reusable. After a big work of refactoring, Smooth DOC was born!
+
+## What are the differences with other documentation generators?
+
+Smooth DOC is opinionated, it generates a pro-quality documentation website with a minimal configuration.
+
+It includes many features:
+
+- MDX Support
+- React Live Editor
+- Full theme customization
+- Dark mode support
+- GitHub Links
+- Social Image Sharing
+- Carbon Ads support
+- Netlify deployment
+- Table of contents
+- Built-in components
+- Sitemap support
+- ..and many other features!
+
+All of these features make Smooth DOC the most advanced documentation system.
+
+
+
+## Personalize options
+
+Smooth DOC options are filled directly in `gatsby-config.js`. To make it yours, fill `name`, `description` and `siteUrl`:
+
+```js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'smooth-doc',
+      options: {
+        // Name of your website
+        name: 'Smooth DOC',
+        // Description of your website
+        description: 'Ready to use documentation theme for Gatsby.',
+        // Production URL of your website
+        siteUrl: 'https://smooth-doc.com',
+      },
+    },
+  ],
+}
+```

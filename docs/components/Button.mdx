@@ -1,0 +1,71 @@
+---
+title: Button
+section: Components
+slug: /docs/components/button/
+---
+
+
+# Button
+
+An accessible action button.
+
+<carbon-ad />
+
+## Usage
+
+```js live noInline
+import { Button } from 'smooth-doc/components'
+
+render(<Button>A simple button</Button>)
+```
+
+## Variants
+
+Use `variant` property to define button variant. Four variants are available: "primary", "success", "danger" and "neutral". The default variant is "primary".
+
+```js noInline
+import { x.div } from '@xstyled/styled-components'
+import { Button } from 'smooth-doc/components'
+
+render(
+  <x.div row m={-2}>
+    <x.div col="auto" p={2}>
+      <Button variant="primary">Primary</Button>
+    </x.div>
+    <x.div col="auto" p={2}>
+      <Button variant="success">Success</Button>
+    </x.div>
+    <x.div col="auto" p={2}>
+      <Button variant="danger">Danger</Button>
+    </x.div>
+    <x.div col="auto" p={2}>
+      <Button variant="neutral">Neutral</Button>
+    </x.div>
+  </x.div>,
+)
+```
+
+## Disabled
+
+Set `disabled` attribute to display button as disabled.
+
+```js live noInline
+import { Button } from 'smooth-doc/components'
+
+render(<Button disabled>Disabled button</Button>)
+```
+
+## Link as Button
+
+It is common to have to display a button that actually behaves like a link. The `as` prop replaces the intrinsic component of the button.
+
+```js live noInline
+import { Link } from 'gatsby'
+import { Button } from 'smooth-doc/components'
+
+render(
+  <Button as={Link} to="/docs/getting-started/">
+    Getting Started
+  </Button>,
+)
+```

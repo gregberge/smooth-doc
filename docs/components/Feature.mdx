@@ -1,0 +1,66 @@
+---
+title: Feature
+section: Components
+slug: /docs/components/feature/
+---
+
+
+# Feature
+
+Highlight the best features of your project.
+
+<carbon-ad />
+
+## Usage
+
+```js noInline
+import {
+  FeatureSection,
+  FeatureList,
+  Feature,
+  FeatureImage,
+  FeatureTitle,
+  FeatureText,
+} from 'smooth-doc/components'
+import gatsbyImageURL from './images/gatsby.png'
+import markdownImageURL from './images/markdown.png'
+import themeImageURL from './images/theme.png'
+import componentsImageURL from './images/components.png'
+
+render(
+  <FeatureSection>
+    <FeatureList>
+      <Feature>
+        <FeatureImage src={gatsbyImageURL} />
+        <FeatureTitle>Use Gatsby</FeatureTitle>
+        <FeatureText>
+          Gatsby is a powerful static website generator. It gives you amazing
+          web perf.
+        </FeatureText>
+      </Feature>
+      <Feature>
+        <FeatureImage src={markdownImageURL} />
+        <FeatureTitle>Powered by MDX</FeatureTitle>
+        <FeatureText>
+          MDX combines Markdown and JSX. You can use your own components in
+          Markdown-style files.
+        </FeatureText>
+      </Feature>
+      <Feature>
+        <FeatureImage src={themeImageURL} />
+        <FeatureTitle>Custom Theme & Dark Mode</FeatureTitle>
+        <FeatureText>
+          Dark mode is natively supported and theme is fully customizable!
+        </FeatureText>
+      </Feature>
+      <Feature>
+        <FeatureImage src={componentsImageURL} />
+        <FeatureTitle>Ready-to-use components</FeatureTitle>
+        <FeatureText>
+          A set of ready-to-use components to build great landing pages.
+        </FeatureText>
+      </Feature>
+    </FeatureList>
+  </FeatureSection>,
+)
+```

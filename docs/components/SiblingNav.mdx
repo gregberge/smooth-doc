@@ -1,0 +1,32 @@
+---
+title: SiblingNav
+section: Components
+slug: /docs/components/sibling-link/
+---
+
+
+# SiblingNav
+
+Navigate between previous and next documentation pages.
+
+<carbon-ad />
+
+## Usage
+
+`SiblingNav` and `SiblingNavLink` display animated links to enhance navigation between documentation pages.
+
+```js noInline
+import { Link } from 'gatsby'
+import { SiblingNav, SiblingNavLink } from 'smooth-doc/components'
+
+render(
+  <SiblingNav>
+    <SiblingNavLink type="previous" to="/docs/getting-started/">
+      Previous page
+    </SiblingNavLink>
+    <SiblingNavLink type="next" to="/docs/getting-started/">
+      Next page
+    </SiblingNavLink>
+  </SiblingNav>,
+)
+```

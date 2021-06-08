@@ -1,0 +1,78 @@
+---
+title: React Live Editor
+section: Guides
+slug: /docs/react-live-editor/
+order: 4
+---
+
+
+# React Live Editor
+
+Build interactive documentation using React Live Editor.
+
+<carbon-ad />
+
+## Write live code
+
+To include a live code editor, add `live` in the head of your code block:
+
+````
+```js live
+<div>Example</div>
+```
+````
+
+**Result:**
+
+```js live
+<div>Example</div>
+```
+
+## Write complex examples
+
+By default only a single JSX expression is allowed. It is common to have to write more complex examples. The `noInline` flag makes it possible. When activated, you have to call a `render()` method to define the expression rendered in preview:
+
+````
+```js live noInline
+const content = 'Example'
+render(<div>{content}</div>)
+```
+````
+
+**Result:**
+
+```js live noInline
+const content = 'Example'
+render(<div>{content}</div>)
+```
+
+> To know more about `noInline` mode, read [react-live documentation](https://github.com/FormidableLabs/react-live#what-code-can-i-use).
+
+## Import modules
+
+Importing modules is possible in a React Live Editor using ESM `import` syntax. **It is an emulation of the import, it means you don't have access to all modules by default.** To be able to import a module, first you have to specify it using `LiveConfig` component.
+
+```
+---
+title: Doc Page
+---
+
+import { x } from '@xstyled/styled-components'
+import { LiveConfig } from 'smooth-doc/components'
+
+<!-- Define `@xstyled/styled-components` module as `{ x }` -->
+<LiveConfig modules={{ '@xstyled/styled-components': { x } }} />
+```
+
+Once defined, you have access to the module in live editor:
+
+```js live noInline
+import { x } from '@xstyled/styled-components'
+
+// I can use xstyled here.
+render(
+  <x.div color="red">
+    <span>Example</span>
+  </x.div>,
+)
+```
