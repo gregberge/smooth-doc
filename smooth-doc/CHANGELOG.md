@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.1](https://github.com/gregberge/smooth-doc/compare/v8.0.0...v8.0.1) (2021-06-23)
+
+
+### Bug Fixes
+
+* fix previous/back navigation with --prefix-paths ([#48](https://github.com/gregberge/smooth-doc/issues/48)) ([45b96f4](https://github.com/gregberge/smooth-doc/commit/45b96f46e80b97db497201786a8cda7933a18a0e))
+
 ## [8.0.0](https://github.com/gregberge/smooth-doc/compare/v7.0.1...v8.0.0) (2021-05-24)
 
 
