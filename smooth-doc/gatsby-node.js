@@ -14,6 +14,7 @@ function createSchemaCustomization({ actions }) {
     type AlgoliaDocSearchMetadata {
       apiKey: String!
       indexName: String!
+      appId: String
     }
 
     type SiteSiteMetadata {
@@ -239,6 +240,7 @@ const pluginOptionsSchema = (/** @type {{ Joi: import('joi') }} */ { Joi }) => {
     docSearch: Joi.object({
       apiKey: Joi.string().required(),
       indexName: Joi.string().required(),
+      appId: Joi.string(),
     }),
     sitemap: Joi.object(),
   })

@@ -58,7 +58,7 @@ const Kbd = styled.kbd`
 
 let DocSearchModal = null
 
-export const DocSearch = ({ apiKey, indexName }) => {
+export const DocSearch = ({ apiKey, indexName, appId }) => {
   const searchButtonRef = React.useRef(null)
   const [isShowing, setIsShowing] = React.useState(false)
   const [initialQuery, setInitialQuery] = React.useState(null)
@@ -143,6 +143,7 @@ export const DocSearch = ({ apiKey, indexName }) => {
           <DocSearchModal
             apiKey={apiKey}
             indexName={indexName}
+            appId={appId}
             initialQuery={initialQuery}
             onClose={onClose}
             navigator={{

@@ -27,6 +27,7 @@ const AppHeaderQuery = graphql`
         docSearch {
           apiKey
           indexName
+          appId
         }
         navItems {
           title
