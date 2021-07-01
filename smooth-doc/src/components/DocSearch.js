@@ -143,7 +143,7 @@ export const DocSearch = ({ apiKey, indexName, appId }) => {
           <DocSearchModal
             apiKey={apiKey}
             indexName={indexName}
-            appId={appId}
+            appId={appId  ?? 'BH4D9OD16A'}
             initialQuery={initialQuery}
             onClose={onClose}
             navigator={{
