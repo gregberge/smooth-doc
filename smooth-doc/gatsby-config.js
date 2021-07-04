@@ -23,7 +23,7 @@ function getLogoPath() {
  * @param {string} [options.githubDefaultBranch]
  * @param {string} [options.author]
  * @param {string} [options.carbonAdsURL]
- * @param {{ apiKey: string, indexName: string }} [options.docSearch]
+ * @param {{ apiKey: string, indexName: string, appId: string }} [options.docSearch]
  * @param {object} [options.sitemap]
  */
 module.exports = (options) => {
