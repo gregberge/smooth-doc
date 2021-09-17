@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/gregberge/smooth-doc/compare/v8.0.1...v8.1.0) (2021-09-17)
+
+
+### Features
+
+* **DocSearch:** add appId configuration parameter ([#52](https://github.com/gregberge/smooth-doc/issues/52)) ([6af61e7](https://github.com/gregberge/smooth-doc/commit/6af61e7b6ee9715eabc1c6195b8bcf787821b6b3))
+
 ### [8.0.1](https://github.com/gregberge/smooth-doc/compare/v8.0.0...v8.0.1) (2021-06-23)
 
 
