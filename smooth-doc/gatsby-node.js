@@ -131,7 +131,7 @@ function onCreateMdxNode({ node, getNode, actions }, options) {
       baseDirectory,
       githubDocRepositoryURL,
       githubRepositoryURL,
-      githubDefaultBranch = 'master',
+      githubDefaultBranch = 'main',
     } = options
     const repositoryURL = githubDocRepositoryURL || githubRepositoryURL
     if (!baseDirectory || !repositoryURL) return ''
