@@ -136,7 +136,7 @@ function onCreateMdxNode({ node, getNode, actions }, options) {
     const repositoryURL = githubDocRepositoryURL || githubRepositoryURL
     if (!baseDirectory || !repositoryURL) return ''
     const relativePath = node.fileAbsolutePath.replace(baseDirectory, '')
-    return `${repositoryURL}/edit/${githubDefaultBranch}${relativePath}`
+    return `${repositoryURL}edit/${githubDefaultBranch}${relativePath}`
   }
 
   createNodeField({
