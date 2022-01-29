@@ -62,8 +62,7 @@ If you want to highlight code in another language such as Ruby or Rust, you can 
 
 ```js
 import Prism from 'prism-react-renderer/prism'
-
-(typeof global !== 'undefined' ? global : window).Prism = Prism
+;(typeof global !== 'undefined' ? global : window).Prism = Prism
 
 require('prismjs/components/prism-ruby')
 require('prismjs/components/prism-rust')
