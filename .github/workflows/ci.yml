@@ -15,11 +15,11 @@ jobs:
         with:
           node-version: '16'
       - name: Install dependencies
-        run: yarn install
+        run: npm i
       - name: Run prettier
-        run: yarn format-check
+        run: npm run format-check
       - name: Run linter
-        run: yarn lint
+        run: npm run lint
 
       - name: Check website generation
-        run: yarn workspace website build
+        run: npm run --workspace website build
