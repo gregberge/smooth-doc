@@ -28,7 +28,7 @@
     "release": "standard-version && conventional-github-releaser --preset angular"
   },
   "peerDependencies": {
-    "gatsby": "^3.0.0",
+    "gatsby": "^4.0.0",
     "react": "*",
     "react-dom": "*"
   },
@@ -45,7 +45,7 @@
     "gatsby-plugin-compile-es6-packages": "^2.1.1",
     "gatsby-plugin-image": "^2.6.0",
     "gatsby-plugin-manifest": "^4.6.0",
-    "gatsby-plugin-mdx": "^2.14.0",
+    "gatsby-plugin-mdx": "^3.6.0",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-react-helmet": "^5.6.0",
     "gatsby-plugin-robots-txt": "1.7.0",
