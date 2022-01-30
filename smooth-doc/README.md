@@ -3,7 +3,7 @@
 </h1>
 <p align="center" style="font-size: 1.2rem;">Ready to use documentation theme for Gatsby.</p>
 
-[![License](https://img.shields.io/npm/l/smooth-doc.svg)](https://github.com/smooth-code/xstyled/blob/master/LICENSE)
+[![License](https://img.shields.io/npm/l/smooth-doc.svg)](https://github.com/gregberge/smooth-doc/blob/master/LICENSE)
 [![npm package](https://img.shields.io/npm/v/smooth-doc/latest.svg)](https://www.npmjs.com/package/smooth-doc)
 [![npm downloads](https://img.shields.io/npm/dm/smooth-doc.svg)](https://www.npmjs.com/package/smooth-doc)
 
