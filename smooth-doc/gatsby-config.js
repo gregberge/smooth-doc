@@ -26,7 +26,7 @@ function getLogoPath() {
  * @param {{ apiKey: string, indexName: string, appId: string }} [options.docSearch]
  * @param {object} [options.sitemap]
  */
-module.exports = (options) => {
+module.exports = function config(options) {
   const siteUrl = getSiteUrl(options)
   const logoPath = getLogoPath()
 

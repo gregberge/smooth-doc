@@ -84,8 +84,7 @@ export const theme = {
     ],
   }),
   fonts: {
-    base:
-      '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',
+    base: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',
   },
   lineHeights: {
     base: 1.4,
@@ -197,9 +196,8 @@ export const theme = {
         'blockquote-border': th.color('yellow-300'),
 
         'doc-search-suggestion-highlight-background': th.color('primary-800'),
-        'doc-search-suggestion-highlight-on-background': th.color(
-          'primary-200',
-        ),
+        'doc-search-suggestion-highlight-on-background':
+          th.color('primary-200'),
         'doc-search-suggestion-content-background': th.color('primary-900'),
         'doc-search-suggestion-content-underline': th.color('primary-300'),
       },

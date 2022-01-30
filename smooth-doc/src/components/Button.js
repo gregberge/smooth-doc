@@ -2,22 +2,24 @@ import * as React from 'react'
 import { Button as ReakitButton } from 'reakit/Button'
 import styled, { css } from '@xstyled/styled-components'
 
-const variant = ({ background, backgroundHover, on }) => () => {
-  return css`
-    background-color: ${background};
-    color: ${on};
-
-    &:hover:not(:disabled) {
-      background-color: ${backgroundHover};
+const variant =
+  ({ background, backgroundHover, on }) =>
+  () => {
+    return css`
+      background-color: ${background};
       color: ${on};
-    }
 
-    &:active:not(:disabled) {
-      background-color: ${backgroundHover};
-      color: ${on};
-    }
-  `
-}
+      &:hover:not(:disabled) {
+        background-color: ${backgroundHover};
+        color: ${on};
+      }
+
+      &:active:not(:disabled) {
+        background-color: ${backgroundHover};
+        color: ${on};
+      }
+    `
+  }
 
 const InnerButton = styled.buttonBox`
   appearance: none;
