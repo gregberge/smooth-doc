@@ -201,6 +201,7 @@ async function createPages({ graphql, actions, reporter }) {
         toPath: node.fields.redirect,
         redirectInBrowser: true,
       })
+      return
     }
 
     createPage({
