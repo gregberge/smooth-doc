@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/gregberge/smooth-doc/compare/v8.1.0...v9.0.0) (2022-01-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* requires Gatsby v4
+
+### Bug Fixes
+
+* do not create page & redirect ([ea8a871](https://github.com/gregberge/smooth-doc/commit/ea8a87104c9bd6b3a59c1a7c83961ae742ea2324))
+* fix for broken URLs on the `Edit this page on GitHub` links ([#57](https://github.com/gregberge/smooth-doc/issues/57)) ([bd59037](https://github.com/gregberge/smooth-doc/commit/bd590370a013ab1e9573508728ebc6464e8ce982))
+* fix headers link alignment ([cf352e1](https://github.com/gregberge/smooth-doc/commit/cf352e10e4f63747e829e731793577a615456b54))
+
+
+* upgrade dependencies ([#62](https://github.com/gregberge/smooth-doc/issues/62)) ([6a066bc](https://github.com/gregberge/smooth-doc/commit/6a066bc30aac4af8b974ecbd4a7b142c3acaf816))
+
 ## [8.1.0](https://github.com/gregberge/smooth-doc/compare/v8.0.1...v8.1.0) (2021-09-17)
 
 
