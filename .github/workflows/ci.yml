@@ -14,12 +14,17 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Install dependencies
-        run: npm i
-      - name: Run prettier
+        run: npm ci
+      - name: Run Prettier k
         run: npm run format-check
       - name: Run linter
         run: npm run lint
-
       - name: Check website generation
         run: npm run --workspace website build
