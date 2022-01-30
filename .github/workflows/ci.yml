@@ -1,0 +1,25 @@
+name: Checks
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run prettier
+        run: yarn format-check
+      - name: Run linter
+        run: yarn lint
+
+      - name: Check website generation
+        run: yarn workspace website build
