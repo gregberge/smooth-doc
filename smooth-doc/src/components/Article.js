@@ -2,7 +2,14 @@ import styled, { css, up, down } from '@xstyled/styled-components'
 
 export const Article = styled.article`
   .anchor {
-    fill: on-background;
+    margin-left: calc(-1em - 4px);
+    > svg {
+      fill: on-background;
+      width: 1em;
+      height: 1em;
+      display: inline;
+      vertical-align: -15%;
+    }
   }
 
   code {
