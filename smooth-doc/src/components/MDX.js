@@ -5,6 +5,7 @@ import { CarbonAd } from './CarbonAd'
 import { Table, TableContainer } from './Table'
 
 function transformCode({ children, className, ...props }) {
+  console.log(className)
   const lang = className && className.split('-')[1]
   return (
     <Code lang={lang} {...props}>
@@ -17,7 +18,7 @@ function getCodeChild(children) {
   const childrenArray = React.Children.toArray(children)
   if (childrenArray.length !== 1) return null
   const [firstChild] = childrenArray
-  if (firstChild.props.mdxType !== 'code') return null
+  if (firstChild.type !== 'code') return null
   return firstChild
 }
 

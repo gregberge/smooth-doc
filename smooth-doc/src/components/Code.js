@@ -7,7 +7,6 @@ import {
   LiveError,
   LivePreview as BaseLivePreview,
 } from 'react-live'
-import { mdx } from '@mdx-js/react'
 
 const Pre = styled.pre`
   font-size: 15;
@@ -132,17 +131,17 @@ export function usePrismTheme() {
   return th('prism-theme')({ theme })
 }
 
-export function Code({ children, lang = 'markup', live, noInline }) {
+export function Code({ children, lang = 'markup', meta }) {
   const prismTheme = usePrismTheme()
-  if (live) {
+  if (/live/.test(meta)) {
     return (
       <LiveProvider
         code={children.trim()}
-        transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
-        scope={{ mdx, require: req }}
+        transformCode={(code) => `${importToRequire(code)}`}
+        scope={{ require: req }}
         language={lang}
         theme={prismTheme}
-        noInline={noInline}
+        noInline={/noInline/.test(meta)}
       >
         <LivePreview />
         <Pre

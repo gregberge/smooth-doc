@@ -55,6 +55,7 @@ const sortNodes = (a, b) => {
 
 const groupNodes = (nodes) =>
   nodes.reduce((groups, node) => {
+    if (!node.fields.title) return groups
     const group = createOrFindGroup(node.fields.section || 'Docs', groups)
     group.nodes.push(node)
     group.nodes.sort(sortNodes)
