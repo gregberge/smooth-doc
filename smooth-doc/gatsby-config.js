@@ -77,6 +77,10 @@ module.exports = function config(options) {
         options: {
           extensions: [`.mdx`, `.md`],
           mdxOptions: {
+            remarkPlugins: [
+              // Add GitHub Flavored Markdown (GFM) support
+              require(`remark-gfm`),
+            ],
             rehypePlugins: [rehypeMetaAsAttributes],
           },
           gatsbyRemarkPlugins: [
