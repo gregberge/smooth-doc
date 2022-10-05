@@ -64,6 +64,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-live": "^2.4.1",
+    "remark-gfm": "^1.0.0",
     "styled-components": "^5.3.3",
     "unist-util-visit": "^2.0.3"
   },

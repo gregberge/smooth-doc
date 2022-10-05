@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Link, navigate } from 'gatsby'
 import { createPortal } from 'react-dom'
 import styled, { x, createGlobalStyle } from '@xstyled/styled-components'
-import { useDocSearchKeyboardEvents } from '@docsearch/react'
+import { DocSearchModal, useDocSearchKeyboardEvents } from '@docsearch/react'
 import { RiSearchLine } from 'react-icons/ri'
 import { Input, InputGroup, InputGroupIcon } from './Input'
 
@@ -36,10 +35,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-function Hit({ hit, children }) {
-  return <Link to={hit.url}>{children}</Link>
-}
-
 const Kbd = styled.kbd`
   border: 1;
   border-color: control-border;
@@ -56,53 +51,29 @@ const Kbd = styled.kbd`
   min-width: 1.5em;
 `
 
-let DocSearchModal = null
-
 export function DocSearch({ apiKey, indexName, appId }) {
   const searchButtonRef = React.useRef(null)
-  const [isShowing, setIsShowing] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
   const [initialQuery, setInitialQuery] = React.useState(null)
 
-  const importDocSearchModalIfNeeded = React.useCallback(() => {
-    if (DocSearchModal) {
-      return Promise.resolve()
-    }
-
-    return Promise.resolve(import('@docsearch/react/modal')).then(
-      ({ DocSearchModal: Modal }) => {
-        DocSearchModal = Modal
-      },
-    )
-  }, [])
-
   const onOpen = React.useCallback(() => {
-    importDocSearchModalIfNeeded().then(() => {
-      // We check that no other DocSearch modal is showing before opening this
-      // one (we use one instance for desktop and one instance for mobile).
-      if (document.body.classList.contains('DocSearch--active')) {
-        return
-      }
-
-      setIsShowing(true)
-    })
-  }, [importDocSearchModalIfNeeded, setIsShowing])
+    setIsOpen(true)
+  }, [setIsOpen])
 
   const onClose = React.useCallback(() => {
-    setIsShowing(false)
-  }, [setIsShowing])
+    setIsOpen(false)
+  }, [setIsOpen])
 
   const onInput = React.useCallback(
     (event) => {
-      importDocSearchModalIfNeeded().then(() => {
-        setIsShowing(true)
-        setInitialQuery(event.key)
-      })
+      setIsOpen(true)
+      setInitialQuery(event.key)
     },
-    [importDocSearchModalIfNeeded, setIsShowing, setInitialQuery],
+    [setIsOpen, setInitialQuery],
   )
 
   useDocSearchKeyboardEvents({
-    isOpen: isShowing,
+    isOpen,
     onOpen,
     onClose,
     onInput,
@@ -113,16 +84,11 @@ export function DocSearch({ apiKey, indexName, appId }) {
     <>
       <GlobalStyle />
       <div>
-        <InputGroup>
+        <InputGroup ref={searchButtonRef} as="button" onClick={() => onOpen()}>
           <InputGroupIcon>
             <RiSearchLine />
           </InputGroupIcon>
-          <Input
-            ref={searchButtonRef}
-            onClick={onOpen}
-            type="search"
-            placeholder="Search..."
-          />
+          <Input disabled type="search" placeholder="Search..." />
           <x.div
             position="absolute"
             top="50%"
@@ -138,29 +104,15 @@ export function DocSearch({ apiKey, indexName, appId }) {
         </InputGroup>
       </div>
 
-      {isShowing &&
+      {isOpen &&
         createPortal(
           <DocSearchModal
             apiKey={apiKey}
             indexName={indexName}
-            appId={appId ?? 'BH4D9OD16A'}
-            initialQuery={initialQuery}
+            appId={appId}
             onClose={onClose}
-            navigator={{
-              navigate({ suggestionUrl }) {
-                navigate(suggestionUrl)
-              },
-            }}
-            transformItems={(items) => {
-              return items.map((item) => {
-                const url = new URL(item.url)
-                return {
-                  ...item,
-                  url: item.url.replace(url.origin, ''),
-                }
-              })
-            }}
-            hitComponent={Hit}
+            initialScrollY={window.scrollY}
+            initialQuery={initialQuery}
           />,
           document.body,
         )}
