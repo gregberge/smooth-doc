@@ -7,6 +7,19 @@ function getLogoPath() {
     : `${__dirname}/images/logo-manifest.png`
 }
 
+const visit = require('unist-util-visit')
+
+/** @type {import('unified').Plugin<Array<void>, import('hast').Root>} */
+function rehypeMetaAsAttributes() {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
+      if (node.tagName === 'code' && node.data && node.data.meta) {
+        node.properties.meta = node.data.meta
+      }
+    })
+  }
+}
+
 /**
  * Theme configuration.
  * @param {object} options
@@ -63,30 +76,23 @@ module.exports = function config(options) {
         resolve: 'gatsby-plugin-mdx',
         options: {
           extensions: [`.mdx`, `.md`],
+          mdxOptions: {
+            rehypePlugins: [rehypeMetaAsAttributes],
+          },
           gatsbyRemarkPlugins: [
-            {
-              resolve: require.resolve(
-                './src/plugins/gatsby-remark-autolink-headers',
-              ),
-            },
             {
               resolve: `gatsby-remark-images`,
               options: {
                 maxWidth: 1200,
               },
             },
+            { resolve: 'gatsby-remark-autolink-headers' },
           ],
         },
       },
       'gatsby-transformer-sharp',
       'gatsby-plugin-sharp',
       'gatsby-plugin-react-helmet',
-      {
-        resolve: require.resolve(
-          './src/plugins/gatsby-remark-autolink-headers',
-        ),
-      },
-
       // Source
       {
         resolve: 'gatsby-source-filesystem',
@@ -105,7 +111,15 @@ module.exports = function config(options) {
       {
         resolve: 'gatsby-source-filesystem',
         options: {
+          path: `./pages/docs`,
+          name: 'doc',
+        },
+      },
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
           path: `./pages`,
+          ignore: ['**/docs/**'],
           name: 'page',
         },
       },

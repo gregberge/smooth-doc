@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button as ReakitButton } from 'reakit/Button'
+import { Button as AriakitButton } from 'ariakit/button'
 import styled, { css } from '@xstyled/styled-components'
 
 const variant =
@@ -75,13 +75,13 @@ const InnerButton = styled.buttonBox`
 export const Button = React.forwardRef(
   ({ variant = 'primary', children, ...props }, ref) => {
     return (
-      <ReakitButton ref={ref} data-variant={variant}>
+      <AriakitButton ref={ref} data-variant={variant}>
         {(buttonProps) => (
           <InnerButton {...buttonProps} {...props}>
             {children}
           </InnerButton>
         )}
-      </ReakitButton>
+      </AriakitButton>
     )
   },
 )

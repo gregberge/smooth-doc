@@ -32,6 +32,7 @@ function createSchemaCustomization({ actions }) {
 
     type MdxFrontmatter {
       title: String!
+      description: String
       slug: String
       section: String
       order: Int
@@ -58,7 +59,7 @@ async function onPreBootstrap(options) {
 function onCreateMdxNode({ node, getNode, actions }, options) {
   const { createNodeField } = actions
   const slug = node.frontmatter.slug || createFilePath({ node, getNode })
-  const pageType = /\/pages\/docs\//.test(node.fileAbsolutePath)
+  const pageType = /\/pages\/docs\//.test(node.internal.contentFilePath)
     ? 'doc'
     : 'page'
 
@@ -135,7 +136,10 @@ function onCreateMdxNode({ node, getNode, actions }, options) {
     } = options
     const repositoryURL = githubDocRepositoryURL || githubRepositoryURL
     if (!baseDirectory || !repositoryURL) return ''
-    const relativePath = node.fileAbsolutePath.replace(baseDirectory, '')
+    const relativePath = node.internal.contentFilePath.replace(
+      baseDirectory,
+      '',
+    )
     return `${repositoryURL}edit/${githubDefaultBranch}${relativePath}`
   }
 
@@ -147,7 +151,7 @@ function onCreateMdxNode({ node, getNode, actions }, options) {
 }
 
 function onCreateNode(...args) {
-  if (args[0].node.internal.type === `Mdx`) {
+  if (args[0].node.internal.type === 'Mdx') {
     onCreateMdxNode(...args)
   }
 }
@@ -171,6 +175,9 @@ async function createPages({ graphql, actions, reporter }) {
                 sourceInstanceName
               }
             }
+            internal {
+              contentFilePath
+            }
           }
         }
       }
@@ -179,6 +186,7 @@ async function createPages({ graphql, actions, reporter }) {
 
   if (errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
+    console.log(errors)
     return
   }
 
@@ -208,10 +216,12 @@ async function createPages({ graphql, actions, reporter }) {
       path: node.fields.slug,
       component: path.resolve(
         __dirname,
-        `./src/templates/${node.fields.pageType}.js`,
+        `./src/templates/${node.fields.pageType}.js?__contentFilePath=${node.internal.contentFilePath}`,
       ),
       context: {
         id: node.id,
+        frontmatter: node.frontmatter,
+        contentFilePath: node.internal.contentFilePath,
       },
     })
   })
@@ -247,10 +257,24 @@ const pluginOptionsSchema = (/** @type {{ Joi: import('joi') }} */ { Joi }) => {
   })
 }
 
+const onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions }) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.mdx$/,
+          use: '@mdx-js/loader',
+        },
+      ],
+    },
+  })
+}
+
 module.exports = {
   createSchemaCustomization,
   onPreBootstrap,
   onCreateNode,
   createPages,
   pluginOptionsSchema,
+  onCreateWebpackConfig,
 }
