@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0](https://github.com/gregberge/smooth-doc/compare/v9.0.0...v10.0.0) (2022-10-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Use new gatsby-plugin-mdx
+
+### Features
+
+* upgrade mdx stack ([8c70317](https://github.com/gregberge/smooth-doc/commit/8c70317b23574e3fb11931da3892d66019d576ed))
+
 ## [9.0.0](https://github.com/gregberge/smooth-doc/compare/v8.1.0...v9.0.0) (2022-01-30)
 
 
