@@ -28,6 +28,9 @@ export const Input = styled.input`
 `
 
 export const InputGroup = styled.div`
+  appearance: none;
+  background-color: transparent;
+  padding: 0;
   display: inline-flex;
   color: control-placeholder;
   transition: control;

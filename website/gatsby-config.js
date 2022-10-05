@@ -17,7 +17,8 @@ module.exports = {
         carbonAdsURL:
           '//cdn.carbonads.com/carbon.js?serve=CE7IL2JN&placement=xstyleddev',
         docSearch: {
-          apiKey: 'a0c23a738fe1cfffa923daba2eb185be',
+          appId: 'J2LYQ9877O',
+          apiKey: '9295224c1474afa9f75f7d4772a1f713',
           indexName: 'smooth-doc',
         },
       },
