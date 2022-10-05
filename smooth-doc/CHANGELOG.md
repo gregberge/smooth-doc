@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.1.0](https://github.com/gregberge/smooth-doc/compare/v10.0.0...v10.1.0) (2022-10-05)
+
+
+### Features
+
+* add remark-gfm support ([34d99e4](https://github.com/gregberge/smooth-doc/commit/34d99e4f8ad5286cb43e1fc1dd68a1bf08d559e1))
+
+
+### Bug Fixes
+
+* **search:** fix docsearch support ([2068779](https://github.com/gregberge/smooth-doc/commit/206877910d2f075d41dea74d02211605f25a6de4))
+
 ## [10.0.0](https://github.com/gregberge/smooth-doc/compare/v9.0.0...v10.0.0) (2022-10-05)
 
 
