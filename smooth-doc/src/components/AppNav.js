@@ -39,6 +39,7 @@ export function AppNav() {
               href={data.site.siteMetadata.githubRepositoryURL}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Github"
             >
               <RiGithubFill style={{ width: 24, height: 24 }} />
             </NavLink>
@@ -49,6 +50,7 @@ export function AppNav() {
             <NavLink
               as="a"
               href={`https://twitter.com/${data.site.siteMetadata.twitterAccount}`}
+              aria-label="Twitter"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -57,7 +59,7 @@ export function AppNav() {
           </NavListItem>
         ) : null}
         <NavListItem>
-          <NavLink as={ColorModeSwitcher} />
+          <NavLink aria-label="Switch Theme" as={ColorModeSwitcher} />
         </NavListItem>
       </NavList>
     </Nav>
